@@ -438,7 +438,7 @@ class Response {
         return results;
     }
 }
-public class AppTest extends TestCase {
+public class NiftygatewayTest extends TestCase {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Print");
         HttpRequest request = HttpRequest.newBuilder()
