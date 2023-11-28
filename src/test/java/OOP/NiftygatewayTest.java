@@ -450,7 +450,7 @@ public class NiftygatewayTest extends TestCase {
 
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
- //        System.out.println(response.body());
+//        System.out.println(response.body());
 
         Gson gson = new GsonBuilder().create();
         Response responseObj = gson.fromJson(response.body(), Response.class);
