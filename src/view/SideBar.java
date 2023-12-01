@@ -1,11 +1,8 @@
 package view;
 
 import javax.swing.JPanel;
-import java.awt.GridLayout;
+import java.awt.*;
 import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.SwingConstants;
 
@@ -25,9 +22,8 @@ public class SideBar extends JPanel {
 		Button_SideBar btn_SIdeBar_TimKiem = new Button_SideBar("Tìm kiếm dữ liệu");
 		add(btn_SIdeBar_TimKiem);
 		
-		Button_SideBar btn_SIdeBar_ThongKe = new Button_SideBar("Thống kê dữ liệu     ");
+		Button_SideBar btn_SIdeBar_ThongKe = new Button_SideBar("Thống kê dữ liệu");
 		add(btn_SIdeBar_ThongKe);
 
 	}
-
 }
