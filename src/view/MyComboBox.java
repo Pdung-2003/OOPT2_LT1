@@ -13,6 +13,8 @@ public class MyComboBox extends JComboBox<String>{
 	 
 	 private void customizeMyComboBox() {
 		 setFont(new Font("Arial", Font.PLAIN, 16));
+		 setPrototypeDisplayValue("123456789012345");
+
 	 }
 	 
 }
