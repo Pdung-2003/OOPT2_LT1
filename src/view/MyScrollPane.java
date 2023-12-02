@@ -2,9 +2,9 @@ package view;
 
 import javax.swing.JScrollPane;
 
-public class MyScrollPanel extends JScrollPane {
+public class MyScrollPane extends JScrollPane {
 	
-	public MyScrollPanel() {
+	public MyScrollPane() {
         super();
         customizeMyScrollPanel();
     }

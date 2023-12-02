@@ -5,12 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import java.awt.CardLayout;
 import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
 
 public class ThongKeNFT extends JPanel {
 
@@ -78,7 +73,7 @@ public class ThongKeNFT extends JPanel {
 		add(panel_TKe_Content, BorderLayout.CENTER);
 		panel_TKe_Content.setLayout(new BorderLayout(0, 0));
 		
-		MyScrollPanel scrollPane = new MyScrollPanel();
+		MyScrollPane scrollPane = new MyScrollPane();
 		panel_TKe_Content.add(scrollPane, BorderLayout.CENTER);
 		
 	}
