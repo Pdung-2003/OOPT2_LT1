@@ -63,7 +63,7 @@ public class TimKiemNFT extends JPanel {
 		MyPanel panel_TK_Search_Input_Confirm = new MyPanel();
 		panel_TK_Search_Input.add(panel_TK_Search_Input_Confirm, BorderLayout.EAST);
 
-		JButton btnNewButton = new JButton("Tìm kiếm\r\n");
+		Button_Chung btnNewButton = new Button_Chung("Tìm kiếm\r\n");
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		panel_TK_Search_Input_Confirm.add(btnNewButton);
 
