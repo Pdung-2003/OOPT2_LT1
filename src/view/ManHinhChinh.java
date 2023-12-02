@@ -1,15 +1,10 @@
 package view;
 
 import java.awt.*;
-
-import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-import view.SideBar;
+import javax.swing.*;
 
 public class ManHinhChinh extends JFrame {
 
@@ -40,7 +35,7 @@ public class ManHinhChinh extends JFrame {
         content.add(panel_Content_Title, BorderLayout.NORTH);
         panel_Content_Title.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 5));
 
-        JLabel lbl_Content_Title = new JLabel("New label"); // ten chuc nang (Danh Sach NFT, Tim Kiem Du Lieu, Thong Ke Du Lieu)
+        JLabel lbl_Content_Title = new JLabel("Danh sách NFT"); // ten chuc nang (Danh Sach NFT, Tim Kiem Du Lieu, Thong Ke Du Lieu)
         lbl_Content_Title.setFont(new Font("Arial", Font.BOLD, 20));
         panel_Content_Title.add(lbl_Content_Title);
 
@@ -77,24 +72,14 @@ public class ManHinhChinh extends JFrame {
 			buttonThongKe = (JButton) componentAtIndex2;
         }
 
-        buttonDanhSach.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                        cardLayout.show(panel_Content_Main,"1");
-                }
-        });
-        buttonTimKiem.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                        cardLayout.show(panel_Content_Main,"2");
-                }
-        });
+        buttonDanhSach.addActionListener(e -> showCard(panel_Content_Main, "1",lbl_Content_Title,"Danh sách NFT"));
+        buttonTimKiem.addActionListener(e -> showCard(panel_Content_Main, "2",lbl_Content_Title,"Tìm kiếm dữ liệu"));
+        buttonThongKe.addActionListener(e -> showCard(panel_Content_Main, "3",lbl_Content_Title,"Thống kê dữ liệu"));
+    }
 
-        buttonThongKe.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                        cardLayout.show(panel_Content_Main,"3");
-                }
-        });
+    private static void showCard(Container container, String cardName, JLabel lbl_Content_Title, String title) {
+            lbl_Content_Title.setText(title);
+            CardLayout cardLayout = (CardLayout) container.getLayout();
+            cardLayout.show(container, cardName);
     }
 }
