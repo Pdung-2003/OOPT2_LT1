@@ -14,7 +14,7 @@ public class Button_SideBar extends JButton {
     private void customizeButton_SideBar() {
         setBackground(Colors.Vang);
         setForeground(Colors.Chu);
-        setFont(new Font("Arial", Font.BOLD, 14));
+        setFont(new Font("Arial", Font.BOLD, 16));
         setHorizontalAlignment(SwingConstants.LEFT);
     }
     
