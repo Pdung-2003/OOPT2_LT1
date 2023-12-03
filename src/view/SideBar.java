@@ -13,8 +13,8 @@ public class SideBar extends JPanel {
 	 */
 	public SideBar() {
 		setBackground(Colors.Vang);
-		setPreferredSize(new Dimension(250, 730));
-		setLayout(new GridLayout(10, 1, 3, 3));
+		setPreferredSize(new Dimension(300, 730));
+		setLayout(new GridLayout(10, 1, 14, 14));
 		
 		Button_SideBar btn_SIdeBar_DanhSach = new Button_SideBar("Danh sách NFT");
 		add(btn_SIdeBar_DanhSach);
