@@ -1,4 +1,4 @@
-package OOP;
+package OOP.NiftyGateway;
 
 import java.util.List;
 

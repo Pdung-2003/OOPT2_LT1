@@ -1,18 +1,5 @@
-package OOP;
-import OOP.Binance.BinanceResponse;
+package OOP.Binance;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class CollectionItem {
     @SerializedName("collectionId")

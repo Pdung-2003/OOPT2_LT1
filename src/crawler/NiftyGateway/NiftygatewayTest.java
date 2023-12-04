@@ -1,4 +1,4 @@
-package OOP;
+package OOP.NiftyGateway;
 
 import junit.framework.TestCase;
 import com.google.gson.Gson;

@@ -1,4 +1,4 @@
-package OOP;
+package OOP.NiftyGateway;
 
 import com.google.gson.annotations.SerializedName;
 
