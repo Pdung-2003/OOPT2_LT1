@@ -1,5 +1,7 @@
 package view;
 
+import OOP.Binance.BinanceTest;
+import OOP.Binance.CollectionItem;
 import OOP.NiftyGateway.NiftygatewayTest;
 import OOP.NiftyGateway.Result;
 
@@ -29,12 +31,14 @@ public class ManHinhChinh extends JFrame {
                 new Thread(() -> {
                         try {
                                 NiftygatewayTest.main(new String[]{});
-                                // Truyền dữ liệu từ NiftygatewayTest vào các panel
-                                // Lấy danh sách results từ NiftygatewayTest
+                                BinanceTest.main(new String[]{});
+                                // Truyền các luồng dữ liệu
                                 List<Result> results = NiftygatewayTest.getResults();
+                                List<CollectionItem>  collectionItems = BinanceTest.getCollectionItem();
 
                                 // Truyền dữ liệu vào các panel
                                 panel_DanhSach.setResults(results);
+                                panel_DanhSach.setCollectionItem(collectionItems);
                                 // Gọi các phương thức cần thiết trên các panel khác (nếu cần)
                         } catch (IOException | InterruptedException e) {
                                 e.printStackTrace();

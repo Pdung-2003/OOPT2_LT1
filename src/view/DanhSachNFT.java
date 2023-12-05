@@ -2,6 +2,7 @@ package view;
 
 import OOP.NiftyGateway.Collection;
 import OOP.NiftyGateway.Result;
+import OOP.Binance.CollectionItem;
 
 import java.awt.*;
 
@@ -18,9 +19,13 @@ public class DanhSachNFT extends JPanel {
 
 	private DefaultTableModel tableModel;
 	private List<Result> results;
+	private List<CollectionItem> collectionItem;
 	private final MyPanel panel_DS_Content;
 	public void setResults(List<Result> results) {
 		this.results = results;
+	}
+	public void setCollectionItem(List<CollectionItem> collectionItem) {
+		this.collectionItem = collectionItem;
 	}
 	/**
 	 * Create the panel.
@@ -82,6 +87,30 @@ public class DanhSachNFT extends JPanel {
 					System.out.println("Dữ liệu results là null.");
 				}
 			}
+			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Binance")){
+				if (results != null) {
+					addDataToTableBinance(collectionItem);
+				} else {
+					System.out.println("Dữ liệu results là null.");
+				}
+			}
+			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Opensea")){
+				if (results != null) {
+					addDataToTableNifty(results);
+				} else {
+					System.out.println("Dữ liệu results là null.");
+				}
+			}
+			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Twitter")){
+				if (results != null) {
+					addDataToTableNifty(results);
+				} else {
+					System.out.println("Dữ liệu results là null.");
+				}
+			}
+			else {
+				System.out.println("Không tồn tại nền tảng này!");
+			}
 		});
 	}
 
@@ -127,6 +156,25 @@ public class DanhSachNFT extends JPanel {
 					result.getOneDayChange(),
 					result.getTotalVolume(),
 					result.getAvgSalePrice()
+			};
+			tableModel.addRow(rowData);
+		}
+	}
+	private void addDataToTableBinance(List<CollectionItem> collectionItems) {
+		for (CollectionItem collectionItem : collectionItems) {
+			Object[] rowData = {
+					collectionItem.getCollectionId(),
+					collectionItem.getCoverUrl(),
+					collectionItem.getTitle(),
+					collectionItem.getNetwork(),
+					collectionItem.getVolume(),
+					collectionItem.getVolumeRate(),
+					collectionItem.getOwnersCount(),
+					collectionItem.getItemsCount(),
+					collectionItem.getListedCount(),
+					collectionItem.getFloorPrice(),
+					collectionItem.getFloorPriceRate(),
+					collectionItem.getVerified()
 			};
 			tableModel.addRow(rowData);
 		}
@@ -210,5 +258,6 @@ public class DanhSachNFT extends JPanel {
 
 		// Thêm scrollPane vào panel
 		panel_DS_Content.add(scrollPane, BorderLayout.CENTER);
+		tableModel.fireTableStructureChanged();
 	}
 }

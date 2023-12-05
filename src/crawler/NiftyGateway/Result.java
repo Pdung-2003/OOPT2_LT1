@@ -36,7 +36,7 @@ public class Result {
     private float avgSalePrice;
 
     @SerializedName("totalPrimaryVolume")
-    private int totalPrimaryVolume;
+    private String totalPrimaryVolume;
 
     @SerializedName("totalSecondaryVolume")
     private int totalSecondaryVolume;
@@ -173,11 +173,11 @@ public class Result {
         this.avgSalePrice = avgSalePrice;
     }
 
-    public int getTotalPrimaryVolume() {
+    public String getTotalPrimaryVolume() {
         return totalPrimaryVolume;
     }
 
-    public void setTotalPrimaryVolume(int totalPrimaryVolume) {
+    public void setTotalPrimaryVolume(String totalPrimaryVolume) {
         this.totalPrimaryVolume = totalPrimaryVolume;
     }
 

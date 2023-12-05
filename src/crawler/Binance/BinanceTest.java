@@ -1,5 +1,6 @@
 package OOP.Binance;
 
+import OOP.NiftyGateway.Result;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -12,8 +13,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 public class BinanceTest {
+    private static List<CollectionItem> collectionItems;
+
     public static void main(String[] args) throws IOException, InterruptedException {
 
         String requestBody = "{\"network\": \"ALL\", \"period\": \"24H\", \"sortType\": \"volumeDesc\", \"page\": 1, \"rows\": 100}";
@@ -34,9 +38,10 @@ public class BinanceTest {
         // Parse the JSON response
         Gson gson = new GsonBuilder().create();
         BinanceResponse binanceResponse = gson.fromJson(content, BinanceResponse.class);
+        collectionItems = binanceResponse.getData().getRows();
 
         // Process and display the items
-        for (CollectionItem item : binanceResponse.getData().getRows()) {
+        for (CollectionItem item : collectionItems) {
             System.out.println("Collection ID: " + item.getCollectionId());
             System.out.println("Cover URL: " + item.getCoverUrl());
             System.out.println("Title: " + item.getTitle());
@@ -51,5 +56,8 @@ public class BinanceTest {
             System.out.println("Verified: " + item.getVerified());
             System.out.println("----------------------------------------");
         }
+    }
+    public static List<CollectionItem> getCollectionItem() {
+        return collectionItems;
     }
 }
