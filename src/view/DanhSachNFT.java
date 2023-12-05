@@ -21,6 +21,11 @@ public class DanhSachNFT extends JPanel {
 	private List<Result> results;
 	private List<CollectionItem> collectionItem;
 	private final MyPanel panel_DS_Content;
+
+	// Tạo bảng và scrollPane trong constructor
+	private JTable table;
+	private JScrollPane scrollPane;
+
 	public void setResults(List<Result> results) {
 		this.results = results;
 	}
@@ -72,6 +77,14 @@ public class DanhSachNFT extends JPanel {
 		panel_DS_Content = new MyPanel();
 		add(panel_DS_Content, BorderLayout.CENTER);
 		panel_DS_Content.setLayout(new BorderLayout(0, 0));
+
+		// Tạo bảng và scrollPane một lần
+		tableModel = new DefaultTableModel();
+		table = new JTable(tableModel);
+		scrollPane = getjScrollPane();
+
+		// Thêm scrollPane vào panel_DS_Content
+		panel_DS_Content.add(scrollPane, BorderLayout.CENTER);
 
 		btn_DS_CF_Filter.addActionListener(e -> {
 			// Xóa dữ liệu cũ trước khi thêm mới
@@ -180,17 +193,8 @@ public class DanhSachNFT extends JPanel {
 		}
 	}
 	private void setTableColumns(String selectedNenTang) {
-		Component[] components = panel_DS_Content.getComponents();
-		for (Component component : components) {
-			if (component instanceof JScrollPane) {
-				panel_DS_Content.remove(component);
-				break; // Chỉ xóa một scrollPane, nếu có nhiều scrollPane thì bạn có thể điều chỉnh code
-			}
-		}
-		// Tạo bảng và mô hình cho bảng
-		tableModel = new DefaultTableModel();
-		// Xóa dữ liệu cũ trước khi thêm mới
 		tableModel.setRowCount(0);
+		tableModel.setColumnCount(0);
 
 		// Thêm các cột mới tùy thuộc vào giá trị được chọn
 		switch (selectedNenTang) {
@@ -253,11 +257,6 @@ public class DanhSachNFT extends JPanel {
 			default:
 				System.out.println("Không xác định được nền tảng.");
 		}
-		//Đặt màu nền và phông chữ cho bảng
-		JScrollPane scrollPane = getjScrollPane();
-
-		// Thêm scrollPane vào panel
-		panel_DS_Content.add(scrollPane, BorderLayout.CENTER);
 		tableModel.fireTableStructureChanged();
 	}
 }
