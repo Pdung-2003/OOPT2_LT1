@@ -115,6 +115,7 @@ public class OpenseaCrawler {
     public static void main(String[] args) {
         try {
             String openseaUrl = "https://api.opensea.io/api/v1/assets";
+
             String apiKey = "fc3139b5a7d04e59a6fa482282958cb3"; // Thay YOUR_API_KEY bằng khóa API của bạn
             String requestBody = "?order_direction=desc&offset=0&limit=10";
 
