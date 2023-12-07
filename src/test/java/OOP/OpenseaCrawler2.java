@@ -10,7 +10,7 @@ import java.io.IOException;
 public class OpenseaCrawler2 {
 
         public static void main(String[] args) {
-            String url = "https://opensea.io/rankings/trending?sortBy=one_day_volume";
+            String url = "https://opensea.io/";
 
             try {
                 // Kết nối đến trang web và lấy HTML
