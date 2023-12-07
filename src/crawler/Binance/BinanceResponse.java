@@ -3,13 +3,13 @@ package OOP.Binance;
 import java.util.List;
 
 class BinanceResponse {
-    private BinanceResponse.Data data;
+    private Data data;
 
-    public void setData(BinanceResponse.Data data) {
+    public void setData(Data data) {
         this.data = data;
     }
 
-    public BinanceResponse.Data getData() {
+    public Data getData() {
         return data;
     }
 

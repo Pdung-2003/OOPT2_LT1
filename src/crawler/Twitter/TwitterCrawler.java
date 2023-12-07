@@ -1,35 +1,47 @@
 package OOP.Twitter;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import OOP.DataCrawler;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.FileWriter;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class TwitterTest {
+
+public class TwitterCrawler implements DataCrawler {
     private final WebDriver driver;
+    private JSONArray tweetArray;
     private final WebDriverWait wait;
     private final JavascriptExecutor js;
 
-    public TwitterTest() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        js = (JavascriptExecutor) driver;
+    public TwitterCrawler() {
+        // Khởi tạo WebDriver
+        this.driver = new ChromeDriver();
+        this.driver.manage().window().maximize();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.js = (JavascriptExecutor) driver;
+        this.tweetArray = new JSONArray();
     }
-    public void login(String username, String password) throws InterruptedException {
+
+    @Override
+    public void fetchData() throws InterruptedException {
+        this.login("dng2706", "Ducdung789");  // Thay đổi thông tin đăng nhập tùy theo nhu cầu
+        this.searchTwitter("#NFT");
+        this.tweetArray = this.collectTweets();
+        // Logic để fetch dữ liệu từ Twitter
+        // Ví dụ: login, searchTwitter, collectTweets...
+    }
+    public void login(String username, String password) {
         driver.get("https://twitter.com/i/flow/login");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("text"))).sendKeys(username);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']/ancestor::div[contains(@role, 'button')]"))).click();
@@ -37,7 +49,7 @@ public class TwitterTest {
         passwordInput.sendKeys(password);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@data-testid='LoginForm_Login_Button']"))).click();
     }
-    public void searchTwitter(String query) throws InterruptedException {
+    public void searchTwitter(String query) {
         WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Search query']")));
         searchBox.sendKeys(query + Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@role='article']")));
@@ -58,7 +70,6 @@ public class TwitterTest {
 
         return tweetArray;
     }
-
     private JSONObject extractTweetInfo(WebElement tweet) {
         JSONObject tweetObject = new JSONObject();
         try {
@@ -84,6 +95,16 @@ public class TwitterTest {
             System.out.println("Một số phần tử không tìm thấy trong tweet này.");
         }
         return tweetObject;
+    }
+
+    @Override
+    public void processData() {
+        // Xử lý dữ liệu đã fetch
+    }
+
+    @Override
+    public void saveData(String filename) {
+        this.saveTweetsToFile(this.tweetArray, filename);
     }
     public void saveTweetsToFile(JSONArray newTweets, String filename) {
         JSONArray existingTweets = readExistingTweets(filename);
@@ -118,11 +139,6 @@ public class TwitterTest {
             e.printStackTrace();
         }
     }
-
-    public void closeBrowser() {
-        driver.quit();
-    }
-
     private JSONArray readExistingTweets(String filename) {
         File file = new File(filename);
         JSONArray existingTweets = new JSONArray();
@@ -137,29 +153,22 @@ public class TwitterTest {
         }
         return existingTweets;
     }
+    public void closeBrowser() {
+        driver.quit();
+    }
 
     public static void main(String[] args) {
-        TwitterTest test = new TwitterTest();
+        TwitterCrawler crawler = new TwitterCrawler();
         try {
-            test.login("dng2706", "Ducdung789");  // Thay đổi thông tin đăng nhập tùy theo nhu cầu
-            test.searchTwitter("#NFT");
-
-            JSONArray tweets = test.collectTweets();
-            if (!tweets.isEmpty()) {
-                test.saveTweetsToFile(tweets, "Twitter.json");
-                System.out.println("Đã lưu " + tweets.length() + " tweet về chủ đề #NFT vào file Twitter.json");
-            } else {
-                System.out.println("Không tìm thấy tweet nào về chủ đề #NFT để lưu.");
-            }
+            crawler.fetchData();    // Thu thập dữ liệu từ Twitter
+            crawler.processData();  // Xử lý dữ liệu (nếu cần)
+            crawler.saveData("Twitter.json");  // Lưu dữ liệu vào file
+            System.out.println("Thu thập và lưu dữ liệu thành công.");
         } catch (InterruptedException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            test.closeBrowser();
+            crawler.closeBrowser();  // Đóng trình duyệt
         }
     }
 }
-
-
-
-

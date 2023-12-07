@@ -1,7 +1,5 @@
 package view;
 
-import OOP.Binance.BinanceTest;
-import OOP.Binance.CollectionItem;
 import OOP.NiftyGateway.NiftygatewayTest;
 import OOP.NiftyGateway.Result;
 

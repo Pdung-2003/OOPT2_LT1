@@ -2,7 +2,6 @@ package view;
 
 import OOP.NiftyGateway.Collection;
 import OOP.NiftyGateway.Result;
-import OOP.Binance.CollectionItem;
 
 import java.awt.*;
 
