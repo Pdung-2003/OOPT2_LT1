@@ -1,0 +1,802 @@
+[
+  {
+    "collectionName": "THE WHITE RABBIT",
+    "img": "https://i.seadn.io/s/raw/files/db9fed8cca881d54c9edb49320b67910.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "103 ETH",
+    "discount": "+122%",
+    "floorPrice": "0.02 ETH",
+    "sales": "2,747"
+  },
+  {
+    "collectionName": "Skyborne - Genesis Immortals",
+    "img": "https://i.seadn.io/gcs/files/65b163eaee2f95a2c25bfbd9f2c898ca.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "65 ETH",
+    "discount": "+460%",
+    "floorPrice": "0.05 ETH",
+    "sales": "1,350"
+  },
+  {
+    "collectionName": "Mutant Ape Yacht Club",
+    "img": "https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8hAs0OxNZwlw6Y-dmI?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "6,053 ETH",
+    "discount": "-9%",
+    "floorPrice": "5.46 ETH",
+    "sales": "1,083"
+  },
+  {
+    "collectionName": "y00ts",
+    "img": "https://i.seadn.io/s/raw/files/2c36035682c874a7940051e79e8fe906.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "609 ETH",
+    "discount": "+16%",
+    "floorPrice": "0.51 ETH",
+    "sales": "1,035"
+  },
+  {
+    "collectionName": "Sprotoladys",
+    "img": "https://i.seadn.io/s/raw/files/f6fce372e2091db71d16df30e25e194b.webp?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "62 ETH",
+    "discount": "-71%",
+    "floorPrice": "0.05 ETH",
+    "sales": "1,007"
+  },
+  {
+    "collectionName": "Pixelmon - Generation 1",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "1,906 ETH",
+    "discount": "+27%",
+    "floorPrice": "1.92 ETH",
+    "sales": "994"
+  },
+  {
+    "collectionName": "CLONE X - X TAKASHI MURAKAMI",
+    "img": "https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "1,556 ETH",
+    "discount": "+20%",
+    "floorPrice": "1.45 ETH",
+    "sales": "1,040"
+  },
+  {
+    "collectionName": "DeGods",
+    "img": "https://i.seadn.io/gcs/files/c6cb0b1d6f2ab61c0efacf00e62e2230.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "3,821 ETH",
+    "discount": "-10%",
+    "floorPrice": "3.02 ETH",
+    "sales": "1,210"
+  },
+  {
+    "collectionName": "Balthazar raW Pass",
+    "img": "https://i.seadn.io/s/raw/files/e6249eb3ab5375845e4e69b34d76e9b2.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "395 ETH",
+    "discount": "+19%",
+    "floorPrice": "0.40 ETH",
+    "sales": "1,159"
+  },
+  {
+    "collectionName": "Trademark by Jack Butcher",
+    "img": "https://i.seadn.io/s/raw/files/76978409238f7da640912e64ad4574a5.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "272 ETH",
+    "discount": "-52%",
+    "floorPrice": "0.17 ETH",
+    "sales": "1,277"
+  },
+  {
+    "collectionName": "BlockGames Dice",
+    "img": "https://i.seadn.io/s/raw/files/2977805d19a49a608d5387ac4bdc24e9.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "1,120 ETH",
+    "discount": "+65%",
+    "floorPrice": "0.54 ETH",
+    "sales": "1,986"
+  },
+  {
+    "collectionName": "Wanderers - RAM Beta Bundle",
+    "img": "https://i.seadn.io/s/raw/files/bae44ff3cef5f02a6bf83d71f63b7fef.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "167 ETH",
+    "discount": "+9%",
+    "floorPrice": "0.10 ETH",
+    "sales": "1,460"
+  },
+  {
+    "collectionName": "Sugartown Oras by Zynga",
+    "img": "https://i.seadn.io/s/raw/files/045932f79c3036c05c3899651dd39a1c.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "1,251 ETH",
+    "discount": "+244%",
+    "floorPrice": "0.55 ETH",
+    "sales": "2,545"
+  },
+  {
+    "collectionName": "Poglin: Nycra",
+    "img": "https://i.seadn.io/s/raw/files/9b975bb19f1cef0837efcff36f62c413.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "974 ETH",
+    "discount": "+97,416%",
+    "floorPrice": "0.22 ETH",
+    "sales": "4,914"
+  },
+  {
+    "collectionName": "Lil Pudgys",
+    "img": "https://i.seadn.io/gae/s4Td3KYsUlCblO6lQKAGAWdKwsCuumcxYpebM_YL-Pex-BP886JYAWjKBLeB5StNopAAD6kVx3QHqWm9AmudXyCaCZszHbt8SdteEQ?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "3,996 ETH",
+    "discount": "+13%",
+    "floorPrice": "1.04 ETH",
+    "sales": "3,894"
+  },
+  {
+    "collectionName": "Pirate Nation - Items",
+    "img": "https://i.seadn.io/gcs/files/06a07158febfe5dded5c2e13e4cac214.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "10 ETH",
+    "discount": "+120%",
+    "floorPrice": "\u003c 0.01 ETH",
+    "sales": "37K"
+  },
+  {
+    "collectionName": "Gh0stly Gh0sts",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "185 ETH",
+    "discount": "+2,862%",
+    "floorPrice": "0.16 ETH",
+    "sales": "893"
+  },
+  {
+    "collectionName": "Parallel Alpha",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "52 ETH",
+    "discount": "-16%",
+    "floorPrice": "0.07 PRIME",
+    "sales": "812"
+  },
+  {
+    "collectionName": "ChronoForge",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "227 ETH",
+    "discount": "+91%",
+    "floorPrice": "0.35 ETH",
+    "sales": "804"
+  },
+  {
+    "collectionName": "Shrapnel Operators Collection",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "268 ETH",
+    "discount": "+37%",
+    "floorPrice": "0.33 ETH",
+    "sales": "719"
+  },
+  {
+    "collectionName": "tiny dinos (eth)",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "102 ETH",
+    "discount": "+18,088%",
+    "floorPrice": "0.06 ETH",
+    "sales": "833"
+  },
+  {
+    "collectionName": "Pudgy Penguins",
+    "img": "https://i.seadn.io/gae/yNi-XdGxsgQCPpqSio4o31ygAV6wURdIdInWRcFIl46UjUQ1eV7BEndGe8L661OoG-clRi7EgInLX4LPu9Jfw4fq0bnVYHqg7RFi?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "9,915 ETH",
+    "discount": "+4%",
+    "floorPrice": "11.20 ETH",
+    "sales": "920"
+  },
+  {
+    "collectionName": "Pudgy Rods",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "645 ETH",
+    "discount": "+20%",
+    "floorPrice": "0.57 ETH",
+    "sales": "918"
+  },
+  {
+    "collectionName": "ANOMALY A.I. by Star Im",
+    "img": "https://i.seadn.io/s/raw/files/4d8916440f28d1c85afbfcc6d687eacd.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "36 ETH",
+    "discount": "-80%",
+    "floorPrice": "0.03 ETH",
+    "sales": "947"
+  },
+  {
+    "collectionName": "Redacted Remilio Babies",
+    "img": "https://i.seadn.io/gcs/files/9d6168e731afd02d5e878eb03876cfd4.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "359 ETH",
+    "discount": "-22%",
+    "floorPrice": "0.60 ETH",
+    "sales": "570"
+  },
+  {
+    "collectionName": "Azuki",
+    "img": "https://i.seadn.io/gae/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "3,125 ETH",
+    "discount": "-15%",
+    "floorPrice": "6.78 ETH",
+    "sales": "496"
+  },
+  {
+    "collectionName": "Nakamigos",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "104 ETH",
+    "discount": "+11%",
+    "floorPrice": "0.17 ETH",
+    "sales": "483"
+  },
+  {
+    "collectionName": "Rug Radio - Genesis NFT",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "119 ETH",
+    "discount": "+155%",
+    "floorPrice": "0.19 ETH",
+    "sales": "469"
+  },
+  {
+    "collectionName": "MetaHero: MintPass",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "16 ETH",
+    "discount": "+13%",
+    "floorPrice": "0.03 ETH",
+    "sales": "461"
+  },
+  {
+    "collectionName": "Kanpai Pandas",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "1,009 ETH",
+    "discount": "+43%",
+    "floorPrice": "2.16 ETH",
+    "sales": "471"
+  },
+  {
+    "collectionName": "ChronoForge Support Airships",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "126 ETH",
+    "discount": "+12,557%",
+    "floorPrice": "0.28 ETH",
+    "sales": "495"
+  },
+  {
+    "collectionName": "Creepz by OVERLORD",
+    "img": "https://i.seadn.io/gcs/files/13f3b6e7226f54d739ad8c3ed838802b.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "1,500 ETH",
+    "discount": "+36%",
+    "floorPrice": "3.18 ETH",
+    "sales": "525"
+  },
+  {
+    "collectionName": "Sofa Vision",
+    "img": "https://i.seadn.io/s/raw/files/27739eb74ab600dcecae22b22115c1bc.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "49 ETH",
+    "discount": "-41%",
+    "floorPrice": "0.07 ETH",
+    "sales": "511"
+  },
+  {
+    "collectionName": "Yogapetz",
+    "img": "https://i.seadn.io/gcs/files/245b32abea15dd17e8855013538fd136.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "349 ETH",
+    "discount": "-48%",
+    "floorPrice": "0.62 ETH",
+    "sales": "556"
+  },
+  {
+    "collectionName": "Pixelmon Trainers - Generation 1",
+    "img": "https://i.seadn.io/gcs/files/9b9979a9e40659c788d66fd2ed2749e3.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "279 ETH",
+    "discount": "+149%",
+    "floorPrice": "0.45 ETH",
+    "sales": "663"
+  },
+  {
+    "collectionName": "Azuki Elementals",
+    "img": "https://i.seadn.io/gcs/files/bbaf43ee4a02d5affb7e8fc186d0bdb5.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "396 ETH",
+    "discount": "-43%",
+    "floorPrice": "0.64 ETH",
+    "sales": "584"
+  },
+  {
+    "collectionName": "Opepen Edition",
+    "img": "https://i.seadn.io/gcs/files/b1c9ed2e584b4f6e418bf1ca15311844.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "388 ETH",
+    "discount": "-13%",
+    "floorPrice": "0.44 ETH",
+    "sales": "690"
+  },
+  {
+    "collectionName": "0N1 Force",
+    "img": "https://i.seadn.io/gae/7gOej3SUvqALR-qkqL_ApAt97SpUKQOZQe88p8jPjeiDDcqITesbAdsLcWlsIg8oh7SRrTpUPfPlm12lb4xDahgP2h32pQQYCsuOM_s?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "288 ETH",
+    "discount": "-33%",
+    "floorPrice": "0.95 ETH",
+    "sales": "416"
+  },
+  {
+    "collectionName": "deforgs",
+    "img": "https://i.seadn.io/s/raw/files/9fdb1325922fe6603ee6f3c6ef162df0.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "13 ETH",
+    "discount": "-62%",
+    "floorPrice": "0.05 ETH",
+    "sales": "383"
+  },
+  {
+    "collectionName": "Pirate Nation - Founder\u0027s Pirates",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "132 ETH",
+    "discount": "+36%",
+    "floorPrice": "0.40 ETH",
+    "sales": "370"
+  },
+  {
+    "collectionName": "Parallel Avatars",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "362 ETH",
+    "discount": "+134%",
+    "floorPrice": "0.97 ETH",
+    "sales": "364"
+  },
+  {
+    "collectionName": "Imaginary Rides",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "38 ETH",
+    "discount": "+116%",
+    "floorPrice": "0.10 ETH",
+    "sales": "364"
+  },
+  {
+    "collectionName": "Bored Ape Yacht Club",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "11K ETH",
+    "discount": "-44%",
+    "floorPrice": "29.45 ETH",
+    "sales": "361"
+  },
+  {
+    "collectionName": "Milady Maker",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "1,167 ETH",
+    "discount": "-57%",
+    "floorPrice": "3.20 ETH",
+    "sales": "366"
+  },
+  {
+    "collectionName": "MetaHero: United Planets",
+    "img": "https://i.seadn.io/s/raw/files/073e59ea0c32b37bc8ad81927d57acd9.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "62 ETH",
+    "discount": "+11%",
+    "floorPrice": "0.04 ETH",
+    "sales": "375"
+  },
+  {
+    "collectionName": "BEANZ Official",
+    "img": "https://i.seadn.io/gae/_R4fuC4QGYd14-KwX2bD1wf-AWjDF2VMabfqWFJhIgiN2FnAUpnD5PLdJORrhQ8gly7KcjhQZZpuzYVPF7CDSzsqmDh97z84j2On?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "179 ETH",
+    "discount": "-51%",
+    "floorPrice": "0.45 ETH",
+    "sales": "390"
+  },
+  {
+    "collectionName": "Moonbirds",
+    "img": "https://i.seadn.io/gcs/files/4bce6187fea476154b311dafaf327c89.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "758 ETH",
+    "discount": "-82%",
+    "floorPrice": "1.95 ETH",
+    "sales": "386"
+  },
+  {
+    "collectionName": "Sappy Seals",
+    "img": "https://i.seadn.io/gcs/files/11570389cac190891fea96fe285cbf01.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "283 ETH",
+    "discount": "-39%",
+    "floorPrice": "0.73 ETH",
+    "sales": "392"
+  },
+  {
+    "collectionName": "Binary: DEX",
+    "img": "https://i.seadn.io/gcs/files/39bce329ecb85bb34f792ba9ca9acc3b.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "35 ETH",
+    "discount": "+65%",
+    "floorPrice": "0.07 ETH",
+    "sales": "441"
+  },
+  {
+    "collectionName": "Skyborne - Nexian Gems",
+    "img": "https://i.seadn.io/gcs/files/fbefa1b41f7883f332c66288c3661813.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "125 ETH",
+    "discount": "+58%",
+    "floorPrice": "0.28 ETH",
+    "sales": "440"
+  },
+  {
+    "collectionName": "a KEY called BEAST",
+    "img": "https://i.seadn.io/gcs/files/aba1d03eee22e34c91743c59bf18841d.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "13 ETH",
+    "discount": "+3,904%",
+    "floorPrice": "0.04 ETH",
+    "sales": "359"
+  },
+  {
+    "collectionName": "Parallel Planetfall",
+    "img": "https://i.seadn.io/s/raw/files/4fce98acde508d20a97a6e3baae442d0.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "90 ETH",
+    "discount": "+577%",
+    "floorPrice": "6 USDC",
+    "sales": "327"
+  },
+  {
+    "collectionName": "The Memes by 6529",
+    "img": "https://i.seadn.io/gcs/files/8573c42207ea4d7dc1bb6ed5c0b01243.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "63 ETH",
+    "discount": "-4%",
+    "floorPrice": "0.03 ETH",
+    "sales": "304"
+  },
+  {
+    "collectionName": "a KID called BEAST",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "94 ETH",
+    "discount": "+130%",
+    "floorPrice": "0.31 ETH",
+    "sales": "286"
+  },
+  {
+    "collectionName": "Checks - VV Edition",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "189 ETH",
+    "discount": "+78%",
+    "floorPrice": "0.70 ETH",
+    "sales": "272"
+  },
+  {
+    "collectionName": "The Sandbox",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "80 ETH",
+    "discount": "-2%",
+    "floorPrice": "0.29 ETH",
+    "sales": "267"
+  },
+  {
+    "collectionName": "Mirandus",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "94 ETH",
+    "discount": "-14%",
+    "floorPrice": "\u003c 0.01 ETH",
+    "sales": "284"
+  },
+  {
+    "collectionName": "Checks - VV Originals",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "122 ETH",
+    "discount": "+45%",
+    "floorPrice": "0.35 ETH",
+    "sales": "300"
+  },
+  {
+    "collectionName": "Azra Games - The Hopeful",
+    "img": "https://i.seadn.io/gcs/files/32469815c1d8c3cbec6541f35d991adc.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "148 ETH",
+    "discount": "-45%",
+    "floorPrice": "0.58 ETH",
+    "sales": "324"
+  },
+  {
+    "collectionName": "Otherdeed Expanded",
+    "img": "https://i.seadn.io/gcs/files/9583ab4792a83cd81d5075b59514a34a.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "147 ETH",
+    "discount": "+3%",
+    "floorPrice": "0.31 ETH",
+    "sales": "347"
+  },
+  {
+    "collectionName": "Otherdeed for Otherside",
+    "img": "https://i.seadn.io/gae/yIm-M5-BpSDdTEIJRt5D6xphizhIdozXjqSITgK4phWq7MmAU3qE7Nw7POGCiPGyhtJ3ZFP8iJ29TFl-RLcGBWX5qI4-ZcnCPcsY4zI?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "352 ETH",
+    "discount": "-44%",
+    "floorPrice": "0.60 ETH",
+    "sales": "346"
+  },
+  {
+    "collectionName": "Moonrunners Official",
+    "img": "https://i.seadn.io/gcs/files/8bb5a3faa8de2761782f03b9ecc8e785.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "25 ETH",
+    "discount": "+1,448%",
+    "floorPrice": "0.08 ETH",
+    "sales": "357"
+  },
+  {
+    "collectionName": "InfiniGods - InfiniPass",
+    "img": "https://i.seadn.io/gcs/files/78ef6d6911a5ea84baab623658846de6.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "63 ETH",
+    "discount": "+582%",
+    "floorPrice": "0.14 ETH",
+    "sales": "360"
+  },
+  {
+    "collectionName": "Gemesis",
+    "img": "https://i.seadn.io/gcs/files/7ed181433ee09174f09a0e31b563d313.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "4 ETH",
+    "discount": "+37%",
+    "floorPrice": "0.01 ETH",
+    "sales": "264"
+  },
+  {
+    "collectionName": "Pixels - Farm Land",
+    "img": "https://i.seadn.io/gcs/files/39bc09683242af3e70535579f36ddfd9.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "324 ETH",
+    "discount": "-32%",
+    "floorPrice": "1.25 ETH",
+    "sales": "247"
+  },
+  {
+    "collectionName": "Cool Cats",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "247 ETH",
+    "discount": "-46%",
+    "floorPrice": "0.99 ETH",
+    "sales": "229"
+  },
+  {
+    "collectionName": "Nakamigos-CLOAKS",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "11 ETH",
+    "discount": "-16%",
+    "floorPrice": "0.03 ETH",
+    "sales": "226"
+  },
+  {
+    "collectionName": "Mocaverse",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "683 ETH",
+    "discount": "+159%",
+    "floorPrice": "3.88 ETH",
+    "sales": "218"
+  },
+  {
+    "collectionName": "ENS: Ethereum Name Service",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "51 ETH",
+    "discount": "-62%",
+    "floorPrice": "\u003c 0.01 ETH",
+    "sales": "218"
+  },
+  {
+    "collectionName": "Worldwide Webb Land",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "50 ETH",
+    "discount": "+110%",
+    "floorPrice": "0.23 ETH",
+    "sales": "220"
+  },
+  {
+    "collectionName": "Common Ground World",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "25 ETH",
+    "discount": "+32%",
+    "floorPrice": "\u003c 0.01 ETH",
+    "sales": "228"
+  },
+  {
+    "collectionName": "Treeverse Plots",
+    "img": "https://i.seadn.io/gcs/files/13d771dac2ff1944a8446ddeb5f32f44.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "169 ETH",
+    "discount": "-51%",
+    "floorPrice": "0.81 ETH",
+    "sales": "241"
+  },
+  {
+    "collectionName": "Perils of Sēsē by All Seeing Seneca",
+    "img": "https://i.seadn.io/s/raw/files/56e504c0ad178b8fcc71666d07aa4cb1.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "21 ETH",
+    "discount": "-96%",
+    "floorPrice": "0.08 ETH",
+    "sales": "241"
+  },
+  {
+    "collectionName": "Azuki Elemental Beans",
+    "img": "https://i.seadn.io/gcs/files/f3a499dc27479c0c0fd6aaa3f6581561.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "187 ETH",
+    "discount": "+29%",
+    "floorPrice": "0.79 ETH",
+    "sales": "241"
+  },
+  {
+    "collectionName": "Kitaro World",
+    "img": "https://i.seadn.io/gcs/files/495e3fc34c22c8e6e446ddcad5549cf7.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "42 ETH",
+    "discount": "+53%",
+    "floorPrice": "0.18 ETH",
+    "sales": "256"
+  },
+  {
+    "collectionName": "Genuine Undead",
+    "img": "https://i.seadn.io/gcs/files/1eb8d685d4e404c9b1177dfe14c2c9e0.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "31 ETH",
+    "discount": "+151%",
+    "floorPrice": "0.08 ETH",
+    "sales": "254"
+  },
+  {
+    "collectionName": "MAX PAIN AND FRENS BY XCOPY",
+    "img": "https://i.seadn.io/s/raw/files/8ca9eb1a40c8f193ccb8fecabad09e45.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "156 ETH",
+    "discount": "+549%",
+    "floorPrice": "0.49 ETH",
+    "sales": "263"
+  },
+  {
+    "collectionName": "Spellborne Apartments",
+    "img": "https://i.seadn.io/s/raw/files/01240866ed4bf277e123705fdc0d7540.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "73 ETH",
+    "discount": "+49%",
+    "floorPrice": "0.30 ETH",
+    "sales": "210"
+  },
+  {
+    "collectionName": "IO: Imaginary Ones",
+    "img": "https://i.seadn.io/gae/NrS4UlK9ZqH2GuH_faBRtH2RIlsHHy3h9OmFpN46S1Y2gH6F3cBgZxZpJ-iuTdFZWsX2MaHNXaigXLaWtgp3zx4SrPDlD0CGj2L2Zs4?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "200 ETH",
+    "discount": "+147%",
+    "floorPrice": "1.19 ETH",
+    "sales": "192"
+  },
+  {
+    "collectionName": "TrekkiNFT",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "10 ETH",
+    "discount": "+10%",
+    "floorPrice": "0.04 ETH",
+    "sales": "189"
+  },
+  {
+    "collectionName": "NFT Worlds Genesis Avatars",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "38 ETH",
+    "discount": "+31%",
+    "floorPrice": "0.19 ETH",
+    "sales": "180"
+  },
+  {
+    "collectionName": "Rare Pepe (2016 - 2018)",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "57 ETH",
+    "discount": "+72%",
+    "floorPrice": "0.02 ETH",
+    "sales": "178"
+  },
+  {
+    "collectionName": "Delabs Adventure Pass Official",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "34 ETH",
+    "discount": "+491%",
+    "floorPrice": "0.23 ETH",
+    "sales": "176"
+  },
+  {
+    "collectionName": "Mittaria Genesis",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "95 ETH",
+    "discount": "-3%",
+    "floorPrice": "0.61 ETH",
+    "sales": "186"
+  },
+  {
+    "collectionName": "KOKODI",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "7 ETH",
+    "discount": "+215%",
+    "floorPrice": "0.04 ETH",
+    "sales": "192"
+  },
+  {
+    "collectionName": "Kaiju Kingz",
+    "img": "https://i.seadn.io/gae/80yXYN287mZWxZhcBImQes5pVi19Tm5X9q2xj6DU2o_WUJKB1AybLpiFv2nL2WL00c3idD_XAL12wZLKsV1jzL8x2fTYlakHZg3JxA?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "33 ETH",
+    "discount": "+238%",
+    "floorPrice": "0.11 ETH",
+    "sales": "201"
+  },
+  {
+    "collectionName": "Blips",
+    "img": "https://i.seadn.io/gcs/files/d8a155671eea6515038db93ed9f98c68.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "24 ETH",
+    "discount": "+158%",
+    "floorPrice": "0.08 ETH",
+    "sales": "201"
+  },
+  {
+    "collectionName": "MetalCore Infantry Genesis",
+    "img": "https://i.seadn.io/gcs/files/21cd50688aba88b05a3927574c7d5073.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "17 ETH",
+    "discount": "+2,401%",
+    "floorPrice": "0.09 ETH",
+    "sales": "206"
+  },
+  {
+    "collectionName": "Doodles Original Collection",
+    "img": "https://i.seadn.io/s/raw/files/c91c80bd4e7e8d9c01ae4cbd87c54cd7.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "450 ETH",
+    "discount": "-57%",
+    "floorPrice": "2.09 ETH",
+    "sales": "213"
+  },
+  {
+    "collectionName": "Otherside Vessels",
+    "img": "https://i.seadn.io/gcs/files/8646d6116bb3f59822dc98f108d61f18.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "53 ETH",
+    "discount": "-14%",
+    "floorPrice": "0.17 ETH",
+    "sales": "211"
+  },
+  {
+    "collectionName": "HV-MTL",
+    "img": "https://i.seadn.io/gcs/files/82a7f92df6d60e41327b69cdafea8831.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "40 ETH",
+    "discount": "-65%",
+    "floorPrice": "0.17 ETH",
+    "sales": "175"
+  },
+  {
+    "collectionName": "Timeless Characters",
+    "img": "https://i.seadn.io/gcs/files/151bad2b97159b07aa18eef324681b94.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "57 ETH",
+    "discount": "-29%",
+    "floorPrice": "0.30 ETH",
+    "sales": "172"
+  },
+  {
+    "collectionName": "Bored Ape Kennel Club",
+    "img": "https://i.seadn.io/gcs/files/c4dfc6be4d9c5d4f073de2efe181416a.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "290 ETH",
+    "discount": "-36%",
+    "floorPrice": "1.67 ETH",
+    "sales": "170"
+  },
+  {
+    "collectionName": "Ordinal Kubz",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "31 ETH",
+    "discount": "+11%",
+    "floorPrice": "0.17 ETH",
+    "sales": "170"
+  },
+  {
+    "collectionName": "The Wanderers",
+    "img": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "volume": "14 ETH",
+    "discount": "-2%",
+    "floorPrice": "0.07 ETH",
+    "sales": "167"
+  },
+  {
+    "collectionName": "The Plague NFT",
+    "img": "https://i.seadn.io/gcs/files/4577987a5ca45ca5118b2e31559ee4d1.jpg?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "76 ETH",
+    "discount": "+83%",
+    "floorPrice": "0.44 ETH",
+    "sales": "171"
+  },
+  {
+    "collectionName": "RTFKT Animus Egg 🥚",
+    "img": "https://i.seadn.io/gcs/files/44e8866f6b904542b7bb59dc12af64f2.gif?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "47 ETH",
+    "discount": "+29%",
+    "floorPrice": "0.29 ETH",
+    "sales": "174"
+  },
+  {
+    "collectionName": "VeeFriends Series 2",
+    "img": "https://i.seadn.io/gae/LrXPPC-y_I4qu9Y1PytwmYUUn7WVu9bXJDUFwKZYzmGuXzdNz41eINzOGOZHKmjv1aFtn5GPqKPk1RJd-Tjkv9CPIG32EG9ygGtJeOk?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "21 ETH",
+    "discount": "+86%",
+    "floorPrice": "0.10 ETH",
+    "sales": "173"
+  },
+  {
+    "collectionName": "KILLABITS",
+    "img": "https://i.seadn.io/gcs/files/66f2be9ede6ca6360a8e846bf74a2387.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "32 ETH",
+    "discount": "+689%",
+    "floorPrice": "0.17 ETH",
+    "sales": "175"
+  },
+  {
+    "collectionName": "Moonbirds: Mythics",
+    "img": "https://i.seadn.io/gcs/files/fd53fbba20749f9c0ec9280c015235c5.png?auto\u003dformat\u0026dpr\u003d1\u0026w\u003d3840",
+    "volume": "25 ETH",
+    "discount": "+4%",
+    "floorPrice": "0.13 ETH",
+    "sales": "176"
+  }
+]

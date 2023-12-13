@@ -75,6 +75,18 @@
       <artifactId>webdrivermanager</artifactId>
       <version>5.6.2</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>4.4.3</version> <!-- Kiểm tra phiên bản mới nhất tại https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version> <!-- Sử dụng phiên bản mới nhất -->
+    </dependency>
   </dependencies>
   <build>
     <plugins>
