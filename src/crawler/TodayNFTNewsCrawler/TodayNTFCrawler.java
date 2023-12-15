@@ -24,7 +24,7 @@ public class TodayNTFCrawler {
 
         List<String> postUrls = new ArrayList<>();
 
-        //n số page cần crawl
+        //n là số page cần crawl, mỗi một page chứa 15 bài viết
         int n=1;
         for (int i=1;i<=n ;i++)
         {
