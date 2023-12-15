@@ -1,4 +1,4 @@
-package src.crawler.Opensea;
+package OOP.Opensea;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

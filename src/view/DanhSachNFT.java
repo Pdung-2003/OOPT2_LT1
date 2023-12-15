@@ -1,5 +1,6 @@
 package view;
 
+import OOP.Binance.CollectionItem;
 import OOP.NiftyGateway.Collection;
 import OOP.NiftyGateway.Result;
 
