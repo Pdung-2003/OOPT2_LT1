@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -41,12 +42,13 @@ class CollectionInfo {
 
 public class OpenseaCrawler {
     public static void main(String[] args) {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://opensea.io/rankings/trending?sortBy=seven_day_volume");
 
         try {
-            Thread.sleep(5000);  // Initial wait for the page to load
+            Thread.sleep(3000);  // Initial wait for the page to load
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

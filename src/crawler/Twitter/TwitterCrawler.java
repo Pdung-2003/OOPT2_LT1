@@ -3,6 +3,7 @@ package OOP.Twitter;
 import OOP.DataCrawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONArray;
 
 import org.json.JSONTokener;
@@ -43,6 +44,7 @@ import java.util.List;
         private List<TweetInfo> tweetInfoList;
 
         public TwitterCrawler() {
+            WebDriverManager.chromedriver().setup();
             this.driver = new ChromeDriver();
             this.driver.manage().window().maximize();
             this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
