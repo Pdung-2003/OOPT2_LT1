@@ -1,8 +1,10 @@
 package OOP.Twitter;
 
 import OOP.DataCrawler;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.JSONArray;
-import org.json.JSONObject;
+
 import org.json.JSONTokener;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,34 +14,47 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+ class TweetInfo {
+    private final String username;
+    private String userId;
+    private String timestamp;
+    private String content;
+    private List<String> images;
 
-public class TwitterCrawler implements DataCrawler {
-    private final WebDriver driver;
-    private JSONArray tweetArray;
-    private final WebDriverWait wait;
-    private final JavascriptExecutor js;
-
-    public TwitterCrawler() {
-        // Khởi tạo WebDriver
-        this.driver = new ChromeDriver();
-        this.driver.manage().window().maximize();
-        this.wait = new WebDriverWait(driver, 15);
-        this.js = (JavascriptExecutor) driver;
-        this.tweetArray = new JSONArray();
+    public TweetInfo(String username, String userId, String timestamp, String content, List<String> images) {
+        this.username = username;
+        this.userId = userId;
+        this.timestamp = timestamp;
+        this.content = content;
+        this.images = images;
     }
+
+    // Add getters and setters here if necessary
+}
+    public class TwitterCrawler implements DataCrawler {
+        private final WebDriver driver;
+        private final WebDriverWait wait;
+        private final JavascriptExecutor js;
+        private List<TweetInfo> tweetInfoList;
+
+        public TwitterCrawler() {
+            this.driver = new ChromeDriver();
+            this.driver.manage().window().maximize();
+            this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+            this.js = (JavascriptExecutor) driver;
+            this.tweetInfoList = new ArrayList<>();
+        }
 
     @Override
     public void fetchData() throws InterruptedException {
-        this.login("dng2706", "Ducdung789");  // Thay đổi thông tin đăng nhập tùy theo nhu cầu
+        this.login("dng2706", "Ducdung789");  // Use actual credentials
         this.searchTwitter("#NFT");
-        this.tweetArray = this.collectTweets();
-        // Logic để fetch dữ liệu từ Twitter
-        // Ví dụ: login, searchTwitter, collectTweets...
+        this.tweetInfoList = this.collectTweets();
     }
     public void login(String username, String password) {
         driver.get("https://twitter.com/i/flow/login");
@@ -54,48 +69,44 @@ public class TwitterCrawler implements DataCrawler {
         searchBox.sendKeys(query + Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@role='article']")));
     }
-    private JSONArray collectTweets() throws InterruptedException {
-        JSONArray tweetArray = new JSONArray();
+    private List<TweetInfo> collectTweets() throws InterruptedException {
+        List<TweetInfo> tweetInfoList = new ArrayList<>();
 
-        while (tweetArray.length() < 50) {
+        while (tweetInfoList.size() < 50) {
             List<WebElement> tweets = driver.findElements(By.xpath("//article[@role='article']"));
             for (WebElement tweet : tweets) {
-                if (tweetArray.length() >= 50) break;
-                JSONObject tweetObject = extractTweetInfo(tweet);
-                tweetArray.put(tweetObject);
+                if (tweetInfoList.size() >= 50) break;
+                TweetInfo tweetInfo = extractTweetInfo(tweet);
+                if (tweetInfo != null) {
+                    tweetInfoList.add(tweetInfo);
+                }
             }
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            Thread.sleep(2000); // Đợi nội dung tải
+            Thread.sleep(2000); // Wait for content to load
         }
 
-        return tweetArray;
+        return tweetInfoList;
     }
-    private JSONObject extractTweetInfo(WebElement tweet) {
-        JSONObject tweetObject = new JSONObject();
+    private TweetInfo extractTweetInfo(WebElement tweet) {
         try {
             String username = tweet.findElement(By.xpath(".//div[contains(@data-testid,'User-Name')]//span")).getText();
             String userId = tweet.findElement(By.xpath(".//a[contains(@href,'/')]")).getAttribute("href").replace("https://twitter.com/", "");
             String timestamp = tweet.findElement(By.xpath(".//time")).getAttribute("datetime");
             String content = tweet.findElement(By.xpath(".//div[@data-testid='tweetText']")).getText();
 
-            tweetObject.put("username", username);
-            tweetObject.put("userId", userId);
-            tweetObject.put("timestamp", timestamp);
-            tweetObject.put("content", content);
-            // Trích xuất URL của hình ảnh
-            JSONArray images = new JSONArray();
+            List<String> images = new ArrayList<>();
             List<WebElement> imageElements = tweet.findElements(By.xpath(".//img[@alt='Image' and not(contains(@src,'profile_images'))]"));
             for (WebElement imgElement : imageElements) {
-                String imgSrc = imgElement.getAttribute("src");
-                images.put(imgSrc);
+                images.add(imgElement.getAttribute("src"));
             }
-            tweetObject.put("images", images); // Thêm URL hình ảnh vào tweetObject
-            // Add more tweet information extraction as needed
+
+            return new TweetInfo(username, userId, timestamp, content, images);
         } catch (NoSuchElementException e) {
-            System.out.println("Một số phần tử không tìm thấy trong tweet này.");
+            System.out.println("Some elements were not found in this tweet.");
+            return null; // Or handle the exception as needed
         }
-        return tweetObject;
     }
+
 
     @Override
     public void processData() {
@@ -103,42 +114,16 @@ public class TwitterCrawler implements DataCrawler {
     }
 
     @Override
-    public void saveData(String filename) {
-        this.saveTweetsToFile(this.tweetArray, filename);
-    }
-    public void saveTweetsToFile(JSONArray newTweets, String filename) {
-        JSONArray existingTweets = readExistingTweets(filename);
-        Set<String> existingTweetDetails = new HashSet<>();
+    public void saveData(String filename) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(this.tweetInfoList);
 
-        // Tạo Set của các chi tiết tweet hiện có để kiểm tra trùng lặp
-        for (int i = 0; i < existingTweets.length(); i++) {
-            JSONObject tweet = existingTweets.getJSONObject(i);
-            String detail = tweet.optString("username", "") + "|" +
-                    tweet.optString("userId", "") + "|" +
-                    tweet.optString("timestamp", "") + "|" +
-                    tweet.optString("content", "");
-            existingTweetDetails.add(detail);
-        }
-
-        // Kiểm tra và thêm tweet mới nếu không trùng lặp
-        for (int i = 0; i < newTweets.length(); i++) {
-            JSONObject tweet = newTweets.getJSONObject(i);
-            String detail = tweet.optString("username", "") + "|" +
-                    tweet.optString("userId", "") + "|" +
-                    tweet.optString("timestamp", "") + "|" +
-                    tweet.optString("content", "");
-            if (!existingTweetDetails.contains(detail)) {
-                existingTweets.put(tweet);
-            }
-        }
-
-        // Ghi dữ liệu vào file
-        try (FileWriter file = new FileWriter(filename, false)) {  // false để ghi đè file
-            file.write(existingTweets.toString(4));
-        } catch (Exception e) {
-            e.printStackTrace();
+        try (FileWriter file = new FileWriter(filename)) {
+            file.write(json);
         }
     }
+
+
     private JSONArray readExistingTweets(String filename) {
         File file = new File(filename);
         JSONArray existingTweets = new JSONArray();
@@ -164,7 +149,7 @@ public class TwitterCrawler implements DataCrawler {
             crawler.processData();  // Xử lý dữ liệu (nếu cần)
             crawler.saveData("Twitter.json");  // Lưu dữ liệu vào file
             System.out.println("Thu thập và lưu dữ liệu thành công.");
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | IOException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());
             e.printStackTrace();
         } finally {

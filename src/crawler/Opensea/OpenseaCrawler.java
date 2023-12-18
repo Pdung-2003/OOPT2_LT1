@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -118,9 +119,10 @@ public class OpenseaCrawler {
     }
 
     private static void waitForLoad(WebDriver driver) {
-        new WebDriverWait(driver, 10).until(webDriver ->
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(webDriver ->
                 ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
+
 
     private static boolean infiniteScroll(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
