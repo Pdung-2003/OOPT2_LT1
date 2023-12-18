@@ -1,4 +1,4 @@
-package OOP;
+package crawler;
 import java.io.IOException;
 
 public interface DataCrawler {

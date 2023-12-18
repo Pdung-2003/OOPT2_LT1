@@ -1,20 +1,21 @@
-package OOP.Binance;
+package crawler;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import OOP.DataCrawler;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.*;
+import models.Binance;
 
 public class BinanceCrawler implements DataCrawler {
-    public static List<CollectionItem> collectionItems;
+    public static List<Binance> collectionItems;
 
     @Override
     public void fetchData() throws IOException, InterruptedException {
@@ -27,8 +28,14 @@ public class BinanceCrawler implements DataCrawler {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
         Gson gson = new GsonBuilder().create();
-        BinanceResponse binanceResponse = gson.fromJson(response.body(), BinanceResponse.class);
-        collectionItems = binanceResponse.getData().getRows();
+
+        // Parse the JSON response
+        JsonElement root = JsonParser.parseString(response.body());
+        JsonArray dataArray = root.getAsJsonObject().getAsJsonObject("data").getAsJsonArray("rows");
+
+        // Deserialize JSON array into a list of Binance objects
+        Type listType = new TypeToken<List<Binance>>() {}.getType();
+        collectionItems = gson.fromJson(dataArray, listType);
     }
 
     @Override
@@ -54,8 +61,5 @@ public class BinanceCrawler implements DataCrawler {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-    }
-    public static List<CollectionItem> getCollectionItems() {
-        return collectionItems;
     }
 }

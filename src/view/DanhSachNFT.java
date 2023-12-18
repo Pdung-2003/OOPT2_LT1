@@ -1,8 +1,8 @@
 package view;
 
-import OOP.Binance.CollectionItem;
-import OOP.NiftyGateway.Collection;
-import OOP.NiftyGateway.Result;
+//import OOP.Binance.CollectionItem;
+import crawler.NiftyGateway.Collection;
+import crawler.NiftyGateway.Result;
 
 import java.awt.*;
 
@@ -15,13 +15,13 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-import static OOP.Binance.BinanceCrawler.collectionItems;
+import static crawler.BinanceCrawler.collectionItems;
 
 public class DanhSachNFT extends JPanel {
 
 	private DefaultTableModel tableModel;
 	private List<Result> results;
-	private List<CollectionItem> collectionItem;
+	//private List<CollectionItem> collectionItem;
 	private final MyPanel panel_DS_Content;
 
 	// Tạo bảng và scrollPane trong constructor
@@ -104,7 +104,7 @@ public class DanhSachNFT extends JPanel {
 			}
 			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Binance")){
 				if (results != null) {
-					addDataToTableBinance(collectionItems);
+					//addDataToTableBinance(collectionItems);
 				} else {
 					System.out.println("Dữ liệu results là null.");
 				}
@@ -175,7 +175,7 @@ public class DanhSachNFT extends JPanel {
 			tableModel.addRow(rowData);
 		}
 	}
-	private void addDataToTableBinance(List<CollectionItem> collectionItems) {
+	/*private void addDataToTableBinance(List<CollectionItem> collectionItems) {
 		for (CollectionItem collectionItem : collectionItems) {
 			Object[] rowData = {
 					collectionItem.getCollectionId(),
@@ -193,7 +193,7 @@ public class DanhSachNFT extends JPanel {
 			};
 			tableModel.addRow(rowData);
 		}
-	}
+	}*/
 	private void setTableColumns(String selectedNenTang) {
 		tableModel.setRowCount(0);
 		tableModel.setColumnCount(0);

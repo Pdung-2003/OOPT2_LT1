@@ -1,6 +1,6 @@
-package OOP.Twitter;
+package crawler.Twitter;
 
-import OOP.DataCrawler;
+import crawler.DataCrawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;

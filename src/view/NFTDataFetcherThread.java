@@ -1,7 +1,7 @@
 package view;
 
-import OOP.Binance.BinanceCrawler;
-import OOP.NiftyGateway.NiftyGatewayCrawler;
+import crawler.BinanceCrawler;
+import crawler.NiftyGateway.NiftyGatewayCrawler;
 
 public class NFTDataFetcherThread extends Thread{
     @Override

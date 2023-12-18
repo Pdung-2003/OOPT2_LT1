@@ -1,4 +1,4 @@
-package OOP.NiftyGateway;
+package crawler.NiftyGateway;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-import OOP.DataCrawler;
+import crawler.DataCrawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

@@ -11,6 +11,7 @@ public abstract class NFTGeneral {
         this.volume = volume;
         this.floorPrice = floorPrice;
         this.image = image;
+        
     }
 
     public String getTitle() {
