@@ -1,0 +1,32 @@
+package models;
+
+public class Binance extends NFTGeneral{
+    private String collectionId;
+    private int ownersCount;
+    private int itemsCount;
+    private float floorPriceRate;
+
+    public Binance(String title, String volume, String floorPrice, String image, String collectionId, int ownersCount, int itemsCount, float floorPriceRate) {
+        super(title, volume, floorPrice, image);
+        this.collectionId = collectionId;
+        this.ownersCount = ownersCount;
+        this.itemsCount = itemsCount;
+        this.floorPriceRate = floorPriceRate;
+    }
+
+    public String getCollectionId() {
+        return collectionId;
+    }
+
+    public int getOwnersCount() {
+        return ownersCount;
+    }
+
+    public int getItemsCount() {
+        return itemsCount;
+    }
+
+    public float getFloorPriceRate() {
+        return floorPriceRate;
+    }
+}
