@@ -7,23 +7,34 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 public class SideBar extends JPanel {
+	private JButton buttonDanhSach;
+	private JButton buttonTimKiem;
+	private JButton buttonThongKe;
 
-	/**
-	 * Create the panel.
-	 */
 	public SideBar() {
 		setBackground(Colors.Vang);
 		setPreferredSize(new Dimension(250, 730));
 		setLayout(new GridLayout(10, 1, 3, 3));
 
-		Button_SideBar btn_SIdeBar_DanhSach = new Button_SideBar("Danh sách NFT");
-		add(btn_SIdeBar_DanhSach);
+		buttonDanhSach = new Button_SideBar("Danh sách NFT");
+		add(buttonDanhSach);
 
-		Button_SideBar btn_SIdeBar_TimKiem = new Button_SideBar("Tìm kiếm dữ liệu");
-		add(btn_SIdeBar_TimKiem);
+		buttonTimKiem = new Button_SideBar("Tìm kiếm dữ liệu");
+		add(buttonTimKiem);
 
-		Button_SideBar btn_SIdeBar_ThongKe = new Button_SideBar("Thống kê dữ liệu");
-		add(btn_SIdeBar_ThongKe);
+		buttonThongKe = new Button_SideBar("Thống kê dữ liệu");
+		add(buttonThongKe);
+	}
 
+	public JButton getButtonDanhSach() {
+		return buttonDanhSach;
+	}
+
+	public JButton getButtonTimKiem() {
+		return buttonTimKiem;
+	}
+
+	public JButton getButtonThongKe() {
+		return buttonThongKe;
 	}
 }
