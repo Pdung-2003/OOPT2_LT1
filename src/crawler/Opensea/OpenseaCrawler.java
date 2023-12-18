@@ -41,7 +41,6 @@ class CollectionInfo {
 
 public class OpenseaCrawler {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "chromedriver_win32 (1) - Copy\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensea.io/rankings/trending?sortBy=seven_day_volume");
