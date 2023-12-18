@@ -28,7 +28,7 @@ public class TwitterCrawler implements DataCrawler {
         // Khởi tạo WebDriver
         this.driver = new ChromeDriver();
         this.driver.manage().window().maximize();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, 15);
         this.js = (JavascriptExecutor) driver;
         this.tweetArray = new JSONArray();
     }

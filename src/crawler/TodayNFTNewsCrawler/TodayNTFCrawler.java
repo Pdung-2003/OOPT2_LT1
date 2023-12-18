@@ -1,7 +1,9 @@
 package OOP.TodayNFTNewsCrawler;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+class CollectionInfo {
+    private String title;
+    private String imageUrl;
+    private String author;
+    private String date;
+    private String tag;
+    private String content;
+
+    public CollectionInfo(String title, String imageUrl, String author, String date, String tag, String content) {
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.author = author;
+        this.date = date;
+        this.tag = tag;
+        this.content = content;
+    }
+}
+
 public class TodayNTFCrawler {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "chromedriver_win32 (1) - Copy\\chromedriver.exe");
@@ -24,7 +44,7 @@ public class TodayNTFCrawler {
 
         List<String> postUrls = new ArrayList<>();
 
-        //n là số page cần crawl, mỗi một page chứa 15 bài viết
+        //n số page cần crawl
         int n=1;
         for (int i=1;i<=n ;i++)
         {
@@ -49,7 +69,6 @@ public class TodayNTFCrawler {
             // Tìm tất cả các thẻ a trong class "latestPost-inner"
             List<WebElement> postLinks = driver.findElements(By.cssSelector(".latestPost-inner h2 a"));
 
-
             // Lặp qua từng thẻ a và lưu URL vào danh sách
             for (WebElement postLink : postLinks) {
                 String postUrl = postLink.getAttribute("href");
@@ -58,7 +77,7 @@ public class TodayNTFCrawler {
             }
         }
 
-        JSONArray jsonArray = new JSONArray();
+        List<CollectionInfo> CollectionInfoList = new ArrayList<>();
 
         // Lặp qua danh sách URL và truy cập từng URL để thu thập thông tin
         for (String postUrl : postUrls) {
@@ -72,7 +91,6 @@ public class TodayNTFCrawler {
 
             try {
                 // Lấy thông tin từ các phần tử HTML tương ứng
-                JSONObject jsonArticle = new JSONObject();
                 System.out.println("URL_completed: "+postUrl);
 
                 String title = driver.findElement(By.cssSelector("h1.title.single-title.entry-title")).getText();
@@ -106,29 +124,13 @@ public class TodayNTFCrawler {
                 for (WebElement tagElement : tagElements) {
                     tagBuilder.append(tagElement.getText()).append(", ");
                 }
-                String tag = tagBuilder.toString();  // Loại bỏ dấu phẩy thừa ở cuối
+                String tag = tagBuilder.toString();
                 // Loại bỏ dấu phẩy thừa ở cuối
                 if (tag.endsWith(", ")) {
                     tag = tag.substring(0, tag.length() - 2);
                 }
 
-//                System.out.println("Title: "+title);
-//                System.out.println("Image Url: "+imageUrl);
-//                System.out.println("Author: "+author);
-//                System.out.println("Date: "+date);
-//                System.out.println("Tag: "+tag);
-//                System.out.println("Content: "+content);
-
-                // Tạo đối tượng JSON cho mỗi bài viết
-                jsonArticle.put("Title", title);
-                jsonArticle.put("Image Url", imageUrl);
-                jsonArticle.put("Author", author);
-                jsonArticle.put("Date", date);
-                jsonArticle.put("Tag",tag);
-                jsonArticle.put("Content",content);
-
-                // Thêm vào mảng JSON
-                jsonArray.put(jsonArticle);
+                CollectionInfoList.add(new CollectionInfo(title,imageUrl,author,date,tag,content));
 
             } catch (Exception e) {
                 System.err.println("Error: " + e.getMessage());
@@ -140,16 +142,24 @@ public class TodayNTFCrawler {
                 }
             }
         }
-
-        try (FileWriter file = new FileWriter("TodayNFTNews.json")) {
-            file.write(jsonArray.toString());
-            System.out.println("Dữ liệu đã được lưu vào TodayNFTNews.json");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        saveDataToJson(CollectionInfoList);
 
         // Đóng trình duyệt khi hoàn tất
         driver.quit();
     }
-}
 
+    private static void saveDataToJson(List<OOP.TodayNFTNewsCrawler.CollectionInfo> collectionInfoList) {
+        JsonArray jsonArray = new JsonArray();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(collectionInfoList);
+        JsonObject mainJsonObject = new JsonObject();
+        mainJsonObject.add("data", jsonArray);
+
+        try (FileWriter fileWriter = new FileWriter("TodayNFTNews.json")) {
+            fileWriter.write(json);
+            System.out.println("Dữ liệu đã được lưu vào TodayNFTNews.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
