@@ -4,14 +4,13 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 
-public class Button_SideBar extends JButton {
+public class Button_SideBar extends CustomizedButton {
 
     public Button_SideBar(String text) {
         super(text);
-        customizeButton_SideBar();
     }
 
-    private void customizeButton_SideBar() {
+    protected void customizedButton() {
         setBackground(Colors.Vang);
         setForeground(Colors.Chu);
         setFont(new Font("Arial", Font.BOLD, 16));
