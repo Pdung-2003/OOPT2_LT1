@@ -15,6 +15,8 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import static OOP.Binance.BinanceCrawler.collectionItems;
+
 public class DanhSachNFT extends JPanel {
 
 	private DefaultTableModel tableModel;
@@ -29,9 +31,9 @@ public class DanhSachNFT extends JPanel {
 	public void setResults(List<Result> results) {
 		this.results = results;
 	}
-	public void setCollectionItem(List<CollectionItem> collectionItem) {
-		this.collectionItem = collectionItem;
-	}
+	/*public void setCollectionItems(List<CollectionItem> collectionItems) {
+		this.collectionItems = collectionItems;
+	}*/
 	/**
 	 * Create the panel.
 	 */
@@ -102,7 +104,7 @@ public class DanhSachNFT extends JPanel {
 			}
 			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Binance")){
 				if (results != null) {
-					addDataToTableBinance(collectionItem);
+					addDataToTableBinance(collectionItems);
 				} else {
 					System.out.println("Dữ liệu results là null.");
 				}

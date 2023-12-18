@@ -28,13 +28,9 @@ public class ManHinhChinh extends JFrame {
                 new Thread(() -> {
                         NiftyGatewayCrawler.main(new String[]{});
                         BinanceCrawler.main(new String[]{});
-                        // Truyền các luồng dữ liệu
-                        //List<Result> results = Response.getResults();
-                        //List<CollectionItem>  collectionItems = BinanceCrawler.getCollectionItem();
-                        // Truyền dữ liệu vào các panel
-                        //panel_DanhSach.setResults(results);
-                        //panel_DanhSach.setCollectionItem(collectionItems);
-                        // Gọi các phương thức cần thiết trên các panel khác (nếu cần)
+                        /*List<CollectionItem>  collectionItems = BinanceCrawler.getCollectionItems();
+                        System.out.println(collectionItems);
+                        panel_DanhSach.setCollectionItem(collectionItems);*/
                 }).start();
 
                 SideBar sidebar = new SideBar();

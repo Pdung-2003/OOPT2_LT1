@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class BinanceCrawler implements DataCrawler {
-    private List<CollectionItem> collectionItems;
+    public static List<CollectionItem> collectionItems;
 
     @Override
     public void fetchData() throws IOException, InterruptedException {
@@ -54,5 +54,8 @@ public class BinanceCrawler implements DataCrawler {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static List<CollectionItem> getCollectionItems() {
+        return collectionItems;
     }
 }
