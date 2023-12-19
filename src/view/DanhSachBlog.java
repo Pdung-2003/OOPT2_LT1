@@ -27,7 +27,8 @@ public class DanhSachBlog extends TimKiemNFT {
 		
 		// Khu vực tìm kiếm
 		String[] items_DSBL_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
-		TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem);
+		String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây
+		TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
 		add(DSBL_TimKiem, BorderLayout.NORTH);
 		
 		// Khu vực điền bảng thông tin 
@@ -35,17 +36,6 @@ public class DanhSachBlog extends TimKiemNFT {
 		add(panel_DSBL_Content, BorderLayout.CENTER);
 		panel_DSBL_Content.setLayout(new BorderLayout(0, 0));
 		
-		// Khu vực sắp xếp 
-		MyPanel panel_DSBL_Content_Sort = new MyPanel();
-		panel_DSBL_Content.add(panel_DSBL_Content_Sort, BorderLayout.NORTH);
-		panel_DSBL_Content_Sort.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
-		
-		MyLabelBold lbl_DSBL_Content_Sort = new MyLabelBold("Sắp xếp theo:");
-		panel_DSBL_Content_Sort.add(lbl_DSBL_Content_Sort);
-		
-		String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây
-		MyComboBox comboBox_DSBL_Content_Sort = new MyComboBox(items_DSBL_Sapxep);
-		panel_DSBL_Content_Sort.add(comboBox_DSBL_Content_Sort);
 		
 		// Khu vực thông tin chính
 		MyPanel panel_DSBL_Content_Table = new MyPanel();
