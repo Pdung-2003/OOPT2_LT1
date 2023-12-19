@@ -1,16 +1,18 @@
 package view;
 
+import view.Buttons.Button_Chung;
+import view.ComboBox.MyComboBox;
+import view.Labels.MyLabelBold;
+import view.Panels.MyPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.LineBorder;
 
