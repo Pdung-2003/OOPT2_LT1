@@ -19,8 +19,10 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-    public class TwitterCrawler implements DataCrawler {
+public class TwitterCrawler implements DataCrawler {
         private final WebDriver driver;
         private final WebDriverWait wait;
         private final JavascriptExecutor js;
@@ -79,13 +81,20 @@ import java.util.List;
             String timestamp = tweet.findElement(By.xpath(".//time")).getAttribute("datetime");
             String content = tweet.findElement(By.xpath(".//div[@data-testid='tweetText']")).getText();
 
+            String firstHashtag = null;
+            Pattern pattern = Pattern.compile("#\\w+");
+            Matcher matcher = pattern.matcher(content);
+
+            if (matcher.find()) {
+                firstHashtag = matcher.group();
+            }
             List<String> images = new ArrayList<>();
             List<WebElement> imageElements = tweet.findElements(By.xpath(".//img[@alt='Image' and not(contains(@src,'profile_images'))]"));
             for (WebElement imgElement : imageElements) {
                 images.add(imgElement.getAttribute("src"));
             }
 
-            return new Twitter(username, timestamp, content, userId, images);
+            return new Twitter(username, timestamp,firstHashtag, content, userId, images);
         } catch (NoSuchElementException e) {
             System.out.println("Some elements were not found in this tweet.");
             return null; // Or handle the exception as needed

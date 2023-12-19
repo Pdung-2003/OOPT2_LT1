@@ -1,5 +1,8 @@
 package view;
 
+import view.Buttons.Button_Chung;
+import view.Panels.MyPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
