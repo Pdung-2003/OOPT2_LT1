@@ -1,10 +1,11 @@
-package OOP.TodayNFTNewsCrawler;
+package crawler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.TodayNFTNews;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -18,24 +19,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
-class CollectionInfo {
-    private String title;
-    private String imageUrl;
-    private String author;
-    private String date;
-    private String tag;
-    private String content;
-
-    public CollectionInfo(String title, String imageUrl, String author, String date, String tag, String content) {
-        this.title = title;
-        this.imageUrl = imageUrl;
-        this.author = author;
-        this.date = date;
-        this.tag = tag;
-        this.content = content;
-    }
-}
 
 public class TodayNTFCrawler {
     public static void main(String[] args) {
@@ -79,7 +62,7 @@ public class TodayNTFCrawler {
             }
         }
 
-        List<CollectionInfo> CollectionInfoList = new ArrayList<>();
+        List<TodayNFTNews> CollectionInfoList = new ArrayList<>();
 
         // Lặp qua danh sách URL và truy cập từng URL để thu thập thông tin
         for (String postUrl : postUrls) {
@@ -132,7 +115,7 @@ public class TodayNTFCrawler {
                     tag = tag.substring(0, tag.length() - 2);
                 }
 
-                CollectionInfoList.add(new CollectionInfo(title,imageUrl,author,date,tag,content));
+                CollectionInfoList.add(new TodayNFTNews(title,imageUrl,author,date,tag,content));
 
             } catch (Exception e) {
                 System.err.println("Error: " + e.getMessage());
@@ -150,7 +133,7 @@ public class TodayNTFCrawler {
         driver.quit();
     }
 
-    private static void saveDataToJson(List<OOP.TodayNFTNewsCrawler.CollectionInfo> collectionInfoList) {
+    private static void saveDataToJson(List<TodayNFTNews> collectionInfoList) {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(collectionInfoList);
