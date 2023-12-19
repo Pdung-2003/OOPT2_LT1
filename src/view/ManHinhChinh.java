@@ -26,7 +26,5 @@ public class ManHinhChinh extends JFrame {
                 buttonTimKiem.addActionListener(e -> contentPanel.showCard("Tìm kiếm dữ liệu", "Tìm kiếm dữ liệu"));
                 buttonThongKe.addActionListener(e -> contentPanel.showCard("Thống kê dữ liệu", "Thống kê dữ liệu"));
 
-
-
         }
 }
