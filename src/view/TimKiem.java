@@ -20,28 +20,30 @@ public class TimKiem extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TimKiem(String[] items_TK_TimTheo) {
+	public TimKiem(String[] TimKiem, String[] SapXep) {
 
 		setBackground(Colors.Trang);
-		setPreferredSize(new Dimension(1085, 110));
-		setLayout(new BorderLayout(20, 0));
+		setPreferredSize(new Dimension(1085, 145));
+		setLayout(new BorderLayout(20,0));
 
+		// Panel tổng thể
 		MyPanel panel_TK_Search = new MyPanel();
 		add(panel_TK_Search, BorderLayout.NORTH);
-		panel_TK_Search.setLayout(new BorderLayout(0, 0));
+		panel_TK_Search.setLayout(new BorderLayout(0, 10));
 
+		// Panel chọn phương pháp tìm kiếm
 		MyPanel panel_TK_Search_TimTheo = new MyPanel();
 		panel_TK_Search.add(panel_TK_Search_TimTheo, BorderLayout.NORTH);
 		panel_TK_Search_TimTheo.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 10));
 
-		MyLabelBold lbl_TK_Search_Input_TimTheo_CachTim = new MyLabelBold("Tìm theo: ");
-		lbl_TK_Search_Input_TimTheo_CachTim.setFont(new Font("Arial", Font.BOLD, 16));
-		panel_TK_Search_TimTheo.add(lbl_TK_Search_Input_TimTheo_CachTim);
+		MyLabelBold lbl_TK_Search_Input_TimTheo = new MyLabelBold("Tìm theo: ");
+		lbl_TK_Search_Input_TimTheo.setFont(new Font("Arial", Font.BOLD, 16));
+		panel_TK_Search_TimTheo.add(lbl_TK_Search_Input_TimTheo);
 
-		// Chon cac cach tim kiem du lieu
-		MyComboBox comboBox_TK_Search_Input_TimTheo_CachTim = new MyComboBox(items_TK_TimTheo);
-		panel_TK_Search_TimTheo.add(comboBox_TK_Search_Input_TimTheo_CachTim);
+		MyComboBox comboBox_TK_Search_Input_TimTheo = new MyComboBox(TimKiem);
+		panel_TK_Search_TimTheo.add(comboBox_TK_Search_Input_TimTheo);
 
+		// Panel chứa thanh tìm kiếm và nút tìm kiếm
 		MyPanel panel_TK_Search_Input = new MyPanel();
 		panel_TK_Search.add(panel_TK_Search_Input, BorderLayout.CENTER);
 		panel_TK_Search_Input.setLayout(new BorderLayout(10, 10));
@@ -62,16 +64,21 @@ public class TimKiem extends JPanel {
 		MyPanel panel_TK_Search_Input_Confirm = new MyPanel();
 		panel_TK_Search_Input.add(panel_TK_Search_Input_Confirm, BorderLayout.EAST);
 
-		Button_Chung btnNewButton = new Button_Chung("Tìm Kiếm");
-		panel_TK_Search_Input_Confirm.add(btnNewButton);
+		Button_Chung btn_TK_Search_Input_Confirm = new Button_Chung("Tìm Kiếm");
+		panel_TK_Search_Input_Confirm.add(btn_TK_Search_Input_Confirm);
 		
-		MyPanel panel_TK_Search_Margin = new MyPanel();
-		panel_TK_Search_Margin.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 0, 0)));
-		panel_TK_Search.add(panel_TK_Search_Margin, BorderLayout.SOUTH);
-		panel_TK_Search_Margin.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 5));
-
-		// Chon cach sap xep thong tin out put
-		String[] items_TK_SapXep = {"item1", "item2", "item3", "item4"};
+		// Khu vực sắp xếp
+		MyPanel panel_TK_Search_Sort = new MyPanel();
+		panel_TK_Search_Sort.setBorder(new MatteBorder(1, 0, 0, 0, (Color) new Color(0, 0, 0)));
+		panel_TK_Search.add(panel_TK_Search_Sort, BorderLayout.SOUTH);
+		panel_TK_Search_Sort.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 10));
+		
+		MyLabelBold lbl_DSNFT_Filter_SapXep = new MyLabelBold("Sắp xếp theo: ");
+		lbl_DSNFT_Filter_SapXep.setFont(new Font("Arial", Font.BOLD, 16));
+		panel_TK_Search_Sort.add(lbl_DSNFT_Filter_SapXep);
+		
+		MyComboBox comboBox_DSNFT_Filter_SapXep = new MyComboBox(SapXep);
+		panel_TK_Search_Sort.add(comboBox_DSNFT_Filter_SapXep);
 
 	}
 }
