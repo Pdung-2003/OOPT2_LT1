@@ -1,4 +1,4 @@
-package view;
+package view.Buttons;
 
 import javax.swing.*;
 
@@ -6,8 +6,8 @@ public abstract class CustomizedButton extends JButton {
 
     public CustomizedButton(String text){
         super(text);
-        customizedButton();
+        customizeButton();
     }
 
-    protected abstract void customizedButton();
+    protected abstract void customizeButton();
 }

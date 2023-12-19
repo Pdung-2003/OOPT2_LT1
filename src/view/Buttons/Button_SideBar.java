@@ -1,7 +1,8 @@
-package view;
+package view.Buttons;
+
+import view.Colors;
 
 import javax.swing.*;
-import java.awt.Color;
 import java.awt.Font;
 
 public class Button_SideBar extends CustomizedButton {
@@ -10,7 +11,7 @@ public class Button_SideBar extends CustomizedButton {
         super(text);
     }
 
-    protected void customizedButton() {
+    protected void customizeButton() {
         setBackground(Colors.Vang);
         setForeground(Colors.Chu);
         setFont(new Font("Arial", Font.BOLD, 16));

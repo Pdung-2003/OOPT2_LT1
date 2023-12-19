@@ -1,8 +1,9 @@
-package view;
+package view.Buttons;
+
+import view.Colors;
 
 import java.awt.Font;
 
-import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 public class Button_Chung extends CustomizedButton {
@@ -11,7 +12,7 @@ public class Button_Chung extends CustomizedButton {
         super(text);
     }
 
-    protected void customizedButton() {
+    protected void customizeButton() {
         setBackground(Colors.Vang);
         setForeground(Colors.Den);
         setFont(new Font("Arial", Font.BOLD, 16));
