@@ -115,7 +115,7 @@ public class TodayNTFCrawler {
                     tag = tag.substring(0, tag.length() - 2);
                 }
 
-                CollectionInfoList.add(new TodayNFTNews(title,imageUrl,author,date,tag,content));
+                CollectionInfoList.add(new TodayNFTNews(author,date,tag,content,title,imageUrl));
 
             } catch (Exception e) {
                 System.err.println("Error: " + e.getMessage());
