@@ -3,6 +3,10 @@ package view;
 //import OOP.Binance.CollectionItem;
 import crawler.NiftyGateway.Collection;
 import crawler.NiftyGateway.Result;
+import view.Buttons.Button_Chung;
+import view.ComboBox.MyComboBox;
+import view.Labels.MyLabelBold;
+import view.Panels.MyPanel;
 
 import java.awt.*;
 
@@ -14,8 +18,6 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
-import static crawler.BinanceCrawler.collectionItems;
 
 public class DanhSachNFT extends JPanel {
 
