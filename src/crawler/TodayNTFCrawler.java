@@ -129,6 +129,7 @@ public class TodayNTFCrawler implements DataCrawler {
         }
     }
 
+<<<<<<< HEAD
     @Override
     public void processData() {
 
@@ -136,6 +137,11 @@ public class TodayNTFCrawler implements DataCrawler {
 
     @Override
     public void saveData(String filename) throws IOException {
+=======
+
+
+    private static void saveDataToJson(List<TodayNFTNews> collectionInfoList) {
+>>>>>>> 6a0380e2bed7c841a7fc0dc15267f386dc1a6348
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(CollectionInfoList);

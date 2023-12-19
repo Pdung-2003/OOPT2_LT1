@@ -136,18 +136,19 @@ public class TwitterCrawler implements DataCrawler {
         driver.quit();
     }
 
-    public static void main(String[] args) {
-        TwitterCrawler crawler = new TwitterCrawler();
+    @Override
+    public void run() {
         try {
-            crawler.fetchData();    // Thu thập dữ liệu từ Twitter
-            crawler.processData();  // Xử lý dữ liệu (nếu cần)
-            crawler.saveData("Twitter.json");  // Lưu dữ liệu vào file
+            fetchData();    // Thu thập dữ liệu từ Twitter
+            processData();  // Xử lý dữ liệu (nếu cần)
+            saveData("Twitter.json");  // Lưu dữ liệu vào file
             System.out.println("Thu thập và lưu dữ liệu thành công.");
         } catch (InterruptedException | IOException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            crawler.closeBrowser();  // Đóng trình duyệt
+            closeBrowser();  // Đóng trình duyệt
         }
     }
+
 }
