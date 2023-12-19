@@ -31,4 +31,6 @@ public class Binance extends NFTGeneral{
     public float getFloorPriceRate() {
         return floorPriceRate;
     }
+
+    public String getCoverUrl() { return coverUrl; }
 }
