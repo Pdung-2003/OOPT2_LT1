@@ -3,10 +3,7 @@ package view;
 import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -27,7 +24,7 @@ public class DanhSachBlog extends TimKiemNFT {
 		setBorder(new LineBorder(Colors.Trang, 20, true));
 		setPreferredSize(new Dimension(1085, 730));
 		setLayout(new BorderLayout(20, 0));
-		
+
 		// Khu vực tìm kiếm
 		String[] items_DSBL_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
 		String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây

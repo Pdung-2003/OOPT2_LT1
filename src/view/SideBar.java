@@ -10,6 +10,8 @@ public class SideBar extends JPanel {
 	private JButton buttonDanhSach;
 	private JButton buttonTimKiem;
 	private JButton buttonThongKe;
+	private JButton buttonBlog;
+
 
 	public SideBar() {
 		setBackground(Colors.Vang);
@@ -18,6 +20,9 @@ public class SideBar extends JPanel {
 
 		buttonDanhSach = new Button_SideBar("Danh sách NFT");
 		add(buttonDanhSach);
+
+		buttonBlog = new Button_SideBar("Danh sách blog");
+		add(buttonBlog);
 
 		buttonTimKiem = new Button_SideBar("Tìm kiếm dữ liệu");
 		add(buttonTimKiem);
@@ -37,4 +42,5 @@ public class SideBar extends JPanel {
 	public JButton getButtonThongKe() {
 		return buttonThongKe;
 	}
+	public JButton getButtonBlog(){return buttonBlog;}
 }
