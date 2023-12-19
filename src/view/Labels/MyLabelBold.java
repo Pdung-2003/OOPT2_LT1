@@ -1,18 +1,17 @@
-package view;
+package view.Labels;
 
 import java.awt.Font;
 
 import javax.swing.JLabel;
 
-public class MyLabelBold extends JLabel{
+public class MyLabelBold extends CustomizedLabel{
 
     public MyLabelBold(String item) {
         super(item);
-        customizeMyLabel();
     }
 
-    private void customizeMyLabel() {
+    protected void customizeLabel() {
+
         setFont(new Font("Arial", Font.BOLD, 16));
     }
-
 }
