@@ -1,10 +1,10 @@
 package view;
 
+import view.Buttons.Button_SideBar;
+
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.JButton;
-
-import javax.swing.SwingConstants;
 
 public class SideBar extends JPanel {
 	private JButton buttonDanhSach;
