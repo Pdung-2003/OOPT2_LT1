@@ -18,7 +18,7 @@ import java.util.List;
 public class DanhSachNFT extends JPanel {
 
 	private final DefaultTableModel tableModel;
-	private final MyPanel panel_DS_Content;
+	private final MyPanel panel_DSNFT_Content;
 	private final JTable table;
 	private final JScrollPane scrollPane;
 	private final NFTController nftController;
@@ -31,49 +31,45 @@ public class DanhSachNFT extends JPanel {
 
 		nftController = new NFTController();
 
-		// Khu vuc filter
-		MyPanel panel_DS_Filter = new MyPanel();
-		panel_DS_Filter.setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 0, 0)));
-		add(panel_DS_Filter, BorderLayout.NORTH);
-		panel_DS_Filter.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
+		// Khu vực filter
+		MyPanel panel_DSNFT_Filter = new MyPanel();
+		panel_DSNFT_Filter.setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 0, 0)));
+		add(panel_DSNFT_Filter, BorderLayout.NORTH);
+		panel_DSNFT_Filter.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
 
-		// Chon nen tang muon xem danh sach
-		MyLabelBold lbl_DS_Filter_NenTang = new MyLabelBold("Chọn nền tảng: ");
-		lbl_DS_Filter_NenTang.setFont(new Font("Arial", Font.BOLD, 16));
-		panel_DS_Filter.add(lbl_DS_Filter_NenTang);
+		// Chọn nền tảng muốn xem thông tin
+		MyLabelBold lbl_DSNFT_Filter_NenTang = new MyLabelBold("Chọn nền tảng: ");
+		lbl_DSNFT_Filter_NenTang.setFont(new Font("Arial", Font.BOLD, 16));
+		panel_DSNFT_Filter.add(lbl_DSNFT_Filter_NenTang);
 
-		String[] items_DS_NenTang = {"Nifty Gateway", "Binance", "Opensea", "Twitter"};
-		MyComboBox comboBox_DS_Filter_NenTang = new MyComboBox(items_DS_NenTang);
-		panel_DS_Filter.add(comboBox_DS_Filter_NenTang);
+		String[] items_DSNFT_NenTang = {"Nifty Gateway", "Binance", "Opensea", "Twitter"}; // Thêm nền tảng vào đây
+		MyComboBox comboBox_DSNFT_Filter_NenTang = new MyComboBox(items_DSNFT_NenTang);
+		panel_DSNFT_Filter.add(comboBox_DSNFT_Filter_NenTang);
 
-		// Chon cach sap xep du lieu in ra man hinh
-		MyLabelBold lbl_DS_Filter_SapXep = new MyLabelBold("Sắp xếp theo: ");
-		lbl_DS_Filter_SapXep.setFont(new Font("Arial", Font.BOLD, 16));
-		panel_DS_Filter.add(lbl_DS_Filter_SapXep);
+		// Nút confirm duyệt dữ liệu để in ra màn hình
+		Button_Chung btn_DSNFT_CF_Filter = new Button_Chung("Xem Danh Sách");
+		panel_DSNFT_Filter.add(btn_DSNFT_CF_Filter);
 
-		String[] items_DS_SapXep = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"};
-		MyComboBox comboBox_DS_Filter_SapXep = new MyComboBox(items_DS_SapXep);
-		panel_DS_Filter.add(comboBox_DS_Filter_SapXep);
+		// Khu vực chính dùng để in dữ liệu
+		panel_DSNFT_Content = new MyPanel();
+		add(panel_DSNFT_Content, BorderLayout.CENTER);
+		panel_DSNFT_Content.setLayout(new BorderLayout(0, 0));
 
-		// Nut confirm duyet de in du lieu ra man hinh
-		Button_Chung btn_DS_CF_Filter = new Button_Chung("Xem Danh Sách");
-		panel_DS_Filter.add(btn_DS_CF_Filter);
-
-		// Khu vuc chinh dung de in du lieu
-		panel_DS_Content = new MyPanel();
-		add(panel_DS_Content, BorderLayout.CENTER);
-		panel_DS_Content.setLayout(new BorderLayout(0, 0));
-
+		// Khu vực tìm kiếm
+		String[] items_DSNFT_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
+		String[] items_DSNFT_SapXep = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp sắp xếp vào đây
+		TimKiem DSNFT_TimKiem = new TimKiem(items_DSNFT_TimKiem, items_DSNFT_SapXep);
+		panel_DSNFT_Content.add(DSNFT_TimKiem, BorderLayout.NORTH);
 		// Tạo bảng và scrollPane một lần
 		tableModel = new DefaultTableModel();
 		table = new JTable(tableModel);
 		scrollPane = getjScrollPane();
 
-		// Thêm scrollPane vào panel_DS_Content
-		panel_DS_Content.add(scrollPane, BorderLayout.CENTER);
+		// Thêm scrollPane vào panel_DSNFT_Content
+		panel_DSNFT_Content.add(scrollPane, BorderLayout.CENTER);
 
-		btn_DS_CF_Filter.addActionListener(e -> {
-			String selectedNenTang = (String) comboBox_DS_Filter_NenTang.getSelectedItem();
+		btn_DSNFT_CF_Filter.addActionListener(e -> {
+			String selectedNenTang = (String) comboBox_DSNFT_Filter_NenTang.getSelectedItem();
 			assert selectedNenTang != null;
 
 			// Tạo bảng với các cột tương ứng cho từng sàn
@@ -85,7 +81,7 @@ public class DanhSachNFT extends JPanel {
 //					List<NiftyGateway> niftyData = nftController.getNiftyData(); // Lấy dữ liệu từ Controller
 //					nftController.addDataToTableNifty(niftyData); // Thêm thông tin vào bảng từ dữ liệu NiftyGateway
 //					break;
-				// Các trường hợp khác
+			// Các trường hợp khác
 //			}
 		});
 	}
