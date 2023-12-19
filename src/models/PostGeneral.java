@@ -12,6 +12,11 @@ public abstract class PostGeneral {
         this.hashtag = hashtag;
         this.content = content;
     }
+    public PostGeneral(String author, String date, String content) {
+        this.author = author;
+        this.date = date;
+        this.content = content;
+    }
 
     public String getAuthor() {
         return author;

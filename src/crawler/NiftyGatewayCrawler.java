@@ -1,20 +1,22 @@
-package crawler.NiftyGateway;
+package crawler;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-import crawler.DataCrawler;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.*;
+import models.Binance;
+import models.NiftyGateway;
 
 public class NiftyGatewayCrawler implements DataCrawler {
-    private List<Result> results;
+    private List<NiftyGateway> results;
 
     @Override
     public void fetchData() throws IOException, InterruptedException {
@@ -28,8 +30,15 @@ public class NiftyGatewayCrawler implements DataCrawler {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
         Gson gson = new GsonBuilder().create();
-        Response responseObj = gson.fromJson(response.body(), Response.class);
-        results = responseObj.getResults();
+
+        // Parse the JSON response directly as an object
+        JsonObject responseObject = JsonParser.parseString(response.body()).getAsJsonObject();
+
+        JsonArray dataArray = responseObject.getAsJsonArray("results");
+
+        // Deserialize JSON array into a list of NiftyGateway objects
+        Type listType = new TypeToken<List<NiftyGateway>>() {}.getType();
+        results = gson.fromJson(dataArray, listType);
     }
 
     @Override

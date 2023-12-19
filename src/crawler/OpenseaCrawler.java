@@ -1,10 +1,11 @@
-package crawler.Opensea;
+package crawler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.Opensea;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -22,24 +23,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class CollectionInfo {
-    private String collectionName;
-    private String img;
-    private String volume;
-    private String discount;
-    private String floorPrice;
-    private String sales;
-
-    public CollectionInfo(String collectionName, String img, String volume, String discount, String floorPrice, String sales) {
-        this.collectionName = collectionName;
-        this.img = img;
-        this.volume = volume;
-        this.discount = discount;
-        this.floorPrice = floorPrice;
-        this.sales = sales;
-    }
-}
-
 public class OpenseaCrawler {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
@@ -54,7 +37,7 @@ public class OpenseaCrawler {
         }
 
         Set<String> collectionNames = new HashSet<>();
-        List<CollectionInfo> collectionInfoList = new ArrayList<>();
+        List<Opensea> collectionInfoList = new ArrayList<>();
         int targetElementCount = 100;
 
         try {
@@ -64,7 +47,7 @@ public class OpenseaCrawler {
         }
     }
 
-    private static void crawlData(WebDriver driver, Set<String> collectionNames, List<CollectionInfo> collectionInfoList, int targetElementCount) {
+    private static void crawlData(WebDriver driver, Set<String> collectionNames, List<Opensea> collectionInfoList, int targetElementCount) {
         int currentElementCount = 0;
 
         while (currentElementCount < targetElementCount) {
@@ -87,7 +70,7 @@ public class OpenseaCrawler {
                     String floorPrice = (elementList.size() >= 3) ? elementList.get(2).getText() : null;
 
                     if (volume != null && discount != null && floorPrice != null && sales != null) {
-                        collectionInfoList.add(new CollectionInfo(collectionName, img, volume, discount, floorPrice, sales));
+                        collectionInfoList.add(new Opensea(collectionName, volume, floorPrice, img, discount, sales));
                         collectionNames.add(collectionName);
                         currentElementCount++;
                     }
@@ -141,7 +124,7 @@ public class OpenseaCrawler {
         return newHeight != lastHeight;
     }
 
-    private static void saveDataToJson(List<CollectionInfo> collectionInfoList) {
+    private static void saveDataToJson(List<Opensea> collectionInfoList) {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(collectionInfoList);

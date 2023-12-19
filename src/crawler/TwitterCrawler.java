@@ -1,9 +1,9 @@
-package crawler.Twitter;
+package crawler;
 
-import crawler.DataCrawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.Twitter;
 import org.json.JSONArray;
 
 import org.json.JSONTokener;
@@ -20,28 +20,11 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
- class TweetInfo {
-    private final String username;
-    private String userId;
-    private String timestamp;
-    private String content;
-    private List<String> images;
-
-    public TweetInfo(String username, String userId, String timestamp, String content, List<String> images) {
-        this.username = username;
-        this.userId = userId;
-        this.timestamp = timestamp;
-        this.content = content;
-        this.images = images;
-    }
-
-    // Add getters and setters here if necessary
-}
     public class TwitterCrawler implements DataCrawler {
         private final WebDriver driver;
         private final WebDriverWait wait;
         private final JavascriptExecutor js;
-        private List<TweetInfo> tweetInfoList;
+        private List<Twitter> tweetInfoList;
 
         public TwitterCrawler() {
             WebDriverManager.chromedriver().setup();
@@ -71,14 +54,14 @@ import java.util.List;
         searchBox.sendKeys(query + Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@role='article']")));
     }
-    private List<TweetInfo> collectTweets() throws InterruptedException {
-        List<TweetInfo> tweetInfoList = new ArrayList<>();
+    private List<Twitter> collectTweets() throws InterruptedException {
+        List<Twitter> tweetInfoList = new ArrayList<>();
 
         while (tweetInfoList.size() < 50) {
             List<WebElement> tweets = driver.findElements(By.xpath("//article[@role='article']"));
             for (WebElement tweet : tweets) {
                 if (tweetInfoList.size() >= 50) break;
-                TweetInfo tweetInfo = extractTweetInfo(tweet);
+                Twitter tweetInfo = extractTweetInfo(tweet);
                 if (tweetInfo != null) {
                     tweetInfoList.add(tweetInfo);
                 }
@@ -89,7 +72,7 @@ import java.util.List;
 
         return tweetInfoList;
     }
-    private TweetInfo extractTweetInfo(WebElement tweet) {
+    private Twitter extractTweetInfo(WebElement tweet) {
         try {
             String username = tweet.findElement(By.xpath(".//div[contains(@data-testid,'User-Name')]//span")).getText();
             String userId = tweet.findElement(By.xpath(".//a[contains(@href,'/')]")).getAttribute("href").replace("https://twitter.com/", "");
@@ -102,7 +85,7 @@ import java.util.List;
                 images.add(imgElement.getAttribute("src"));
             }
 
-            return new TweetInfo(username, userId, timestamp, content, images);
+            return new Twitter(username, timestamp, content, userId, images);
         } catch (NoSuchElementException e) {
             System.out.println("Some elements were not found in this tweet.");
             return null; // Or handle the exception as needed
