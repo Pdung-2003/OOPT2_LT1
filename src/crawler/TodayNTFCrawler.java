@@ -133,6 +133,8 @@ public class TodayNTFCrawler {
         driver.quit();
     }
 
+
+
     private static void saveDataToJson(List<TodayNFTNews> collectionInfoList) {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

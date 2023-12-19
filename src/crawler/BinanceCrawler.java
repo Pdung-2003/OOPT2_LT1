@@ -51,12 +51,12 @@ public class BinanceCrawler implements DataCrawler {
             writer.write(json);
         }
     }
-    public static void main(String[] args) {
-        BinanceCrawler crawler = new BinanceCrawler();
+    @Override
+    public void run() {
         try {
-            crawler.fetchData();
-            crawler.processData();
-            crawler.saveData("Binance.json");
+            fetchData();
+            processData();
+            saveData("Binance.json");
             System.out.println("Dữ liệu từ Binance đã được thu thập và lưu vào 'Binance.json'.");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

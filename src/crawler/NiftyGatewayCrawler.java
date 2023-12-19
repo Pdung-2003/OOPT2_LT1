@@ -55,16 +55,16 @@ public class NiftyGatewayCrawler implements DataCrawler {
             writer.write(json);
         }
     }
-    public static void main(String[] args) {
-        NiftyGatewayCrawler crawler = new NiftyGatewayCrawler();
+    public void run() {
         try {
-            crawler.fetchData(); // Thu thập dữ liệu từ Nifty Gateway
-            crawler.processData(); // Xử lý dữ liệu (nếu cần)
-            crawler.saveData("NiftyGatewayData.json"); // Lưu dữ liệu vào file
+            fetchData(); // Thu thập dữ liệu từ Nifty Gateway
+            processData(); // Xử lý dữ liệu (nếu cần)
+            saveData("NiftyGatewayData.json"); // Lưu dữ liệu vào file
             System.out.println("Dữ liệu từ Nifty Gateway đã được thu thập và lưu vào 'NiftyGatewayData.json'.");
         } catch (IOException | InterruptedException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
 }
