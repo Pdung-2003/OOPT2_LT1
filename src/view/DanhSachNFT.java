@@ -1,8 +1,8 @@
 package view;
 
 //import OOP.Binance.CollectionItem;
-import crawler.NiftyGateway.Collection;
-import crawler.NiftyGateway.Result;
+/*import crawler.NiftyGateway.Collection;
+import crawler.NiftyGateway.Result;*/
 
 import java.awt.*;
 
@@ -20,7 +20,7 @@ import static crawler.BinanceCrawler.collectionItems;
 public class DanhSachNFT extends JPanel {
 
 	private DefaultTableModel tableModel;
-	private List<Result> results;
+	//private List<Result> results;
 	//private List<CollectionItem> collectionItem;
 	private final MyPanel panel_DS_Content;
 
@@ -28,9 +28,9 @@ public class DanhSachNFT extends JPanel {
 	private JTable table;
 	private JScrollPane scrollPane;
 
-	public void setResults(List<Result> results) {
+	/*//public void setResults(List<Result> results) {
 		this.results = results;
-	}
+	}*/
 	/*public void setCollectionItems(List<CollectionItem> collectionItems) {
 		this.collectionItems = collectionItems;
 	}*/
@@ -95,7 +95,7 @@ public class DanhSachNFT extends JPanel {
 			// Thiết lập cột cho bảng dựa trên giá trị được chọn
             assert selectedNenTang != null;
             setTableColumns(selectedNenTang);
-			if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Nifty Gateway")){
+			/*if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Nifty Gateway")){
 				if (results != null) {
 					addDataToTableNifty(results);
 				} else {
@@ -125,7 +125,7 @@ public class DanhSachNFT extends JPanel {
 			}
 			else {
 				System.out.println("Không tồn tại nền tảng này!");
-			}
+			}*/
 		});
 	}
 
@@ -154,7 +154,7 @@ public class DanhSachNFT extends JPanel {
 	}
 
 	// Hàm thêm dữ liệu vào bảng
-	private void addDataToTableNifty(List<Result> results) {
+	/*private void addDataToTableNifty(List<Result> results) {
 		for (Result result : results) {
 			Collection collection = result.getCollection();
 			Object[] rowData = {
@@ -174,7 +174,7 @@ public class DanhSachNFT extends JPanel {
 			};
 			tableModel.addRow(rowData);
 		}
-	}
+	}*/
 	/*private void addDataToTableBinance(List<CollectionItem> collectionItems) {
 		for (CollectionItem collectionItem : collectionItems) {
 			Object[] rowData = {

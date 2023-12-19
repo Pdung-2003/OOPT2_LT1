@@ -1,19 +1,17 @@
 package models;
 
 public class NiftyGateway extends NFTGeneral{
-    private int niftyType;
     private float avgSalePrice;
     private int totalNumPrimarySales;
+    private String totalVolume;
+    private CollectionNFTGateway collection;
 
-    public NiftyGateway(String title, String volume, String floorPrice, String image, int niftyType, float avgSalePrice, int totalNumPrimarySales) {
-        super(title, volume, floorPrice, image);
-        this.niftyType = niftyType;
+    public NiftyGateway(String totalVolume, String floorPrice, float avgSalePrice, int totalNumPrimarySales, CollectionNFTGateway collections) {
+        super(floorPrice);
+        this.totalVolume = totalVolume;
         this.avgSalePrice = avgSalePrice;
         this.totalNumPrimarySales = totalNumPrimarySales;
-    }
-
-    public int getNiftyType() {
-        return niftyType;
+        this.collection = collection;
     }
 
     public float getAvgSalePrice() {
@@ -22,5 +20,13 @@ public class NiftyGateway extends NFTGeneral{
 
     public int getTotalNumPrimarySales() {
         return totalNumPrimarySales;
+    }
+
+    public String getTotalVolume() {
+        return totalVolume;
+    }
+
+    public CollectionNFTGateway getCollection() {
+        return collection;
     }
 }
