@@ -20,8 +20,10 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodayNTFCrawler {
-    public static void main(String[] args) {
+public class TodayNTFCrawler implements DataCrawler {
+    public static List<TodayNFTNews> CollectionInfoList = new ArrayList<>();
+    @Override
+    public void fetchData() throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -61,8 +63,6 @@ public class TodayNTFCrawler {
                 postUrls.add(postUrl);
             }
         }
-
-        List<TodayNFTNews> CollectionInfoList = new ArrayList<>();
 
         // Lặp qua danh sách URL và truy cập từng URL để thu thập thông tin
         for (String postUrl : postUrls) {
@@ -127,24 +127,38 @@ public class TodayNTFCrawler {
                 }
             }
         }
-        saveDataToJson(CollectionInfoList);
-
-        // Đóng trình duyệt khi hoàn tất
-        driver.quit();
     }
 
-    private static void saveDataToJson(List<TodayNFTNews> collectionInfoList) {
+    @Override
+    public void processData() {
+
+    }
+
+    @Override
+    public void saveData(String filename) throws IOException {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(collectionInfoList);
+        String json = gson.toJson(CollectionInfoList);
         JsonObject mainJsonObject = new JsonObject();
         mainJsonObject.add("data", jsonArray);
 
-        try (FileWriter fileWriter = new FileWriter("TodayNFTNews.json")) {
+        try (FileWriter fileWriter = new FileWriter(filename)) {
             fileWriter.write(json);
             System.out.println("Dữ liệu đã được lưu vào TodayNFTNews.json");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        TodayNTFCrawler crawler = new TodayNTFCrawler();
+        try {
+            crawler.fetchData();
+            crawler.processData();
+            crawler.saveData("TodayNFTNews.json");
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
