@@ -1,51 +1,35 @@
 package view;
 
-//import OOP.Binance.CollectionItem;
-/*import crawler.NiftyGateway.Collection;
-import crawler.NiftyGateway.Result;*/
-
-import java.awt.*;
+import controller.NFTController;
+import models.NiftyGateway;
+import view.Buttons.Button_Chung;
+import view.ComboBox.MyComboBox;
+import view.Labels.MyLabelBold;
+import view.Panels.MyPanel;
 
 import javax.swing.*;
-import java.util.List;
-import java.util.Objects;
-
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
-import static crawler.BinanceCrawler.collectionItems;
+import java.awt.*;
+import java.util.List;
 
 public class DanhSachNFT extends JPanel {
 
-	private DefaultTableModel tableModel;
-	//private List<Result> results;
-	//private List<CollectionItem> collectionItem;
+	private final DefaultTableModel tableModel;
 	private final MyPanel panel_DS_Content;
+	private final JTable table;
+	private final JScrollPane scrollPane;
+	private final NFTController nftController;
 
-	// Tạo bảng và scrollPane trong constructor
-	private JTable table;
-	private JScrollPane scrollPane;
-
-	/*//public void setResults(List<Result> results) {
-		this.results = results;
-	}*/
-	/*public void setCollectionItems(List<CollectionItem> collectionItems) {
-		this.collectionItems = collectionItems;
-	}*/
-	/**
-	 * Create the panel.
-	 */
 	public DanhSachNFT() {
-		// Set Thong tin chung
-		// Existing code...
-
-		// Phương thức setter để truyền danh sách results từ bên ngoài
 		setBackground(Colors.TrangDuc);
 		setBorder(new LineBorder(Colors.Trang, 20, true));
 		setPreferredSize(new Dimension(1085, 730));
 		setLayout(new BorderLayout(20, 0));
+
+		nftController = new NFTController();
 
 		// Khu vuc filter
 		MyPanel panel_DS_Filter = new MyPanel();
@@ -89,43 +73,20 @@ public class DanhSachNFT extends JPanel {
 		panel_DS_Content.add(scrollPane, BorderLayout.CENTER);
 
 		btn_DS_CF_Filter.addActionListener(e -> {
-			// Xóa dữ liệu cũ trước khi thêm mới
 			String selectedNenTang = (String) comboBox_DS_Filter_NenTang.getSelectedItem();
+			assert selectedNenTang != null;
 
-			// Thiết lập cột cho bảng dựa trên giá trị được chọn
-            assert selectedNenTang != null;
-            setTableColumns(selectedNenTang);
-			/*if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Nifty Gateway")){
-				if (results != null) {
-					addDataToTableNifty(results);
-				} else {
-					System.out.println("Dữ liệu results là null.");
-				}
-			}
-			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Binance")){
-				if (results != null) {
-					//addDataToTableBinance(collectionItems);
-				} else {
-					System.out.println("Dữ liệu results là null.");
-				}
-			}
-			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Opensea")){
-				if (results != null) {
-					addDataToTableNifty(results);
-				} else {
-					System.out.println("Dữ liệu results là null.");
-				}
-			}
-			else if (Objects.equals(comboBox_DS_Filter_NenTang.getSelectedItem(), "Twitter")){
-				if (results != null) {
-					addDataToTableNifty(results);
-				} else {
-					System.out.println("Dữ liệu results là null.");
-				}
-			}
-			else {
-				System.out.println("Không tồn tại nền tảng này!");
-			}*/
+			// Tạo bảng với các cột tương ứng cho từng sàn
+			setTableColumns(selectedNenTang);
+
+			// Lấy dữ liệu từ Controller và thêm vào bảng
+//			switch (selectedNenTang) {
+//				case "Nifty Gateway":
+//					List<NiftyGateway> niftyData = nftController.getNiftyData(); // Lấy dữ liệu từ Controller
+//					nftController.addDataToTableNifty(niftyData); // Thêm thông tin vào bảng từ dữ liệu NiftyGateway
+//					break;
+				// Các trường hợp khác
+//			}
 		});
 	}
 
@@ -153,47 +114,12 @@ public class DanhSachNFT extends JPanel {
 		return scrollPane;
 	}
 
-	// Hàm thêm dữ liệu vào bảng
-	/*private void addDataToTableNifty(List<Result> results) {
-		for (Result result : results) {
-			Collection collection = result.getCollection();
-			Object[] rowData = {
-					collection.getNiftyTitle(),
-					collection.getNiftyType(),
-					collection.getNiftyContractAddress(),
-					collection.getNiftyDisplayImage(),
-					collection.getTotalMarketCap(),
-					collection.getNumOwners(),
-					collection.getTotalSupply(),
-					// Thêm các dòng khác
-					result.getFloorPrice(),
-					result.getOneDayTotalVolume(),
-					result.getOneDayChange(),
-					result.getTotalVolume(),
-					result.getAvgSalePrice()
-			};
-			tableModel.addRow(rowData);
-		}
-	}*/
-	/*private void addDataToTableBinance(List<CollectionItem> collectionItems) {
-		for (CollectionItem collectionItem : collectionItems) {
-			Object[] rowData = {
-					collectionItem.getCollectionId(),
-					collectionItem.getCoverUrl(),
-					collectionItem.getTitle(),
-					collectionItem.getNetwork(),
-					collectionItem.getVolume(),
-					collectionItem.getVolumeRate(),
-					collectionItem.getOwnersCount(),
-					collectionItem.getItemsCount(),
-					collectionItem.getListedCount(),
-					collectionItem.getFloorPrice(),
-					collectionItem.getFloorPriceRate(),
-					collectionItem.getVerified()
-			};
-			tableModel.addRow(rowData);
-		}
-	}*/
+	public void clearTable() {
+		tableModel.setRowCount(0);
+		tableModel.setColumnCount(0);
+		tableModel.fireTableStructureChanged();
+	}
+
 	private void setTableColumns(String selectedNenTang) {
 		tableModel.setRowCount(0);
 		tableModel.setColumnCount(0);
