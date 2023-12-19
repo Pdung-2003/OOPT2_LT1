@@ -1,10 +1,6 @@
 package view;
 
-import OOP.TodayNFTNewsCrawler.TodayNTFCrawler;
-import crawler.BinanceCrawler;
-import crawler.NiftyGateway.NiftyGatewayCrawler;
-import crawler.Opensea.OpenseaCrawler;
-import crawler.Twitter.TwitterCrawler;
+import crawler.*;
 
 public class NFTDataFetcherThread extends Thread{
     @Override
