@@ -7,11 +7,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-public class DanhSachBlog extends TimKiemNFT {
+public class DanhSachTinTuc extends TimKiemNFT {
 	/**
 	 * Create the panel.
 	 */
-	public DanhSachBlog() {
+	public DanhSachTinTuc() {
 		setBackground(Colors.TrangDuc);
 		setBorder(new LineBorder(Colors.Trang, 20, true));
 		setPreferredSize(new Dimension(1085, 730));

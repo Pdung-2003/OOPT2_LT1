@@ -8,9 +8,9 @@ import javax.swing.JButton;
 
 public class SideBar extends JPanel {
 	private JButton buttonDanhSach;
-	private JButton buttonTimKiem;
+	private JButton buttonTinTuc;
+	private JButton buttonBaiViet;
 	private JButton buttonThongKe;
-	private JButton buttonBlog;
 
 
 	public SideBar() {
@@ -21,8 +21,11 @@ public class SideBar extends JPanel {
 		buttonDanhSach = new Button_SideBar("Danh sách NFT");
 		add(buttonDanhSach);
 
-		buttonBlog = new Button_SideBar("Danh sách blog");
-		add(buttonBlog);
+		buttonTinTuc = new Button_SideBar("Danh sách tin tức");
+		add(buttonTinTuc);
+
+		buttonBaiViet = new Button_SideBar("Danh sách bài viết");
+		add(buttonBaiViet);
 
 		buttonThongKe = new Button_SideBar("Thống kê dữ liệu");
 		add(buttonThongKe);
@@ -35,5 +38,7 @@ public class SideBar extends JPanel {
 	public JButton getButtonThongKe() {
 		return buttonThongKe;
 	}
-	public JButton getButtonBlog(){return buttonBlog;}
+	public JButton getbuttonTinTuc(){return buttonTinTuc;}
+	public JButton getbuttonBaiViet(){return buttonBaiViet;}
+
 }

@@ -40,10 +40,12 @@ public class ManHinhChinh extends JFrame {
 
                 JButton buttonDanhSach = sidebar.getButtonDanhSach();
                 JButton buttonThongKe = sidebar.getButtonThongKe();
-                JButton buttonBlog = sidebar.getButtonBlog();
+                JButton buttonTinTuc = sidebar.getbuttonTinTuc();
+                JButton buttonBaiViet = sidebar.getbuttonBaiViet();
 
                 buttonDanhSach.addActionListener(e -> contentPanel.showCard("Danh sách NFT", lbl_Content_Title,"Danh sách NFT"));
                 buttonThongKe.addActionListener(e -> contentPanel.showCard("Thống kê dữ liệu", lbl_Content_Title,"Thống kê dữ liệu"));
-                buttonBlog.addActionListener(e -> contentPanel.showCard("Danh sách blog", lbl_Content_Title,"Danh sách blog"));
+                buttonTinTuc.addActionListener(e -> contentPanel.showCard("Danh sách tin tức", lbl_Content_Title,"Danh sách tin tức"));
+                buttonBaiViet.addActionListener(e -> contentPanel.showCard("Danh sách bài viết", lbl_Content_Title,"Danh sách bài viết"));
         }
 }
