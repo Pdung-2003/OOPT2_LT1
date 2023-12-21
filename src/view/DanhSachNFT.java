@@ -12,7 +12,6 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.List;
 
 public class DanhSachNFT extends JPanel {
     private final DefaultTableModel tableModel;
