@@ -63,7 +63,7 @@ public class DanhSachNFT extends JPanel {
         // Tạo bảng và scrollPane một lần
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
-        scrollPane = getjScrollPane();
+        scrollPane = Table.getScrollPane(tableModel);
 
         // Thêm scrollPane vào panel_DSNFT_Content
         panel_DSNFT_Content.add(scrollPane, BorderLayout.CENTER);
@@ -103,30 +103,6 @@ public class DanhSachNFT extends JPanel {
                     break;
 			}
         });
-    }
-
-    private JScrollPane getjScrollPane() {
-        table = new JTable(tableModel);
-        table.setBackground(Color.WHITE);
-        table.setForeground(Color.BLACK);
-        // Đặt phông chữ và màu sắc cho header
-        JTableHeader header = table.getTableHeader();
-        header.setFont(new Font("Arial", Font.BOLD, 14)); // Thay đổi phông chữ theo ý muốn
-        header.setBackground(Color.black);
-        header.setForeground(Colors.Vang);
-        // Đặt độ cao của các hàng
-        table.setRowHeight(40); // Đặt độ cao của các hàng là 30 pixels (thay đổi theo ý muốn)
-
-        // Đặt phông chữ cho bảng
-        Font tableFont = new Font("Arial", Font.PLAIN, 14); // Thay đổi phông chữ theo ý muốn
-        table.setFont(tableFont);
-
-        // Tạo scrollPane ngang và dọc cho bảng
-        JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        // Đặt màu nền cho scrollPane
-        scrollPane.setBackground(Color.LIGHT_GRAY);
-        return scrollPane;
     }
 
     private void setTableColumns(String selectedNenTang) {

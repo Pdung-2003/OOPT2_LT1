@@ -1,25 +1,28 @@
 package view;
 
+import controller.DanhSachBlogController;
 import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
+
+import java.util.Arrays;
+import java.util.List;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class DanhSachBlog extends TimKiemNFT {
-	/**
-	 * Create the panel.
-	 */
 	public DanhSachBlog() {
+		DanhSachBlogController controller = new DanhSachBlogController();
 		setBackground(Colors.TrangDuc);
 		setBorder(new LineBorder(Colors.Trang, 20, true));
 		setPreferredSize(new Dimension(1085, 730));
 		setLayout(new BorderLayout(20, 0));
 
 		// Khu vực tìm kiếm
-		String[] items_DSBL_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
-		String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây
+		String[] items_DSBL_TimKiem = {"Bài viết", "Tin tức"}; // Thêm phương pháp tìm kiếm vào đây
+		String[] items_DSBL_Sapxep = {"Mới nhất", "Hot nhất"}; // Thêm phương pháp sắp xếp vào đây
 		TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
 		add(DSBL_TimKiem, BorderLayout.NORTH);
 		
@@ -30,20 +33,16 @@ public class DanhSachBlog extends TimKiemNFT {
 		panel_DSBL_Content.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
 		// Tạo một bảng với một cột
-		String[] columnNames = {"Tên NFT"}; // Tên cột
-		String[][] data = {{"Dữ liệu 1"}, {"Dữ liệu 2"}, {"Dữ liệu 3"}}; // Dữ liệu cho cột
-
-		JTable table = new JTable(data, columnNames);
-		table.setRowHeight(40); // Tăng độ cao của các hàng
-		table.setShowGrid(true); // Hiển thị sọc giữa các hàng
-		table.setGridColor(Color.BLACK); // Màu sọc giữa các hàng
-		JScrollPane scrollPane = new JScrollPane(table);
-
-		table.setTableHeader(null);
-		Font font = table.getFont().deriveFont(Font.PLAIN, 16); // Có thể thay đổi size và style theo mong muốn
-		table.setFont(font);
+		DefaultTableModel tableModelNews = new DefaultTableModel();
+		JTable tableNews = new JTable(tableModelNews);
+		tableModelNews.addColumn("Chủ đề");
+		JScrollPane scrollPane = Table.getScrollPane(tableModelNews);
 
 		panel_DSBL_Content.add(scrollPane, BorderLayout.CENTER);
+
+		// Thêm dữ liệu từ danh sách vào bảng
+		List<String[]> data = controller.titleTodayNFTNewsData();
+		controller.addDataToTableNews(data, tableNews);
 		
 		// Khu vực dành cho button xem chi tiết
 		MyPanel panel_DSBL_Content_Detail = new MyPanel();
