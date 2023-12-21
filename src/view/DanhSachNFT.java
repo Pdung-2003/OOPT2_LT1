@@ -1,9 +1,6 @@
 package view;
 
 import controller.NFTController;
-import models.Binance;
-import models.NiftyGateway;
-import models.Opensea;
 import view.Buttons.Button_Chung;
 import view.ComboBox.MyComboBox;
 import view.Labels.MyLabelBold;
@@ -15,7 +12,6 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.List;
 
 public class DanhSachNFT extends JPanel {
     private final DefaultTableModel tableModel;
@@ -79,24 +75,21 @@ public class DanhSachNFT extends JPanel {
 			switch (selectedNenTang) {
 				case "Nifty Gateway":
                     try {
-                        List<NiftyGateway> niftyList = nftController.getNiftyGatewayData();
-                        nftController.addDataToTableNifty(niftyList,table);
+                        nftController.addDataToTableNifty(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
 					break;
                 case "Binance":
                     try {
-                        List<Binance> binanceList = nftController.getBinanceData();
-                        nftController.addDataToTableBinance(binanceList,table);
+                        nftController.addDataToTableBinance(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
                     break;
                 case "Opensea":
                     try {
-                        List<Opensea> openseaList = nftController.getOpenseaData();
-                        nftController.addDataToTableOpensea(openseaList,table);
+                        nftController.addDataToTableOpensea(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
