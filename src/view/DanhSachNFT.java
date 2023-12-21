@@ -1,8 +1,9 @@
 package view;
 
-//import controller.NFTController;
-//import controller.NFTController;
+import controller.NFTController;
+import models.Binance;
 import models.NiftyGateway;
+import models.Opensea;
 import view.Buttons.Button_Chung;
 import view.ComboBox.MyComboBox;
 import view.Labels.MyLabelBold;
@@ -17,22 +18,18 @@ import java.awt.*;
 import java.util.List;
 
 public class DanhSachNFT extends JPanel {
-
     private final DefaultTableModel tableModel;
     private final MyPanel panel_DSNFT_Content;
-    private final JTable table;
+    private JTable table;
     private final JScrollPane scrollPane;
-   // private final NFTController nftController;
-//    private final NFTController nftController;
+    private NFTController nftController;
 
     public DanhSachNFT() {
+        this.nftController = new NFTController();
         setBackground(Colors.TrangDuc);
         setBorder(new LineBorder(Colors.Trang, 20, true));
         setPreferredSize(new Dimension(1085, 730));
         setLayout(new BorderLayout(20, 0));
-
- //       nftController = new NFTController();
-//        nftController = new NFTController();
 
         // Khu vực filter
         MyPanel panel_DSNFT_Filter = new MyPanel();
@@ -45,7 +42,7 @@ public class DanhSachNFT extends JPanel {
         lbl_DSNFT_Filter_NenTang.setFont(new Font("Arial", Font.BOLD, 16));
         panel_DSNFT_Filter.add(lbl_DSNFT_Filter_NenTang);
 
-        String[] items_DSNFT_NenTang = {"Nifty Gateway", "Binance", "Opensea", "Twitter"}; // Thêm nền tảng vào đây
+        String[] items_DSNFT_NenTang = {"Nifty Gateway", "Binance", "Opensea"};
         MyComboBox comboBox_DSNFT_Filter_NenTang = new MyComboBox(items_DSNFT_NenTang);
         panel_DSNFT_Filter.add(comboBox_DSNFT_Filter_NenTang);
 
@@ -79,18 +76,37 @@ public class DanhSachNFT extends JPanel {
             setTableColumns(selectedNenTang);
 
             // Lấy dữ liệu từ Controller và thêm vào bảng
-//			switch (selectedNenTang) {
-//				case "Nifty Gateway":
-//					List<NiftyGateway> niftyData = nftController.getNiftyData(); // Lấy dữ liệu từ Controller
-//					nftController.addDataToTableNifty(niftyData); // Thêm thông tin vào bảng từ dữ liệu NiftyGateway
-//					break;
-            // Các trường hợp khác
-//			}
+			switch (selectedNenTang) {
+				case "Nifty Gateway":
+                    try {
+                        List<NiftyGateway> niftyList = nftController.getNiftyGatewayData();
+                        nftController.addDataToTableNifty(niftyList,table);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+					break;
+                case "Binance":
+                    try {
+                        List<Binance> binanceList = nftController.getBinanceData();
+                        nftController.addDataToTableBinance(binanceList,table);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    break;
+                case "Opensea":
+                    try {
+                        List<Opensea> openseaList = nftController.getOpenseaData();
+                        nftController.addDataToTableOpensea(openseaList,table);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    break;
+			}
         });
     }
 
     private JScrollPane getjScrollPane() {
-        JTable table = new JTable(tableModel);
+        table = new JTable(tableModel);
         table.setBackground(Color.WHITE);
         table.setForeground(Color.BLACK);
         // Đặt phông chữ và màu sắc cho header
@@ -113,77 +129,46 @@ public class DanhSachNFT extends JPanel {
         return scrollPane;
     }
 
-    public void clearTable() {
-        tableModel.setRowCount(0);
-        tableModel.setColumnCount(0);
-        tableModel.fireTableStructureChanged();
-    }
-
     private void setTableColumns(String selectedNenTang) {
-        tableModel.setRowCount(0);
-        tableModel.setColumnCount(0);
-
+        clearTable();
         // Thêm các cột mới tùy thuộc vào giá trị được chọn
         switch (selectedNenTang) {
-            case "Nifty Gateway":
+            case "Binance":
                 tableModel.addColumn("Collection Title");
-                tableModel.addColumn("Collection Type");
-                tableModel.addColumn("Contract Address");
+                tableModel.addColumn("Collection ID");
                 tableModel.addColumn("Display Image");
-                tableModel.addColumn("Total Market Cap");
                 tableModel.addColumn("Number of Owners");
                 tableModel.addColumn("Total Supply");
                 tableModel.addColumn("Floor Price");
-                tableModel.addColumn("Day Total Volume");
-                tableModel.addColumn("Day Change");
-                tableModel.addColumn("Total Volume");
-                tableModel.addColumn("Average Sale");
-                break;
-            case "Binance":
-                tableModel.addColumn("ID");
-                tableModel.addColumn("Cover Url");
-                tableModel.addColumn("Title");
-                tableModel.addColumn("Network");
-                tableModel.addColumn("Volume");
-                tableModel.addColumn("Volume Rate");
-                tableModel.addColumn("Owners Count");
-                tableModel.addColumn("Items Count");
-                tableModel.addColumn("Listed Count");
-                tableModel.addColumn("Floor Price");
                 tableModel.addColumn("Floor Price Rate");
-                tableModel.addColumn("Verified");
+                tableModel.addColumn("Total Volume");
+                break;
+            case "Nifty Gateway":
+                tableModel.addColumn("Collection Title");
+                tableModel.addColumn("Display Image");
+                tableModel.addColumn("Average Sale Price");
+                tableModel.addColumn("Total Number of Primary Sales");
+                tableModel.addColumn("Total Volume");
+                tableModel.addColumn("Nifty Type");
+                tableModel.addColumn("Floor Price");
                 break;
             case "Opensea":
-                tableModel.addColumn("hello");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                break;
-            case "Twitter":
-                tableModel.addColumn("hi");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
-                tableModel.addColumn("");
+                tableModel.addColumn("Title");
+                tableModel.addColumn("Display Image");
+                tableModel.addColumn("Discount");
+                tableModel.addColumn("Number of Sales");
+                tableModel.addColumn("Volume");
+                tableModel.addColumn("Floor Price");
                 break;
             default:
                 System.out.println("Không xác định được nền tảng.");
         }
+//        tableModel.fireTableStructureChanged();
+    }
+
+    public void clearTable() {
+        tableModel.setRowCount(0);
+        tableModel.setColumnCount(0);
         tableModel.fireTableStructureChanged();
     }
 }
