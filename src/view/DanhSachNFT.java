@@ -1,10 +1,7 @@
 package view;
 
-<<<<<<< HEAD
-import controller.NFTController;
-=======
 //import controller.NFTController;
->>>>>>> a6b20febdfcaab77c844fee57cd5c569331779f2
+//import controller.NFTController;
 import models.NiftyGateway;
 import view.Buttons.Button_Chung;
 import view.ComboBox.MyComboBox;
@@ -25,11 +22,8 @@ public class DanhSachNFT extends JPanel {
     private final MyPanel panel_DSNFT_Content;
     private final JTable table;
     private final JScrollPane scrollPane;
-<<<<<<< HEAD
-    private final NFTController nftController;
-=======
+   // private final NFTController nftController;
 //    private final NFTController nftController;
->>>>>>> a6b20febdfcaab77c844fee57cd5c569331779f2
 
     public DanhSachNFT() {
         setBackground(Colors.TrangDuc);
@@ -37,11 +31,8 @@ public class DanhSachNFT extends JPanel {
         setPreferredSize(new Dimension(1085, 730));
         setLayout(new BorderLayout(20, 0));
 
-<<<<<<< HEAD
-        nftController = new NFTController();
-=======
+ //       nftController = new NFTController();
 //        nftController = new NFTController();
->>>>>>> a6b20febdfcaab77c844fee57cd5c569331779f2
 
         // Khu vực filter
         MyPanel panel_DSNFT_Filter = new MyPanel();
