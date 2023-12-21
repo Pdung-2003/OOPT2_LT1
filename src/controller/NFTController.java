@@ -28,9 +28,10 @@ public class NFTController {
         return generalConnector.getOpenseaData();
     }
 
-    public void addDataToTableNifty(List<NiftyGateway> niftyData, JTable table){
+    public void addDataToTableNifty(JTable table) throws Exception {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
+        List<NiftyGateway> niftyData = getNiftyGatewayData();
 
         for (NiftyGateway data : niftyData) {
             Object[] rowData = {
@@ -46,9 +47,10 @@ public class NFTController {
         }
     }
 
-    public void addDataToTableBinance(List<Binance> binanceData, JTable table){
+    public void addDataToTableBinance(JTable table) throws Exception{
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
+        List<Binance> binanceData = getBinanceData();
 
         for (Binance data : binanceData) {
             Object[] rowData = {
@@ -65,9 +67,10 @@ public class NFTController {
         }
     }
 
-    public void addDataToTableOpensea(List<Opensea> openseaData, JTable table){
+    public void addDataToTableOpensea(JTable table) throws Exception{
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
+        List<Opensea> openseaData = getOpenseaData();
 
         for (Opensea data : openseaData) {
             Object[] rowData = {
