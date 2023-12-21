@@ -1,316 +1,371 @@
 [
   {
-    "avgSalePrice": 963243.25,
-    "totalNumPrimarySales": 247,
-    "totalVolume": "99041892.00",
-    "collection": {
-      "niftyTitle": "Ten Cubes",
-      "niftyType": 6,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1618196775/Pak/TenCubes.mp4"
-    },
-    "floorPrice": "1200000.00"
-  },
-  {
-    "avgSalePrice": 54384.93,
-    "totalNumPrimarySales": 2000,
-    "totalVolume": "92512649.00",
-    "collection": {
-      "niftyTitle": "The Siren Collection Stamp",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1677543660/aChrisly/SBUX%20SIREN%20COLLECTION/Splash-page_-Animation1600x1600.gif"
-    },
-    "floorPrice": "31500.00"
-  },
-  {
-    "avgSalePrice": 11856.81,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "794406.00",
-    "collection": {
-      "niftyTitle": "Twin Tails Stamp",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701200801/0_sbux_twin-tails/FY24_Odyssey_BSP_Stamp_Twin_Tails_FINAL.png"
-    },
-    "floorPrice": "10499.00"
-  },
-  {
-    "avgSalePrice": 13871.85,
-    "totalNumPrimarySales": 852,
-    "totalVolume": "11125670.00",
-    "collection": {
-      "niftyTitle": "Triumphs of the Nation State",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/fl_keep_dar,q_auto:best,w_1600,c_limit/v1698798619/publishers/niftygateway_curated/105305/125368/Triumphs%20of%20the%20Nation%20State.jpeg"
-    },
-    "floorPrice": "12900.00"
-  },
-  {
-    "avgSalePrice": 21466.67,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "98900.00",
-    "collection": {
-      "niftyTitle": "Steve",
-      "niftyType": 45,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696443950/gabe_weis_20231012/5_5/Steve.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 225108.56,
-    "totalNumPrimarySales": 28990,
-    "totalVolume": "9951352005.00",
-    "collection": {
-      "niftyTitle": "m",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1638317729/Patrick/Pak/m_e8eyc6.png"
-    },
-    "floorPrice": "14999.00"
-  },
-  {
-    "avgSalePrice": 300527.9,
-    "totalNumPrimarySales": 36,
-    "totalVolume": "11410558.00",
-    "collection": {
-      "niftyTitle": "Benjamination",
-      "niftyType": 4,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1616034318/A/SophiaRobot/Benjaminimation_1_krells.mp4"
-    },
-    "floorPrice": "66600.00"
-  },
-  {
-    "avgSalePrice": 14975.0,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "94400.00",
-    "collection": {
-      "niftyTitle": "Die",
-      "niftyType": 22,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696443981/gabe_weis_20231012/5_5/Die_-.png"
-    },
-    "floorPrice": "100000.00"
-  },
-  {
-    "avgSalePrice": 18333.33,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "89500.00",
-    "collection": {
-      "niftyTitle": "Sam 1",
-      "niftyType": 48,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696443947/gabe_weis_20231012/5_5/Sam_1.png"
-    },
-    "floorPrice": "100000.00"
-  },
-  {
-    "avgSalePrice": 52447.18,
-    "totalNumPrimarySales": 1299,
-    "totalVolume": "55256066.00",
-    "collection": {
-      "niftyTitle": "The Road Ahead",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1682092869/publishers/niftygateway_curated/59765/78937/TheRoadAhead%20%281%29.jpg"
-    },
-    "floorPrice": "32500.00"
-  },
-  {
-    "avgSalePrice": 163552.31,
-    "totalNumPrimarySales": 24,
-    "totalVolume": "8343832.00",
-    "collection": {
-      "niftyTitle": "Skull House",
-      "niftyType": 5,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1627927535/Patrick/Okuda/Skull_House_-_Color_zvykys.mp4"
-    },
-    "floorPrice": "132500.00"
-  },
-  {
-    "avgSalePrice": 20000.0,
-    "totalNumPrimarySales": 1,
-    "totalVolume": "20000.00",
-    "collection": {
-      "niftyTitle": "2023 Token of Thanks 10 - Neutra Reimagined (color variation 1)",
-      "niftyType": 11,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701886041/publishers/niftygateway_curated/108637/128173/02_Home_card.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 15443.67,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "127162.00",
-    "collection": {
-      "niftyTitle": "SEC",
-      "niftyType": 46,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696443947/gabe_weis_20231012/5_5/SEC.png"
-    },
-    "floorPrice": "10000000000.00"
-  },
-  {
-    "avgSalePrice": 764.71,
-    "totalNumPrimarySales": 2313,
-    "totalVolume": "338766.00",
-    "collection": {
-      "niftyTitle": "The Most Valuable Artwork",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1690048986/publishers/33/87257/107360/The%20Most%20Valuable%20Artwork.gif"
-    },
-    "floorPrice": "1400.00"
-  },
-  {
-    "avgSalePrice": 10722.0,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "77388.00",
-    "collection": {
-      "niftyTitle": "Paul",
-      "niftyType": 27,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696443975/gabe_weis_20231012/5_5/Paul.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 10822.25,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "77789.00",
-    "collection": {
-      "niftyTitle": "Frank",
-      "niftyType": 16,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696444010/gabe_weis_20231012/5_5/Frank.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
     "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 2,
-    "totalVolume": "22310.00",
+    "totalNumPrimarySales": 171,
+    "totalVolume": "1356201.00",
     "collection": {
-      "niftyTitle": "Matrix Enigma",
-      "niftyType": 9,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701302936/publishers/ombruja/103027/123322/poster9.jpg"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 10000.0,
-    "totalNumPrimarySales": 1,
-    "totalVolume": "10000.00",
-    "collection": {
-      "niftyTitle": "2023 Token of Thanks 2 - тнє ιηησ¢єηт ѕσυl",
-      "niftyType": 2,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701886041/publishers/niftygateway_curated/108637/128173/02_Home_card.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 39835.71,
-    "totalNumPrimarySales": 15,
-    "totalVolume": "1007700.00",
-    "collection": {
-      "niftyTitle": "Many Worlds Interpretation",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1648218299/Max/JuliusHorsthuisMar/Many_Worlds_Interpretation_w7lvoq.mp4"
-    },
-    "floorPrice": "40000.00"
-  },
-  {
-    "avgSalePrice": 53133.44,
-    "totalNumPrimarySales": 105,
-    "totalVolume": "10159738.00",
-    "collection": {
-      "niftyTitle": "Modern Living",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1616767806/A/FAILE/FAILE_ModernLiving_F_ok1zl0.mp4"
-    },
-    "floorPrice": "9000.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 24,
-    "totalVolume": "165600.00",
-    "collection": {
-      "niftyTitle": "The Tornado Cash",
+      "niftyTitle": "The NFT Camera",
       "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1699232384/publishers/limbomask/103819/124081/Tornado%20Cash%20-%202.mp4"
-    },
-    "floorPrice": "16600.00"
-  },
-  {
-    "avgSalePrice": 9400.0,
-    "totalNumPrimarySales": 5,
-    "totalVolume": "53300.00",
-    "collection": {
-      "niftyTitle": "Luca",
-      "niftyType": 15,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696444011/gabe_weis_20231012/5_5/Luca.png"
-    },
-    "floorPrice": "150000.00"
-  },
-  {
-    "avgSalePrice": 36155.91,
-    "totalNumPrimarySales": 110,
-    "totalVolume": "4691967.00",
-    "collection": {
-      "niftyTitle": "Dissection of Darth Vader - Green Lightsaber (Nychos)",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1623785680/A/ComplexLand/NYCHOS_NFT_Dissection_of_Darth_Vader-Green_Lightsaber_2021_Edition111_-_vera_steinkellner_1_evnfvd.mp4"
-    },
-    "floorPrice": "11000.00"
-  },
-  {
-    "avgSalePrice": 59558.27,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "319132701.00",
-    "collection": {
-      "niftyTitle": "Awkward Astronauts",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1643845259/AA/astros-preview-gif_kmvti0.gif"
-    },
-    "floorPrice": "7500.00"
-  },
-  {
-    "avgSalePrice": 4634.5,
-    "totalNumPrimarySales": 76,
-    "totalVolume": "761669.00",
-    "collection": {
-      "niftyTitle": "The Swell",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1670811419/test-media-manager/niftygateway_curated/1604/3719/The%20Swell%20Holding%20Icon%20%281%29.jpg"
-    },
-    "floorPrice": "8800.00"
-  },
-  {
-    "avgSalePrice": 3000.0,
-    "totalNumPrimarySales": 19,
-    "totalVolume": "39100.00",
-    "collection": {
-      "niftyTitle": "Prison #9",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1701097501/publishers/nft-collector/107647/127381/Prison.nueve.mp4"
-    },
-    "floorPrice": "3000.00"
-  },
-  {
-    "avgSalePrice": 72952.34,
-    "totalNumPrimarySales": 299,
-    "totalVolume": "15069142.00",
-    "collection": {
-      "niftyTitle": "RELICS Ticket - Public",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1642829364/Andrea/Monstercat/Jan2022/RELICS_-_Presale_Ticket_3_ejetln.mp4"
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702936168/token-preview.mp4"
     },
     "floorPrice": "19900.00"
   },
   {
     "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 1,
-    "totalVolume": "1900.00",
+    "totalNumPrimarySales": 4,
+    "totalVolume": "1320000.00",
     "collection": {
-      "niftyTitle": "Call of Light",
+      "niftyTitle": "WINTER\u0027S END",
       "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702391450/publishers/loremipsum/109034/128472/Call%20of%20Light.mp4"
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702326929/publishers/niftygateway_curated/108934/128449/ED4%20-%20WINTERS%20END%20-%20%204K%20%284096%20x%204096%20px%29%2032bit.png"
     },
     "floorPrice": "0.00"
   },
   {
     "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 2,
-    "totalVolume": "1800.00",
+    "totalNumPrimarySales": 4,
+    "totalVolume": "1320000.00",
+    "collection": {
+      "niftyTitle": "I WAS BORN IN WINTER",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702327758/publishers/niftygateway_curated/108934/128450/I%20WAS%20BORN%20IN%20WINTER.png"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 23,
+    "totalVolume": "227700.00",
+    "collection": {
+      "niftyTitle": "SILK ROAD",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702918080/publishers/lorde/108706/128899/SKR.png"
+    },
+    "floorPrice": "1250000000.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "175000.00",
+    "collection": {
+      "niftyTitle": "Cubes Workshop by Raphael Erba - CryptoCube#199",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702423583/publishers/niftygateway_curated/109068/128505/RAPHAELERBA.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "115174.00",
+    "collection": {
+      "niftyTitle": "Into The Void by Rolzay - CryptoCube#47",
+      "niftyType": 4,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702436725/publishers/niftygateway_curated/109068/128510/Rolzay%20Art%20piece.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "105000.00",
+    "collection": {
+      "niftyTitle": "The Harvester by Hideki Tsukamoto - CryptoCube#44",
+      "niftyType": 6,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702424993/publishers/niftygateway_curated/109068/128506/tsukamoto_theharvester.png"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "77300.00",
+    "collection": {
+      "niftyTitle": "CryptoCubes 1950 by Bard Ionson - CryptoCube#26",
+      "niftyType": 8,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702436029/publishers/niftygateway_curated/109068/128512/Bard%20Ionson.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "75000.00",
+    "collection": {
+      "niftyTitle": "Ambitiose Posterum en Cube - Ekaitza - CryptoCube#188",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702425061/publishers/niftygateway_curated/109068/128507/Ekaitza%20Art%20Piece.png"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "60000.00",
+    "collection": {
+      "niftyTitle": "Redemption by Skaar - CryptoCube#195",
+      "niftyType": 3,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702436405/publishers/niftygateway_curated/109068/128509/Skaar%20Art%20Piece.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 140341.72,
+    "totalNumPrimarySales": 132,
+    "totalVolume": "42258614.00",
+    "collection": {
+      "niftyTitle": "Queen Dartaria - Alotta Money",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1616017664/AMatthew/RareBoardsMarch21/RareBoardsNiftyDropAssets-3-21-21/AlottaMoney_-_Queen_Dartaria_n3pasj.mp4"
+    },
+    "floorPrice": "87500.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "50000.00",
+    "collection": {
+      "niftyTitle": "Lattice by Loren Bednar -  CryptoCube#126",
+      "niftyType": 7,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702436244/publishers/niftygateway_curated/109068/128508/Loren%20Bednar%20Art%20Piece.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 1,
+    "totalVolume": "45174.00",
+    "collection": {
+      "niftyTitle": "STELLAR VOXEL// by jstngraphics - CryptoCube#10",
+      "niftyType": 5,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702436879/publishers/niftygateway_curated/109068/128511/JUSTIN%20Art%20Piece.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 13933.92,
+    "totalNumPrimarySales": 3357,
+    "totalVolume": "44535998.00",
+    "collection": {
+      "niftyTitle": "The Starbucks® Green Apron Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1689236621/SBUX_green-apron_paid3_20230801/Placeholder.png"
+    },
+    "floorPrice": "7500.00"
+  },
+  {
+    "avgSalePrice": 14485.03,
+    "totalNumPrimarySales": 4579,
+    "totalVolume": "73557797.00",
+    "collection": {
+      "niftyTitle": "The First Store Collection Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1681147677/aChrisly/STARBUCKS/SECOND%20PAID%20DROP/Drop_2_splash_1600x1600.gif"
+    },
+    "floorPrice": "7401.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 7,
+    "totalVolume": "35000.00",
+    "collection": {
+      "niftyTitle": "GAIA",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702421248/publishers/pj/109067/128504/v7_280mgs.mp4"
+    },
+    "floorPrice": "1850000000.00"
+  },
+  {
+    "avgSalePrice": 5813.08,
+    "totalNumPrimarySales": 8000,
+    "totalVolume": "3580856.00",
+    "collection": {
+      "niftyTitle": "The Holiday Cup Collection Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1699996367/0_sbux-holiday-cup/FY23_Odyssey_Holiday_Drop_5_Comms_Nifty_Motion_600x600.gif"
+    },
+    "floorPrice": "3000.00"
+  },
+  {
+    "avgSalePrice": 26845.19,
+    "totalNumPrimarySales": 1072,
+    "totalVolume": "3355649.00",
+    "collection": {
+      "niftyTitle": "The PSL® Collection:  The Venti Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1696877714/sbux_psl/fy24_psl_cover_venti_600x600__1__480.png"
+    },
+    "floorPrice": "11588.00"
+  },
+  {
+    "avgSalePrice": 54332.95,
+    "totalNumPrimarySales": 2000,
+    "totalVolume": "92606148.00",
+    "collection": {
+      "niftyTitle": "The Siren Collection Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1677543660/aChrisly/SBUX%20SIREN%20COLLECTION/Splash-page_-Animation1600x1600.gif"
+    },
+    "floorPrice": "31000.00"
+  },
+  {
+    "avgSalePrice": 11664.03,
+    "totalNumPrimarySales": 0,
+    "totalVolume": "851474.00",
+    "collection": {
+      "niftyTitle": "Twin Tails Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701200801/0_sbux_twin-tails/FY24_Odyssey_BSP_Stamp_Twin_Tails_FINAL.png"
+    },
+    "floorPrice": "11000.00"
+  },
+  {
+    "avgSalePrice": 12996.33,
+    "totalNumPrimarySales": 33,
+    "totalVolume": "407461.00",
+    "collection": {
+      "niftyTitle": "Death",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1683092517/publishers/niftygateway_curated/63757/83657/Death.png"
+    },
+    "floorPrice": "10500.00"
+  },
+  {
+    "avgSalePrice": 224985.94,
+    "totalNumPrimarySales": 28990,
+    "totalVolume": "9951382005.00",
+    "collection": {
+      "niftyTitle": "m",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1638317729/Patrick/Pak/m_e8eyc6.png"
+    },
+    "floorPrice": "14900.00"
+  },
+  {
+    "avgSalePrice": 6746.25,
+    "totalNumPrimarySales": 1774,
+    "totalVolume": "4856773.00",
+    "collection": {
+      "niftyTitle": "The PSL® Collection: Spiced Stamp",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1695874915/publishers/starbucks-odyssey/102632/122829/FY24_PSL_Cover_Spiced_600x600.png"
+    },
+    "floorPrice": "6900.00"
+  },
+  {
+    "avgSalePrice": 780.76,
+    "totalNumPrimarySales": 2313,
+    "totalVolume": "358369.00",
+    "collection": {
+      "niftyTitle": "The Most Valuable Artwork",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1690048986/publishers/33/87257/107360/The%20Most%20Valuable%20Artwork.gif"
+    },
+    "floorPrice": "1500.00"
+  },
+  {
+    "avgSalePrice": 1457.14,
+    "totalNumPrimarySales": 52,
+    "totalVolume": "62200.00",
+    "collection": {
+      "niftyTitle": "The 100 Club",
+      "niftyType": 4,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701501757/publishers/obliqua/108308/127867/the_100_club.png"
+    },
+    "floorPrice": "1200.00"
+  },
+  {
+    "avgSalePrice": 63635.05,
+    "totalNumPrimarySales": 62,
+    "totalVolume": "7299913.00",
+    "collection": {
+      "niftyTitle": "gremlin blume-ing",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1613174963/Ashley/KennySchachter2/gremlins-blume_-_Kenny_Schachter_xapyos.mp4"
+    },
+    "floorPrice": "19800.00"
+  },
+  {
+    "avgSalePrice": 8031.6,
+    "totalNumPrimarySales": 1588,
+    "totalVolume": "4597594.00",
+    "collection": {
+      "niftyTitle": "The PSL® Collection: Steamed Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1695874929/publishers/starbucks-odyssey/102632/122828/FY24_PSL_Cover_Steamed_600x600.png"
+    },
+    "floorPrice": "8200.00"
+  },
+  {
+    "avgSalePrice": 4223.62,
+    "totalNumPrimarySales": 7013,
+    "totalVolume": "22288292.00",
+    "collection": {
+      "niftyTitle": "Starbucks® Odyssey Avatar Collection",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1686764814/AMatthew/0SBUX/PROD/20230622_OE/Purchase_Page_1.png"
+    },
+    "floorPrice": "1750.00"
+  },
+  {
+    "avgSalePrice": 88152.45,
+    "totalNumPrimarySales": 701,
+    "totalVolume": "143741974.00",
+    "collection": {
+      "niftyTitle": "Lavish",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1613521713/Ashley/BaeigeDesign/Lavish_-_Jo-Anie_Charland_l5qjgg.mp4"
+    },
+    "floorPrice": "9669.00"
+  },
+  {
+    "avgSalePrice": 7700.32,
+    "totalNumPrimarySales": 1682,
+    "totalVolume": "4803960.00",
+    "collection": {
+      "niftyTitle": "The PSL® Collection: Iced Stamp",
+      "niftyType": 4,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1695874889/publishers/starbucks-odyssey/102632/122831/FY24_PSL_Cover_Iced_600x600.png"
+    },
+    "floorPrice": "8100.00"
+  },
+  {
+    "avgSalePrice": 6333.0,
+    "totalNumPrimarySales": 55,
+    "totalVolume": "252498.00",
+    "collection": {
+      "niftyTitle": "DO YOU STILL LOVE ME",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1683107080/publishers/thejpeggallery/63790/83722/Doyoustillloveme.png"
+    },
+    "floorPrice": "14500.00"
+  },
+  {
+    "avgSalePrice": 5666.67,
+    "totalNumPrimarySales": 20,
+    "totalVolume": "19000.00",
+    "collection": {
+      "niftyTitle": "Seongong Sidae",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1659643188/test-media-manager/niftygateway_curated/Seonggong%20sidae.jpg"
+    },
+    "floorPrice": "50000.00"
+  },
+  {
+    "avgSalePrice": 171957.67,
+    "totalNumPrimarySales": 465,
+    "totalVolume": "68275504.00",
+    "collection": {
+      "niftyTitle": "Gold",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1628378954/A/33/33NFT_VIP_GOLD_n9i02t.mp4"
+    },
+    "floorPrice": "32800.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 11,
+    "totalVolume": "9900.00",
     "collection": {
       "niftyTitle": "Return to Infinity",
       "niftyType": 3,
@@ -319,75 +374,9 @@
     "floorPrice": "0.00"
   },
   {
-    "avgSalePrice": 3812.17,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "1208457.00",
-    "collection": {
-      "niftyTitle": "Jade Purple Brown Airdrop Stamp",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1685724691/AMatthew/1.%20SBUX/a_airdrop_20230607/StarbucksOdyssey_JadePurpleBrown_Final_transparentbg.png"
-    },
-    "floorPrice": "1700.00"
-  },
-  {
-    "avgSalePrice": 1570.0,
-    "totalNumPrimarySales": 34,
-    "totalVolume": "41850.00",
-    "collection": {
-      "niftyTitle": "The 100 Club",
-      "niftyType": 4,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1701501757/publishers/obliqua/108308/127867/the_100_club.png"
-    },
-    "floorPrice": "1180.00"
-  },
-  {
-    "avgSalePrice": 2027.3,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "1070415.00",
-    "collection": {
-      "niftyTitle": "Aku\u0027s Rocket Journey Stamp",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1689182412/SBUX_AKU_20230717/Odyssey_Aku_-_Stamp_Asset_071123.jpg"
-    },
-    "floorPrice": "1198.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 6,
-    "totalVolume": "5400.00",
-    "collection": {
-      "niftyTitle": "... unconditional",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702334111/publishers/aichelangelo/108967/128453/BabyMom2.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
     "avgSalePrice": 950.0,
-    "totalNumPrimarySales": 13,
-    "totalVolume": "5800.00",
-    "collection": {
-      "niftyTitle": "Futuristic Gogh City",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1691450551/publishers/asya-keles/89861/109565/Futuristic%20Gogh%20City.png"
-    },
-    "floorPrice": "2333.00"
-  },
-  {
-    "avgSalePrice": 785.8,
-    "totalNumPrimarySales": 33,
-    "totalVolume": "14918.00",
-    "collection": {
-      "niftyTitle": "Pepe Slot Game",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1682631451/publishers/lexart/61349/80689/pepe%20gif.gif"
-    },
-    "floorPrice": "3900.00"
-  },
-  {
-    "avgSalePrice": 400.0,
-    "totalNumPrimarySales": 38,
-    "totalVolume": "11800.00",
+    "totalNumPrimarySales": 70,
+    "totalVolume": "22900.00",
     "collection": {
       "niftyTitle": "The 1000 Club",
       "niftyType": 3,
@@ -396,157 +385,168 @@
     "floorPrice": "899.00"
   },
   {
-    "avgSalePrice": 969.52,
-    "totalNumPrimarySales": 12935,
-    "totalVolume": "7705580.00",
+    "avgSalePrice": 109987.5,
+    "totalNumPrimarySales": 7,
+    "totalVolume": "1089900.00",
     "collection": {
-      "niftyTitle": "Red Bull Doodle Art Collection mentored by Burnt Toast",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1685046328/publishers/niftygateway_curated/68246/88936/2-BW-RBDA_SQUARE.png"
+      "niftyTitle": "Iridescent Moments 3",
+      "niftyType": 3,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1631122266/Max/ShantellMartinSolitaire/Iridescent_Moments_3_bxgiq4.mp4"
     },
-    "floorPrice": "399.00"
+    "floorPrice": "240000.00"
   },
   {
-    "avgSalePrice": 1596.06,
+    "avgSalePrice": 9475.0,
+    "totalNumPrimarySales": 9,
+    "totalVolume": "127000.00",
+    "collection": {
+      "niftyTitle": "PHOTOINCARNARE",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1676385712/publishers/33/22771/38416/vocedelverbophotincarnare.jpg"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 63083.28,
+    "totalNumPrimarySales": 214,
+    "totalVolume": "25502829.00",
+    "collection": {
+      "niftyTitle": "ASTRONAUT (bronze)",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1633705333/Andrea/MichaelKagan/H360_06_Bronze_001-Prores_SparkVideo_1_wkoshy.mp4"
+    },
+    "floorPrice": "9000.00"
+  },
+  {
+    "avgSalePrice": 4500.0,
+    "totalNumPrimarySales": 4,
+    "totalVolume": "24500.00",
+    "collection": {
+      "niftyTitle": "Lenn \u0026 Finn",
+      "niftyType": 3,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1669259543/test-media-manager/anchorball/1234/2699/3Larger-art-scale-1_50x.png"
+    },
+    "floorPrice": "769600.00"
+  },
+  {
+    "avgSalePrice": 2017.66,
     "totalNumPrimarySales": 0,
-    "totalVolume": "501162.00",
+    "totalVolume": "1079449.00",
     "collection": {
-      "niftyTitle": "World of Coffee Journey Stamp",
+      "niftyTitle": "Aku\u0027s Rocket Journey Stamp",
       "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1689607506/sbux_WorldOfCoffee/Komodo.png"
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1689182412/SBUX_AKU_20230717/Odyssey_Aku_-_Stamp_Asset_071123.jpg"
     },
-    "floorPrice": "699.00"
+    "floorPrice": "1500.00"
   },
   {
-    "avgSalePrice": 581.44,
-    "totalNumPrimarySales": 4853,
-    "totalVolume": "330838.00",
+    "avgSalePrice": 43827.1,
+    "totalNumPrimarySales": 20,
+    "totalVolume": "1420369.00",
     "collection": {
-      "niftyTitle": "A smile worth ALOTTAMONEY",
+      "niftyTitle": "HOW 2 MAKE A MÖNSTER (Sean Williams)",
+      "niftyType": 3,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1623785693/A/ComplexLand/HOW_2_MAKE_A_MONSTER_-_Sean_Williams_hnzm1m.jpg"
+    },
+    "floorPrice": "11100.00"
+  },
+  {
+    "avgSalePrice": 3977.76,
+    "totalNumPrimarySales": 0,
+    "totalVolume": "2199880.00",
+    "collection": {
+      "niftyTitle": "Doing Good Journey Stamp",
       "niftyType": 1,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1684171827/publishers/niftygateway_curated/67156/88144/Violet-Jones_Alotta-Money.jpg"
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1674176370/StarbucksOdyssey_JourneyStamp_DoingGoodStamp_Winter.png"
+    },
+    "floorPrice": "999.00"
+  },
+  {
+    "avgSalePrice": 0.0,
+    "totalNumPrimarySales": 3,
+    "totalVolume": "11700.00",
+    "collection": {
+      "niftyTitle": "Holy Solitude",
+      "niftyType": 2,
+      "niftyDisplayImage": "https://media.niftygateway.com/video/upload/v1702391616/publishers/loremipsum/109034/128473/Holy%20Solitude.mp4"
+    },
+    "floorPrice": "0.00"
+  },
+  {
+    "avgSalePrice": 1604.52,
+    "totalNumPrimarySales": 0,
+    "totalVolume": "267139.00",
+    "collection": {
+      "niftyTitle": "2023 Unwrapped Journey Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1698869896/0_sbux_unwrapped_assets/FY24_Odyssey_Holiday_JourneyStamp_3000x3000.png"
+    },
+    "floorPrice": "648.00"
+  },
+  {
+    "avgSalePrice": 3786.93,
+    "totalNumPrimarySales": 0,
+    "totalVolume": "1215603.00",
+    "collection": {
+      "niftyTitle": "Jade Purple Brown Airdrop Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1685724691/AMatthew/1.%20SBUX/a_airdrop_20230607/StarbucksOdyssey_JadePurpleBrown_Final_transparentbg.png"
+    },
+    "floorPrice": "2200.00"
+  },
+  {
+    "avgSalePrice": 132090.27,
+    "totalNumPrimarySales": 508,
+    "totalVolume": "93930217.00",
+    "collection": {
+      "niftyTitle": "Don\u0027t Say Sh*t",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1636994078/AMatthew/TrevorJonesNov17/NFT_Open_Edition_bavohl.mp4"
+    },
+    "floorPrice": "14499.00"
+  },
+  {
+    "avgSalePrice": 28249.79,
+    "totalNumPrimarySales": 100,
+    "totalVolume": "3950723.00",
+    "collection": {
+      "niftyTitle": "Trouble Brewing",
+      "niftyType": 6,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1593022381/PerryCooper/niftygateway_teapot4_culkeh.mp4"
+    },
+    "floorPrice": "18000.00"
+  },
+  {
+    "avgSalePrice": 566185.7,
+    "totalNumPrimarySales": 28,
+    "totalVolume": "13295700.00",
+    "collection": {
+      "niftyTitle": "Move",
+      "niftyType": 3,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1631625139/Patrick/Osinachi/MOVE_Osinachi_X_Don_Jazzy_-_Osinachi_nmumkm.mp4"
+    },
+    "floorPrice": "250000.00"
+  },
+  {
+    "avgSalePrice": 1054.29,
+    "totalNumPrimarySales": 0,
+    "totalVolume": "250921.00",
+    "collection": {
+      "niftyTitle": "Going Places Journey Stamp",
+      "niftyType": 1,
+      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1689269050/SBUX_Going-Places_20230802/Odyssey_Journey_GoingPlaces_stamp_1.png"
     },
     "floorPrice": "500.00"
   },
   {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 34,
-    "totalVolume": "6800.00",
+    "avgSalePrice": 18134.33,
+    "totalNumPrimarySales": 25,
+    "totalVolume": "10872907.00",
     "collection": {
-      "niftyTitle": "0004",
-      "niftyType": 5,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1674844940/publishers/foski/11683/19044/EWR_Ticket.gif"
+      "niftyTitle": "Tokyo Caturday",
+      "niftyType": 4,
+      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1635524749/Andrea/Noealz/Drop/Tokyo_Caturday_amohen.mp4"
     },
-    "floorPrice": "1000.00"
-  },
-  {
-    "avgSalePrice": 500.0,
-    "totalNumPrimarySales": 26,
-    "totalVolume": "5700.00",
-    "collection": {
-      "niftyTitle": "0008",
-      "niftyType": 7,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1674845016/publishers/foski/11683/19048/DBX_Ticket.gif"
-    },
-    "floorPrice": "5000.00"
-  },
-  {
-    "avgSalePrice": 145.0,
-    "totalNumPrimarySales": 48,
-    "totalVolume": "9745.00",
-    "collection": {
-      "niftyTitle": "0006",
-      "niftyType": 6,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1674844979/publishers/foski/11683/19046/LAX_Ticket.gif"
-    },
-    "floorPrice": "499.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 22,
-    "totalVolume": "4400.00",
-    "collection": {
-      "niftyTitle": "0003",
-      "niftyType": 2,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1674844921/publishers/foski/11683/19043/LHR_Ticket.gif"
-    },
-    "floorPrice": "120000000.00"
-  },
-  {
-    "avgSalePrice": 174.23,
-    "totalNumPrimarySales": 78,
-    "totalVolume": "13027.00",
-    "collection": {
-      "niftyTitle": "Mr. Santa",
-      "niftyType": 2,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1672250098/publishers/nftsupers/2157/5230/dsg.png"
-    },
-    "floorPrice": "949.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 22,
-    "totalVolume": "4400.00",
-    "collection": {
-      "niftyTitle": "0009",
-      "niftyType": 3,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1674845036/publishers/foski/11683/19049/CDG_Ticket.gif"
-    },
-    "floorPrice": "5000.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "0.00",
-    "collection": {
-      "niftyTitle": "Blahh Slice",
-      "niftyType": 46,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/image/upload/v1630479947/AMatthew/JonBurgermanSep9/Finishedslices/pizza-255_efvwwc.jpg"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 1,
-    "totalVolume": "62000.00",
-    "collection": {
-      "niftyTitle": "Wyvern",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1657306501/Anka/Tormius/July2022/Assets/wyvern_night_-_tormius_c4zxef.png"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 2,
-    "totalVolume": "10000.00",
-    "collection": {
-      "niftyTitle": "Winter",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702310308/publishers/cichero/108901/128438/CICHERO%20-%20Winter_16K.jpg"
-    },
-    "floorPrice": "0.00"
-  },
-  {
-    "avgSalePrice": 28366.72,
-    "totalNumPrimarySales": 29,
-    "totalVolume": "1798201.00",
-    "collection": {
-      "niftyTitle": "Skull 17",
-      "niftyType": 17,
-      "niftyDisplayImage": "https://res.cloudinary.com/nifty-gateway/video/upload/v1631557339/Abigail/Jon%20Noorlander/Drop%20Assets/skull_v017_i4co3t.mp4"
-    },
-    "floorPrice": "8000.00"
-  },
-  {
-    "avgSalePrice": 0.0,
-    "totalNumPrimarySales": 0,
-    "totalVolume": "0.00",
-    "collection": {
-      "niftyTitle": "Trippers - Frame 01",
-      "niftyType": 1,
-      "niftyDisplayImage": "https://media.niftygateway.com/image/upload/v1702331461/20231214_coldie-trippers/01-01-Trippers-Animated.gif"
-    },
-    "floorPrice": "0.00"
+    "floorPrice": "44400.00"
   }
 ]

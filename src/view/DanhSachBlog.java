@@ -51,19 +51,10 @@ public class DanhSachBlog extends TimKiemNFT {
 		
 		// Khu vực action của nút Xem chi tiết
 		btn_DSBL_Content_Detail.addActionListener(e -> {
-            // Tạo panel nội dung blog
-            JPanel panel_Blog_Detail = new JPanel();
-            JTextArea textArea_Blog_Detail = new JTextArea("Đây là một đoạn văn bản dài hơn để hiển thị.");
-            textArea_Blog_Detail.setEditable(false);
-            panel_Blog_Detail.add(textArea_Blog_Detail);
-
-            // Hiển thị ra panel thông tin chi tiết blog
-            JFrame Blog_Detail = new JFrame();
-            Blog_Detail.setTitle("Thông tin"); // Điền title của blog vô đây
-            Blog_Detail.getContentPane().add(panel_Blog_Detail);
-            Blog_Detail.setSize(300, 200);
-            Blog_Detail.setLocationRelativeTo(null);
-            Blog_Detail.setVisible(true);
+			// Hiển thị ra panel thông tin chi tiết blog
+			BlogDetail Blog_Detail = new BlogDetail();
+			Blog_Detail.setLocationRelativeTo(null);
+			Blog_Detail.setVisible(true);
         });
 	}
 
