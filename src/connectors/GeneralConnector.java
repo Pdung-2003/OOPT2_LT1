@@ -5,6 +5,7 @@ import models.*;
 import services.GsonHandler;
 import services.IJsonHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralConnector {
@@ -28,5 +29,10 @@ public class GeneralConnector {
         }.getType());
         twitterList = gson.fromJson("Twitter.json", new TypeToken<List<Twitter>>() {
         }.getType());
+    }
+
+    public static void main(String[] args) {
+        List<Binance> binanceList = new ArrayList<>();
+        System.out.println(binanceList);
     }
 }
