@@ -54,4 +54,9 @@ public class Table {
         table.setFont(tableFont);
         return table;
     }
+    public static void clearTable(DefaultTableModel tableModel) {
+        tableModel.setRowCount(0);
+        tableModel.setColumnCount(0);
+        tableModel.fireTableStructureChanged();
+    }
 }

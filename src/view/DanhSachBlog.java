@@ -4,7 +4,6 @@ import controller.DanhSachBlogController;
 import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
 
-import java.util.Arrays;
 import java.util.List;
 
 import java.awt.*;
@@ -12,7 +11,12 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class DanhSachBlog extends TimKiemNFT {
+import static view.Table.clearTable;
+
+public class DanhSachBlog extends TimKiemNFT implements SortListener, SearchListener{
+	private final DefaultTableModel tableModelNews;
+	private final JTable tableNews;
+	private TimKiem DSBL_TimKiem;
 	public DanhSachBlog() {
 		DanhSachBlogController controller = new DanhSachBlogController();
 		setBackground(Colors.TrangDuc);
@@ -23,9 +27,11 @@ public class DanhSachBlog extends TimKiemNFT {
 		// Khu vực tìm kiếm
 		String[] items_DSBL_TimKiem = {"Bài viết", "Tin tức"}; // Thêm phương pháp tìm kiếm vào đây
 		String[] items_DSBL_Sapxep = {"Mới nhất", "Hot nhất"}; // Thêm phương pháp sắp xếp vào đây
-		TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
+		DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
 		add(DSBL_TimKiem, BorderLayout.NORTH);
-		
+		DSBL_TimKiem.addSearchListener(this);
+		DSBL_TimKiem.addSortListener(this);
+
 		// Khu vực điền bảng thông tin 
 		MyPanel panel_DSBL_Content = new MyPanel();
 		add(panel_DSBL_Content, BorderLayout.CENTER);
@@ -33,8 +39,8 @@ public class DanhSachBlog extends TimKiemNFT {
 		panel_DSBL_Content.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
 		// Tạo một bảng với một cột
-		DefaultTableModel tableModelNews = new DefaultTableModel();
-		JTable tableNews = new JTable(tableModelNews);
+		tableModelNews = new DefaultTableModel();
+		tableNews = new JTable(tableModelNews);
 		tableModelNews.addColumn("Chủ đề");
 		JScrollPane scrollPane = Table.getScrollPane(tableModelNews);
 
@@ -60,5 +66,28 @@ public class DanhSachBlog extends TimKiemNFT {
 			Blog_Detail.setVisible(true);
         });
 	}
+	public void setData(String selectedSearch) {
+		clearTable(tableModelNews);
+		switch (selectedSearch) {
+			case "Tin tức":
+				tableModelNews.addColumn("Chủ đề");
+				break;
+			case "Bài viết":
+				tableModelNews.addColumn("Mã tác giả");
+				tableModelNews.addColumn("Tác giả");
+				tableModelNews.addColumn("Hashtag");
+				break;
+			default:
+				System.out.println("Không xác định nền tảng blog!");
+		}
+	}
+	@Override
+	public void searchPerformed(String selectedSearchMethod, String searchInput) {
+		System.out.println("Search method: " + selectedSearchMethod + ", Search input: " + searchInput);
+	}
 
+	@Override
+	public void sortPerformed(String selectedSortMethod) {
+		System.out.println("Sort method: " + selectedSortMethod);
+	}
 }

@@ -10,13 +10,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
+
+import static view.Table.clearTable;
 
 public class DanhSachNFT extends JPanel {
     private final DefaultTableModel tableModel;
     private final MyPanel panel_DSNFT_Content;
-    private JTable table;
+    private final JTable table;
     private final JScrollPane scrollPane;
     private NFTController nftController;
 
@@ -99,7 +100,7 @@ public class DanhSachNFT extends JPanel {
     }
 
     private void setTableColumns(String selectedNenTang) {
-        clearTable();
+        clearTable(tableModel);
         // Thêm các cột mới tùy thuộc vào giá trị được chọn
         switch (selectedNenTang) {
             case "Binance":
@@ -132,12 +133,5 @@ public class DanhSachNFT extends JPanel {
             default:
                 System.out.println("Không xác định được nền tảng.");
         }
-//        tableModel.fireTableStructureChanged();
-    }
-
-    public void clearTable() {
-        tableModel.setRowCount(0);
-        tableModel.setColumnCount(0);
-        tableModel.fireTableStructureChanged();
     }
 }
