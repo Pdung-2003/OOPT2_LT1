@@ -4,16 +4,8 @@ import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
 
 import java.awt.*;
-
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
 
 public class DanhSachBlog extends TimKiemNFT {
 	/**
@@ -35,11 +27,23 @@ public class DanhSachBlog extends TimKiemNFT {
 		MyPanel panel_DSBL_Content = new MyPanel();
 		add(panel_DSBL_Content, BorderLayout.CENTER);
 		panel_DSBL_Content.setLayout(new BorderLayout(0, 0));
-		
-		
-		// Khu vực thông tin chính
-		MyPanel panel_DSBL_Content_Table = new MyPanel();
-		panel_DSBL_Content.add(panel_DSBL_Content_Table, BorderLayout.CENTER);
+		panel_DSBL_Content.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
+
+		// Tạo một bảng với một cột
+		String[] columnNames = {"Tên NFT"}; // Tên cột
+		String[][] data = {{"Dữ liệu 1"}, {"Dữ liệu 2"}, {"Dữ liệu 3"}}; // Dữ liệu cho cột
+
+		JTable table = new JTable(data, columnNames);
+		table.setRowHeight(40); // Tăng độ cao của các hàng
+		table.setShowGrid(true); // Hiển thị sọc giữa các hàng
+		table.setGridColor(Color.BLACK); // Màu sọc giữa các hàng
+		JScrollPane scrollPane = new JScrollPane(table);
+
+		table.setTableHeader(null);
+		Font font = table.getFont().deriveFont(Font.PLAIN, 16); // Có thể thay đổi size và style theo mong muốn
+		table.setFont(font);
+
+		panel_DSBL_Content.add(scrollPane, BorderLayout.CENTER);
 		
 		// Khu vực dành cho button xem chi tiết
 		MyPanel panel_DSBL_Content_Detail = new MyPanel();
