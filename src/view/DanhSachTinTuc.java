@@ -1,28 +1,45 @@
 package view;
 
+import controller.DanhSachBlogController;
 import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
+
+import java.util.List;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
+<<<<<<< HEAD:src/view/DanhSachTinTuc.java
 public class DanhSachTinTuc extends TimKiemNFT {
 	/**
 	 * Create the panel.
 	 */
 	public DanhSachTinTuc() {
+=======
+import static view.Table.clearTable;
+
+public class DanhSachBlog extends TimKiemNFT implements SortListener, SearchListener{
+	private final DefaultTableModel tableModelNews;
+	private final JTable tableNews;
+	private TimKiem DSBL_TimKiem;
+	public DanhSachBlog() {
+		DanhSachBlogController controller = new DanhSachBlogController();
+>>>>>>> d8879cf6210535b4aa43f05cb8cd4095fb90b184:src/view/DanhSachBlog.java
 		setBackground(Colors.TrangDuc);
 		setBorder(new LineBorder(Colors.Trang, 20, true));
 		setPreferredSize(new Dimension(1085, 730));
 		setLayout(new BorderLayout(20, 0));
 
 		// Khu vực tìm kiếm
-		String[] items_DSBL_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
-		String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây
-		TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
+		String[] items_DSBL_TimKiem = {"Bài viết", "Tin tức"}; // Thêm phương pháp tìm kiếm vào đây
+		String[] items_DSBL_Sapxep = {"Mới nhất", "Hot nhất"}; // Thêm phương pháp sắp xếp vào đây
+		DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
 		add(DSBL_TimKiem, BorderLayout.NORTH);
-		
+		DSBL_TimKiem.addSearchListener(this);
+		DSBL_TimKiem.addSortListener(this);
+
 		// Khu vực điền bảng thông tin 
 		MyPanel panel_DSBL_Content = new MyPanel();
 		add(panel_DSBL_Content, BorderLayout.CENTER);
@@ -30,20 +47,16 @@ public class DanhSachTinTuc extends TimKiemNFT {
 		panel_DSBL_Content.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
 		// Tạo một bảng với một cột
-		String[] columnNames = {"Tên NFT"}; // Tên cột
-		String[][] data = {{"Dữ liệu 1"}, {"Dữ liệu 2"}, {"Dữ liệu 3"}}; // Dữ liệu cho cột
-
-		JTable table = new JTable(data, columnNames);
-		table.setRowHeight(40); // Tăng độ cao của các hàng
-		table.setShowGrid(true); // Hiển thị sọc giữa các hàng
-		table.setGridColor(Color.BLACK); // Màu sọc giữa các hàng
-		JScrollPane scrollPane = new JScrollPane(table);
-
-		table.setTableHeader(null);
-		Font font = table.getFont().deriveFont(Font.PLAIN, 16); // Có thể thay đổi size và style theo mong muốn
-		table.setFont(font);
+		tableModelNews = new DefaultTableModel();
+		tableNews = new JTable(tableModelNews);
+		tableModelNews.addColumn("Chủ đề");
+		JScrollPane scrollPane = Table.getScrollPane(tableModelNews);
 
 		panel_DSBL_Content.add(scrollPane, BorderLayout.CENTER);
+
+		// Thêm dữ liệu từ danh sách vào bảng
+		List<String[]> data = controller.titleTodayNFTNewsData();
+		controller.addDataToTableNews(data, tableNews);
 		
 		// Khu vực dành cho button xem chi tiết
 		MyPanel panel_DSBL_Content_Detail = new MyPanel();
@@ -61,5 +74,28 @@ public class DanhSachTinTuc extends TimKiemNFT {
 			Blog_Detail.setVisible(true);
         });
 	}
+	public void setData(String selectedSearch) {
+		clearTable(tableModelNews);
+		switch (selectedSearch) {
+			case "Tin tức":
+				tableModelNews.addColumn("Chủ đề");
+				break;
+			case "Bài viết":
+				tableModelNews.addColumn("Mã tác giả");
+				tableModelNews.addColumn("Tác giả");
+				tableModelNews.addColumn("Hashtag");
+				break;
+			default:
+				System.out.println("Không xác định nền tảng blog!");
+		}
+	}
+	@Override
+	public void searchPerformed(String selectedSearchMethod, String searchInput) {
+		System.out.println("Search method: " + selectedSearchMethod + ", Search input: " + searchInput);
+	}
 
+	@Override
+	public void sortPerformed(String selectedSortMethod) {
+		System.out.println("Sort method: " + selectedSortMethod);
+	}
 }

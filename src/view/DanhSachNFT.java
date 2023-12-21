@@ -1,9 +1,6 @@
 package view;
 
 import controller.NFTController;
-import models.Binance;
-import models.NiftyGateway;
-import models.Opensea;
 import view.Buttons.Button_Chung;
 import view.ComboBox.MyComboBox;
 import view.Labels.MyLabelBold;
@@ -13,14 +10,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.List;
+
+import static view.Table.clearTable;
 
 public class DanhSachNFT extends JPanel {
     private final DefaultTableModel tableModel;
     private final MyPanel panel_DSNFT_Content;
-    private JTable table;
+    private final JTable table;
     private final JScrollPane scrollPane;
     private NFTController nftController;
 
@@ -63,7 +60,7 @@ public class DanhSachNFT extends JPanel {
         // Tạo bảng và scrollPane một lần
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
-        scrollPane = getjScrollPane();
+        scrollPane = Table.getScrollPane(tableModel);
 
         // Thêm scrollPane vào panel_DSNFT_Content
         panel_DSNFT_Content.add(scrollPane, BorderLayout.CENTER);
@@ -79,24 +76,21 @@ public class DanhSachNFT extends JPanel {
 			switch (selectedNenTang) {
 				case "Nifty Gateway":
                     try {
-                        List<NiftyGateway> niftyList = nftController.getNiftyGatewayData();
-                        nftController.addDataToTableNifty(niftyList,table);
+                        nftController.addDataToTableNifty(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
 					break;
                 case "Binance":
                     try {
-                        List<Binance> binanceList = nftController.getBinanceData();
-                        nftController.addDataToTableBinance(binanceList,table);
+                        nftController.addDataToTableBinance(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
                     break;
                 case "Opensea":
                     try {
-                        List<Opensea> openseaList = nftController.getOpenseaData();
-                        nftController.addDataToTableOpensea(openseaList,table);
+                        nftController.addDataToTableOpensea(table);
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
@@ -105,32 +99,8 @@ public class DanhSachNFT extends JPanel {
         });
     }
 
-    private JScrollPane getjScrollPane() {
-        table = new JTable(tableModel);
-        table.setBackground(Color.WHITE);
-        table.setForeground(Color.BLACK);
-        // Đặt phông chữ và màu sắc cho header
-        JTableHeader header = table.getTableHeader();
-        header.setFont(new Font("Arial", Font.BOLD, 14)); // Thay đổi phông chữ theo ý muốn
-        header.setBackground(Color.black);
-        header.setForeground(Colors.Vang);
-        // Đặt độ cao của các hàng
-        table.setRowHeight(40); // Đặt độ cao của các hàng là 30 pixels (thay đổi theo ý muốn)
-
-        // Đặt phông chữ cho bảng
-        Font tableFont = new Font("Arial", Font.PLAIN, 14); // Thay đổi phông chữ theo ý muốn
-        table.setFont(tableFont);
-
-        // Tạo scrollPane ngang và dọc cho bảng
-        JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        // Đặt màu nền cho scrollPane
-        scrollPane.setBackground(Color.LIGHT_GRAY);
-        return scrollPane;
-    }
-
     private void setTableColumns(String selectedNenTang) {
-        clearTable();
+        clearTable(tableModel);
         // Thêm các cột mới tùy thuộc vào giá trị được chọn
         switch (selectedNenTang) {
             case "Binance":
@@ -163,12 +133,5 @@ public class DanhSachNFT extends JPanel {
             default:
                 System.out.println("Không xác định được nền tảng.");
         }
-//        tableModel.fireTableStructureChanged();
-    }
-
-    public void clearTable() {
-        tableModel.setRowCount(0);
-        tableModel.setColumnCount(0);
-        tableModel.fireTableStructureChanged();
     }
 }
