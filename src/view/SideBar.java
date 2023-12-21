@@ -24,19 +24,12 @@ public class SideBar extends JPanel {
 		buttonBlog = new Button_SideBar("Danh sách blog");
 		add(buttonBlog);
 
-		buttonTimKiem = new Button_SideBar("Tìm kiếm dữ liệu");
-		add(buttonTimKiem);
-
 		buttonThongKe = new Button_SideBar("Thống kê dữ liệu");
 		add(buttonThongKe);
 	}
 
 	public JButton getButtonDanhSach() {
 		return buttonDanhSach;
-	}
-
-	public JButton getButtonTimKiem() {
-		return buttonTimKiem;
 	}
 
 	public JButton getButtonThongKe() {
