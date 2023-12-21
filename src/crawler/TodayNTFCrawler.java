@@ -22,6 +22,7 @@ import java.util.List;
 
 public class TodayNTFCrawler implements DataCrawler {
     public static List<TodayNFTNews> CollectionInfoList = new ArrayList<>();
+
     @Override
     public void fetchData() throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
@@ -32,10 +33,9 @@ public class TodayNTFCrawler implements DataCrawler {
         List<String> postUrls = new ArrayList<>();
 
         //n số page cần crawl
-        int n=1;
-        for (int i=1;i<=n ;i++)
-        {
-            String url = "https://www.todaynftnews.com/nft-news/page/"+i+"/";
+        int n = 1;
+        for (int i = 1; i <= n; i++) {
+            String url = "https://www.todaynftnews.com/nft-news/page/" + i + "/";
             driver.get(url);
 
             try {
@@ -59,7 +59,7 @@ public class TodayNTFCrawler implements DataCrawler {
             // Lặp qua từng thẻ a và lưu URL vào danh sách
             for (WebElement postLink : postLinks) {
                 String postUrl = postLink.getAttribute("href");
-                System.out.println("URL: "+postUrl);
+                System.out.println("URL: " + postUrl);
                 postUrls.add(postUrl);
             }
         }
@@ -76,7 +76,7 @@ public class TodayNTFCrawler implements DataCrawler {
 
             try {
                 // Lấy thông tin từ các phần tử HTML tương ứng
-                System.out.println("URL_completed: "+postUrl);
+                System.out.println("URL_completed: " + postUrl);
 
                 String title = driver.findElement(By.cssSelector("h1.title.single-title.entry-title")).getText();
 
@@ -115,7 +115,7 @@ public class TodayNTFCrawler implements DataCrawler {
                     tag = tag.substring(0, tag.length() - 2);
                 }
 
-                CollectionInfoList.add(new TodayNFTNews(author,date,tag,content,title,imageUrl));
+                CollectionInfoList.add(new TodayNFTNews(author, date, tag, content, title, imageUrl));
 
             } catch (Exception e) {
                 System.err.println("Error: " + e.getMessage());
@@ -129,7 +129,7 @@ public class TodayNTFCrawler implements DataCrawler {
         }
     }
 
-<<<<<<< HEAD
+
     @Override
     public void processData() {
 
@@ -137,20 +137,22 @@ public class TodayNTFCrawler implements DataCrawler {
 
     @Override
     public void saveData(String filename) throws IOException {
-=======
+        saveDataToJson(CollectionInfoList, filename);
+    }
 
+    @Override
+    public void run() throws IOException, InterruptedException {
 
-    private static void saveDataToJson(List<TodayNFTNews> collectionInfoList) {
->>>>>>> 6a0380e2bed7c841a7fc0dc15267f386dc1a6348
+    }
+
+    private void saveDataToJson(List<TodayNFTNews> collectionInfoList, String filename) {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(CollectionInfoList);
-        JsonObject mainJsonObject = new JsonObject();
-        mainJsonObject.add("data", jsonArray);
+        String json = gson.toJson(collectionInfoList);
 
         try (FileWriter fileWriter = new FileWriter(filename)) {
             fileWriter.write(json);
-            System.out.println("Dữ liệu đã được lưu vào TodayNFTNews.json");
+            System.out.println("Dữ liệu đã được lưu vào " + filename);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -166,5 +168,4 @@ public class TodayNTFCrawler implements DataCrawler {
             e.printStackTrace();
         }
     }
-
 }
