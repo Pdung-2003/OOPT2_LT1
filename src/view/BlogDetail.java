@@ -84,7 +84,7 @@ public class BlogDetail extends JFrame {
 		JLabel lbl_BlogDetail_Content_Img = new JLabel();
 		lbl_BlogDetail_Content_Img.setPreferredSize(new Dimension(70, 70));
 		lbl_BlogDetail_Content_Img.setMaximumSize(new Dimension(100, 100));
-		lbl_BlogDetail_Content_Img.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(BlogDetail.class.getResource("a.jpg"))));
+		//lbl_BlogDetail_Content_Img.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(BlogDetail.class.getResource("a.jpg"))));
 		lbl_BlogDetail_Content_Img.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_BlogDetail_Content_Img.add(lbl_BlogDetail_Content_Img);
 		
