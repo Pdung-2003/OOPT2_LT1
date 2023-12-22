@@ -31,61 +31,82 @@ public class NFTController {
         return generalConnector.getOpenseaData();
     }
 
-    public void addDataToTableNifty(JTable table) throws Exception {
+    public void addDataToTableNifty(JTable table, List<NiftyGateway> niftyData) throws Exception {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
-        List<NiftyGateway> niftyData = getNiftyGatewayData();
 
+        Object[][] rowData = new Object[niftyData.size()][];
+        int i = 0;
         for (NiftyGateway data : niftyData) {
-            Object[] rowData = {
-                    data.getCollection().getNiftyTitle(),
-                    data.getCollection().getNiftyDisplayImage(),
-                    data.getAvgSalePrice(),
-                    data.getTotalNumPrimarySales(),
-                    data.getTotalVolume(),
-                    data.getCollection().getNiftyType(),
-                    data.getFloorPrice()
-            };
-            model.addRow(rowData);
+            rowData[i++] = createNiftyRowData(data);
+        }
+        addRowsToTableModel(model, rowData);
+    }
+
+    private Object[] createNiftyRowData(NiftyGateway data) {
+        return new Object[]{
+                data.getCollection().getNiftyTitle(),
+                data.getCollection().getNiftyDisplayImage(),
+                data.getAvgSalePrice(),
+                data.getTotalNumPrimarySales(),
+                data.getTotalVolume(),
+                data.getCollection().getNiftyType(),
+                data.getFloorPrice()
+        };
+    }
+
+    private void addRowsToTableModel(DefaultTableModel model, Object[][] rows) {
+        for (Object[] row : rows) {
+            model.addRow(row);
         }
     }
 
-    public void addDataToTableBinance(JTable table) throws Exception{
+    public void addDataToTableBinance(JTable table, List<Binance> binanceData) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-        model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
-        List<Binance> binanceData = getBinanceData();
+        model.setRowCount(0);
 
+        Object[][] rowData = new Object[binanceData.size()][];
+        int i = 0;
         for (Binance data : binanceData) {
-            Object[] rowData = {
-                    data.getTitle(),
-                    data.getCollectionId(),
-                    data.getCoverUrl(),
-                    data.getOwnersCount(),
-                    data.getItemsCount(),
-                    data.getFloorPrice(),
-                    data.getFloorPriceRate(),
-                    data.getVolume()
-            };
-            model.addRow(rowData);
+            rowData[i++] = createBinanceRowData(data);
         }
+        addRowsToTableModel(model, rowData);
     }
 
-    public void addDataToTableOpensea(JTable table) throws Exception{
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        model.setRowCount(0); // Xóa dữ liệu cũ trước khi thêm mới
-        List<Opensea> openseaData = getOpenseaData();
+    private Object[] createBinanceRowData(Binance data) {
+        return new Object[]{
+                data.getTitle(),
+                data.getCollectionId(),
+                data.getCoverUrl(),
+                data.getOwnersCount(),
+                data.getItemsCount(),
+                data.getFloorPrice(),
+                data.getFloorPriceRate(),
+                data.getVolume()
+        };
+    }
 
+    public void addDataToTableOpensea(JTable table, List<Opensea> openseaData) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+
+        Object[][] rowData = new Object[openseaData.size()][];
+        int i = 0;
         for (Opensea data : openseaData) {
-            Object[] rowData = {
-                    data.getTitle(),
-                    data.getImage(),
-                    data.getDiscount(),
-                    data.getSales(),
-                    data.getVolume(),
-                    data.getFloorPrice()
-            };
-            model.addRow(rowData);
+            rowData[i++] = createOpenseaRowData(data);
         }
+        addRowsToTableModel(model, rowData);
+    }
+
+    private Object[] createOpenseaRowData(Opensea data) {
+        return new Object[]{
+                data.getTitle(),
+                data.getImage(),
+                data.getDiscount(),
+                data.getSales(),
+                data.getVolume(),
+                data.getFloorPrice()
+        };
     }
 
     public void sortTableByName(JTable table) {
