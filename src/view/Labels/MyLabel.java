@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 public class MyLabel extends CustomizedLabel{
 
     public MyLabel(String item) {
-        super("   "+item+" ");
+        super(" "+item+" ");
     }
 
     protected void customizeLabel() {
