@@ -18,9 +18,9 @@ import java.util.List;
 import javax.swing.border.MatteBorder;
 
 public class TimKiem extends JPanel {
-	private JTextField textField_TK_Search_Input;
-	private MyComboBox comboBox_TK_Search_Input_TimTheo;
-	private MyComboBox comboBox_DSNFT_Filter_SapXep;
+	private final JTextField textField_TK_Search_Input;
+	private final MyComboBox comboBox_TK_Search_Input_TimTheo;
+	private final MyComboBox comboBox_DSNFT_Filter_SapXep;
 
 	private List<SearchListener> searchListeners = new ArrayList<>();
 	private List<SortListener> sortListeners = new ArrayList<>();

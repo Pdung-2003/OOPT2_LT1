@@ -1,54 +1,30 @@
 package view;
 
-import java.awt.EventQueue;
+import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
+
 import view.Panels.*;
 import view.Labels.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 
-import javax.swing.JScrollPane;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
-
-import java.awt.FlowLayout;
-import java.awt.FontMetrics;
-import java.awt.Toolkit;
-import java.awt.Font;
-import java.awt.Color;
 import javax.swing.border.MatteBorder;
 
 public class BlogDetail extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BlogDetail frame = new BlogDetail();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	private JLabel lbl_BlogDetail_Title;
+	private MyLabel lbl_BlogDetail_Content_Main_UserId;
+	private MyLabel lbl_BlogDetail_Content_Main_Author;
+	private MyLabel lbl_BlogDetail_Content_Main_Date;
+	private MyLabel lbl_BlogDetail_Content_Main_Hashtag;
+	private JLabel lbl_BlogDetail_Content_Img;
+	private JTextArea textArea_BlogDetail_Content_Main_Text;
 	public BlogDetail() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setBounds(100, 100, 710, 467);
 		contentPane = new JPanel();
@@ -63,7 +39,7 @@ public class BlogDetail extends JFrame {
 		contentPane.add(panel_BlogDetail_Title, BorderLayout.NORTH);
 		panel_BlogDetail_Title.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
-		JLabel lbl_BlogDetail_Title = new JLabel("Tiêu đề blog để ở đây"); // Điền tiêu đề blog vào đây
+		lbl_BlogDetail_Title = new JLabel(); // Điền tiêu đề blog vào đây
 		lbl_BlogDetail_Title.setForeground(Colors.Vang);
 		lbl_BlogDetail_Title.setFont(new Font("Arial", Font.BOLD, 22));
 		panel_BlogDetail_Title.add(lbl_BlogDetail_Title);
@@ -81,7 +57,7 @@ public class BlogDetail extends JFrame {
 		panel_BlogDetail_Content.add(panel_BlogDetail_Content_Img);
 		panel_BlogDetail_Content_Img.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
 		
-		JLabel lbl_BlogDetail_Content_Img = new JLabel();
+		lbl_BlogDetail_Content_Img = new JLabel();
 		lbl_BlogDetail_Content_Img.setPreferredSize(new Dimension(70, 70));
 		lbl_BlogDetail_Content_Img.setMaximumSize(new Dimension(100, 100));
 		//lbl_BlogDetail_Content_Img.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(BlogDetail.class.getResource("a.jpg"))));
@@ -100,7 +76,7 @@ public class BlogDetail extends JFrame {
 		panel_BlogDetail_Content_Main.add(panel_BlogDetail_Content_Main_UserId);
 		panel_BlogDetail_Content_Main_UserId.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
 		
-		MyLabel lbl_BlogDetail_Content_Main_UserId = new MyLabel("User ID: "); // Điền user id vào đây
+		lbl_BlogDetail_Content_Main_UserId = new MyLabel(""); // Điền user id vào đây
 		panel_BlogDetail_Content_Main_UserId.add(lbl_BlogDetail_Content_Main_UserId);
 		
 		// Khu vực tên tác giả blog
@@ -108,7 +84,7 @@ public class BlogDetail extends JFrame {
 		panel_BlogDetail_Content_Main.add(panel_BlogDetail_Content_Main_Author);
 		panel_BlogDetail_Content_Main_Author.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
 		
-		MyLabel lbl_BlogDetail_Content_Main_Author = new MyLabel("Tác giả: "); // Điền tác giả vào đây
+		lbl_BlogDetail_Content_Main_Author = new MyLabel(""); // Điền tác giả vào đây
 		panel_BlogDetail_Content_Main_Author.add(lbl_BlogDetail_Content_Main_Author);
 		
 		// Khu vực ngày xuất bản blog
@@ -116,7 +92,7 @@ public class BlogDetail extends JFrame {
 		panel_BlogDetail_Content_Main.add(panel_BlogDetail_Content_Main_Date);
 		panel_BlogDetail_Content_Main_Date.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
 		
-		MyLabel lbl_BlogDetail_Content_Main_Date = new MyLabel("Ngày xuất bản: "); // Điền ngày xuất bản vào đây
+		lbl_BlogDetail_Content_Main_Date = new MyLabel(""); // Điền ngày xuất bản vào đây
 		panel_BlogDetail_Content_Main_Date.add(lbl_BlogDetail_Content_Main_Date);
 		
 		// Khu vực hashtag blog
@@ -125,27 +101,55 @@ public class BlogDetail extends JFrame {
 		panel_BlogDetail_Content_Main.add(panel_BlogDetail_Content_Main_Hashtag);
 		panel_BlogDetail_Content_Main_Hashtag.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
 		
-		MyLabel lbl_BlogDetail_Content_Main_Hashtag = new MyLabel("hehe"); // Điền hashtag vào đây
+		lbl_BlogDetail_Content_Main_Hashtag = new MyLabel(""); // Điền hashtag vào đây
 		panel_BlogDetail_Content_Main_Hashtag.add(lbl_BlogDetail_Content_Main_Hashtag);
-		
+
 		// Khu vực nội dung chính của blog
 		MyPanel panel_BlogDetail_Content_Main_Text = new MyPanel();
 		panel_BlogDetail_Content_Main.add(panel_BlogDetail_Content_Main_Text);
-		panel_BlogDetail_Content_Main_Text.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		
-		JTextArea textArea_BlogDetail_Content_Main_Text = new JTextArea();
-		textArea_BlogDetail_Content_Main_Text.setFont(new Font("Arial", Font.PLAIN, 14));
-		textArea_BlogDetail_Content_Main_Text.setSelectionStart(0);
-		textArea_BlogDetail_Content_Main_Text.setText("Điền content blog vào đây"); // Điền nội dung chính cần hiển thị vào đây
+		panel_BlogDetail_Content_Main_Text.setLayout(new BoxLayout(panel_BlogDetail_Content_Main_Text, BoxLayout.Y_AXIS));
 
-		// Xử lý kích cỡ của TextArea
-		FontMetrics fontMetrics = textArea_BlogDetail_Content_Main_Text.getFontMetrics(textArea_BlogDetail_Content_Main_Text.getFont());
-        int textHeight = fontMetrics.getHeight() * textArea_BlogDetail_Content_Main_Text.getLineCount() + 20;
-		textArea_BlogDetail_Content_Main_Text.setPreferredSize(new Dimension(630, textHeight));
+		// Định nghĩa TextArea
+		textArea_BlogDetail_Content_Main_Text = new JTextArea();
+		textArea_BlogDetail_Content_Main_Text.setFont(new Font("Arial", Font.PLAIN, 14));
+		textArea_BlogDetail_Content_Main_Text.setSelectionStart(1);
+		textArea_BlogDetail_Content_Main_Text.setLineWrap(true);
+		textArea_BlogDetail_Content_Main_Text.setWrapStyleWord(true);
+		textArea_BlogDetail_Content_Main_Text.setAlignmentX(JTextArea.CENTER_ALIGNMENT);
+		textArea_BlogDetail_Content_Main_Text.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+		// Nội dung text area
+		textArea_BlogDetail_Content_Main_Text.setText(""); // Điền nội dung chính cần hiển thị vào đây
 		textArea_BlogDetail_Content_Main_Text.setEditable(false);
 		panel_BlogDetail_Content_Main_Text.add(textArea_BlogDetail_Content_Main_Text);
 		
 		panel_BlogDetail_Content.add(Box.createVerticalGlue());
+		setVisible(true);
 	}
 
+	public void updateBlogDetail(String rowData, String img, String author, String date, String hashtag, String content) {
+		SwingUtilities.invokeLater(() -> {
+			System.out.println("Updating title: " + rowData);
+			lbl_BlogDetail_Title.setText(rowData);
+			lbl_BlogDetail_Content_Main_Author.setText("Tác giả: " + author);
+			lbl_BlogDetail_Content_Main_Date.setText("Thời gian: " + date);
+			lbl_BlogDetail_Content_Main_Hashtag.setText("Hashtag: " + hashtag);
+			textArea_BlogDetail_Content_Main_Text.setText("Nội dung: \n" + content);
+
+			// Xử lý hiển thị hình ảnh
+			try {
+				URL imageUrl = new URL(img);
+				Image image = ImageIO.read(imageUrl);
+				ImageIcon imageIcon = new ImageIcon(image);
+				lbl_BlogDetail_Content_Img.setIcon(imageIcon);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+	// Thêm một phương thức để cập nhật giao diện
+	public void updateUI() {
+		revalidate();
+		repaint();
+	}
 }

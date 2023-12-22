@@ -28,7 +28,7 @@ public class Table {
         table.setDefaultRenderer(Object.class, renderer);
 
         // Tạo scrollPane ngang và dọc cho bảng
-        JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane scrollPane = new JScrollPane(table);
 
         // Đặt màu nền cho scrollPane
         scrollPane.setBackground(Color.LIGHT_GRAY);
@@ -52,11 +52,12 @@ public class Table {
         // Đặt phông chữ cho bảng
         Font tableFont = new Font("Arial", Font.PLAIN, 14);
         table.setFont(tableFont);
+        table.setRowSelectionAllowed(true);
         return table;
     }
     public static void clearTable(DefaultTableModel tableModel) {
         tableModel.setRowCount(0);
         tableModel.setColumnCount(0);
-        tableModel.fireTableStructureChanged();
+        //tableModel.fireTableStructureChanged();
     }
 }
