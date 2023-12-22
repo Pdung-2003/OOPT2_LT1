@@ -11,20 +11,19 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.border.MatteBorder;
-import javax.swing.border.LineBorder;
 
 public class TimKiem extends JPanel {
-	private JTextField textField_TK_Search_Input;
+	private final JTextField textField_TK_Search_Input;
+	private final MyComboBox comboBox_TK_Search_Input_TimTheo;
+	private final MyComboBox comboBox_DSNFT_Filter_SapXep;
 
-	/**
-	 * Create the panel.
-	 */
+	private List<SearchListener> searchListeners = new ArrayList<>();
+	private List<SortListener> sortListeners = new ArrayList<>();
 	public TimKiem(String[] TimKiem, String[] SapXep) {
 
 		setBackground(Colors.Trang);
@@ -45,7 +44,7 @@ public class TimKiem extends JPanel {
 		lbl_TK_Search_Input_TimTheo.setFont(new Font("Arial", Font.BOLD, 16));
 		panel_TK_Search_TimTheo.add(lbl_TK_Search_Input_TimTheo);
 
-		MyComboBox comboBox_TK_Search_Input_TimTheo = new MyComboBox(TimKiem);
+		comboBox_TK_Search_Input_TimTheo = new MyComboBox(TimKiem);
 		panel_TK_Search_TimTheo.add(comboBox_TK_Search_Input_TimTheo);
 
 		// Panel chứa thanh tìm kiếm và nút tìm kiếm
@@ -82,8 +81,46 @@ public class TimKiem extends JPanel {
 		lbl_DSNFT_Filter_SapXep.setFont(new Font("Arial", Font.BOLD, 16));
 		panel_TK_Search_Sort.add(lbl_DSNFT_Filter_SapXep);
 		
-		MyComboBox comboBox_DSNFT_Filter_SapXep = new MyComboBox(SapXep);
+		comboBox_DSNFT_Filter_SapXep = new MyComboBox(SapXep);
 		panel_TK_Search_Sort.add(comboBox_DSNFT_Filter_SapXep);
 
+		btn_TK_Search_Input_Confirm.addActionListener(e -> {
+			String selectedSearchMethod = (String) comboBox_TK_Search_Input_TimTheo.getSelectedItem();
+			String searchInput = textField_TK_Search_Input.getText();
+
+			// Gọi phương thức kích hoạt sự kiện tìm kiếm cho tất cả các lắng nghe
+			for (SearchListener listener : searchListeners) {
+				listener.searchPerformed(selectedSearchMethod, searchInput);
+			}
+		});
+
+		comboBox_DSNFT_Filter_SapXep.addActionListener(e -> {
+			String selectedSortMethod = (String) comboBox_DSNFT_Filter_SapXep.getSelectedItem();
+
+			// Gọi phương thức kích hoạt sự kiện sắp xếp cho tất cả các lắng nghe
+			for (SortListener listener : sortListeners) {
+				listener.sortPerformed(selectedSortMethod);
+			}
+		});
+	}
+
+	// Phương thức để đăng ký lắng nghe sự kiện tìm kiếm
+	public void addSearchListener(SearchListener listener) {
+		searchListeners.add(listener);
+	}
+
+	// Phương thức để hủy đăng ký lắng nghe sự kiện tìm kiếm
+	public void removeSearchListener(SearchListener listener) {
+		searchListeners.remove(listener);
+	}
+
+	// Phương thức để đăng ký lắng nghe sự kiện sắp xếp
+	public void addSortListener(SortListener listener) {
+		sortListeners.add(listener);
+	}
+
+	// Phương thức để hủy đăng ký lắng nghe sự kiện sắp xếp
+	public void removeSortListener(SortListener listener) {
+		sortListeners.remove(listener);
 	}
 }
