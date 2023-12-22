@@ -56,6 +56,7 @@ public class DanhSachNFT extends JPanel {
         String[] items_DSNFT_SapXep = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp sắp xếp vào đây
         TimKiem DSNFT_TimKiem = new TimKiem(items_DSNFT_TimKiem, items_DSNFT_SapXep);
         panel_DSNFT_Content.add(DSNFT_TimKiem, BorderLayout.NORTH);
+
         // Tạo bảng và scrollPane một lần
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
@@ -102,11 +103,13 @@ public class DanhSachNFT extends JPanel {
         table = new JTable(tableModel);
         table.setBackground(Color.WHITE);
         table.setForeground(Color.BLACK);
+
         // Đặt phông chữ và màu sắc cho header
         JTableHeader header = table.getTableHeader();
         header.setFont(new Font("Arial", Font.BOLD, 14)); // Thay đổi phông chữ theo ý muốn
         header.setBackground(Color.black);
         header.setForeground(Colors.Vang);
+
         // Đặt độ cao của các hàng
         table.setRowHeight(40); // Đặt độ cao của các hàng là 30 pixels (thay đổi theo ý muốn)
 
@@ -123,6 +126,7 @@ public class DanhSachNFT extends JPanel {
     }
 
     private void setTableColumns(String selectedNenTang) {
+        // Xóa các dữ liệu nếu có trong bảng
         clearTable();
         // Thêm các cột mới tùy thuộc vào giá trị được chọn
         switch (selectedNenTang) {
@@ -156,7 +160,6 @@ public class DanhSachNFT extends JPanel {
             default:
                 System.out.println("Không xác định được nền tảng.");
         }
-//        tableModel.fireTableStructureChanged();
     }
 
     public void clearTable() {

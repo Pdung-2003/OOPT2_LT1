@@ -7,6 +7,9 @@ import models.Opensea;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import java.util.Comparator;
 import java.util.List;
 
 public class NFTController {
@@ -83,5 +86,37 @@ public class NFTController {
             };
             model.addRow(rowData);
         }
+    }
+
+    public void sortTableByName(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING)); // Sắp xếp theo cột đầu tiên
+        sorter.setSortKeys(sortKeys);
+    }
+
+    public void sortTableByCollectionOwner(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(1, Comparator.naturalOrder()); // 1 là chỉ số cột cần sắp xếp
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)); // Sắp xếp theo cột thứ hai
+        sorter.setSortKeys(sortKeys);
+    }
+
+    public void sortTableByCreationDate(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING)); // Sắp xếp theo cột đầu tiên
+        sorter.setSortKeys(sortKeys);
+    }
+
+    public void sortTableByPrice(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(1, Comparator.naturalOrder()); // 1 là chỉ số cột cần sắp xếp
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)); // Sắp xếp theo cột thứ hai
+        sorter.setSortKeys(sortKeys);
     }
 }
