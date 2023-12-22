@@ -14,8 +14,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-import static view.Table.clearTable;
-
 public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchListener{
 	private final DefaultTableModel tableModelNews;
 	private final JTable tableNews;
@@ -33,7 +31,7 @@ public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchLi
 
 		// Khu vực tìm kiếm
 		String[] items_DSBL_TimKiem = {"Chủ đề"}; // Thêm phương pháp tìm kiếm vào đây
-		String[] items_DSBL_Sapxep = {"Mới nhất", "Hot nhất"}; // Thêm phương pháp sắp xếp vào đây
+		String[] items_DSBL_Sapxep = {"Trending", "Chủ đề"}; // Thêm phương pháp sắp xếp vào đây
 		DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
 		add(DSBL_TimKiem, BorderLayout.NORTH);
 		DSBL_TimKiem.addSearchListener(this);
@@ -113,8 +111,6 @@ public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchLi
 			BlogDetail blogDetail = new BlogDetail();
 			blogDetail.setLocationRelativeTo(null);
 			blogDetail.setVisible(true);
-			System.out.println(selectedRowData[0]);
-			System.out.println(controller.searchByTitle(selectedRowData[0]).getContent());
 			blogDetail.updateBlogDetail(selectedRowData[0],
 					controller.searchByTitle(selectedRowData[0]).getImageUrl(),
 					controller.searchByTitle(selectedRowData[0]).getAuthor(),
@@ -127,10 +123,14 @@ public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchLi
 	@Override
 	public void searchPerformed(String selectedSearchMethod, String searchInput) {
 		searchResult.clear();
-		for (String[] array : data) {
-			for (String element : array) {
-				if (element.contains(searchInput)) {
-					searchResult.add(array);
+		if (searchInput.isEmpty()) {
+			searchResult = controller.titleTodayNFTNewsData();
+		} else{
+			for (String[] array : data) {
+				for (String element : array) {
+					if (element.contains(searchInput)) {
+						searchResult.add(array);
+					}
 				}
 			}
 		}
@@ -139,6 +139,27 @@ public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchLi
 	}
 	@Override
 	public void sortPerformed(String selectedSortMethod) {
-
+		switch (selectedSortMethod) {
+			case "Trending":
+				if(searchResult.isEmpty()) {
+					data = controller.titleTodayNFTNewsData();
+				} else {
+					data = new ArrayList<>(searchResult);
+				}
+				break;
+			case "Chủ đề":
+				if(searchResult.isEmpty()) {
+					data = controller.titleTodayNFTNewsData();
+				} else {
+					data = new ArrayList<>(searchResult);
+				}
+				data.sort((row1, row2) -> {
+                    return row1[0].compareTo(row2[0]);
+                });
+				break;
+		}
+		// Cập nhật dữ liệu trong bảng
+		tableModelNews.setRowCount(0);
+		controller.addDataToTableNews(data, tableNews);
 	}
 }
