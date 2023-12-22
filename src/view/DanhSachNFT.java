@@ -18,9 +18,10 @@ import java.util.List;
 
 import static view.Table.clearTable;
 
-public class DanhSachNFT extends JPanel implements SortListener,SearchListener{
+public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
     private final DefaultTableModel tableModel;
+    private final MyComboBox comboBox_DSNFT_Filter_NenTang;
     private final MyPanel panel_DSNFT_Content;
     private final JTable table;
     private final JScrollPane scrollPane;
@@ -45,7 +46,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener{
         panel_DSNFT_Filter.add(lbl_DSNFT_Filter_NenTang);
 
         String[] items_DSNFT_NenTang = {"Nifty Gateway", "Binance", "Opensea"};
-        MyComboBox comboBox_DSNFT_Filter_NenTang = new MyComboBox(items_DSNFT_NenTang);
+        comboBox_DSNFT_Filter_NenTang = new MyComboBox(items_DSNFT_NenTang);
         panel_DSNFT_Filter.add(comboBox_DSNFT_Filter_NenTang);
 
         // Nút confirm duyệt dữ liệu để in ra màn hình
@@ -58,7 +59,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener{
         panel_DSNFT_Content.setLayout(new BorderLayout(0, 0));
 
         // Khu vực tìm kiếm
-        String[] items_DSNFT_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
+        String[] items_DSNFT_TimKiem = {"Tên NFT", "Giá bán nhỏ hơn", "Số lượng giao dịch nhỏ hơn"}; // Thêm phương pháp tìm kiếm vào đây
         String[] items_DSNFT_SapXep = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp sắp xếp vào đây
         TimKiem DSNFT_TimKiem = new TimKiem(items_DSNFT_TimKiem, items_DSNFT_SapXep);
         DSNFT_TimKiem.addSearchListener(this); // Lắng nghe sự kiện tìm kiếm từ TimKiem
@@ -148,11 +149,46 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener{
 
     @Override
     public void searchPerformed(String selectedSearchMethod, String searchInput) {
+        try {
+            String selectedNenTang = (String) comboBox_DSNFT_Filter_NenTang.getSelectedItem(); // Lấy nền tảng đã chọn từ combobox
 
+            List<?> searchData = null;
+            switch (selectedNenTang) {
+                case "Nifty Gateway":
+                    searchData = nftController.searchNiftyGateway(selectedSearchMethod, searchInput);
+                    break;
+                case "Binance":
+                    searchData = nftController.searchBinance(selectedSearchMethod, searchInput);
+                    break;
+                case "Opensea":
+                    searchData = nftController.searchOpensea(selectedSearchMethod, searchInput);
+                    break;
+                default:
+                    System.out.println("Nền tảng không hợp lệ.");
+                    break;
+            }
+
+            // Hiển thị kết quả tìm kiếm trên bảng DanhSachNFT
+            if (searchData != null) {
+                switch (selectedNenTang) {
+                    case "Nifty Gateway":
+                        nftController.addDataToTableNifty(table, (List<NiftyGateway>) searchData);
+                        break;
+                    case "Binance":
+                        nftController.addDataToTableBinance(table, (List<Binance>) searchData);
+                        break;
+                    case "Opensea":
+                        nftController.addDataToTableOpensea(table, (List<Opensea>) searchData);
+                        break;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
+
 
     @Override
     public void sortPerformed(String selectedSortMethod) {
-
     }
 }

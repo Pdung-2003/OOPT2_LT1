@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -53,12 +54,6 @@ public class NFTController {
                 data.getCollection().getNiftyType(),
                 data.getFloorPrice()
         };
-    }
-
-    private void addRowsToTableModel(DefaultTableModel model, Object[][] rows) {
-        for (Object[] row : rows) {
-            model.addRow(row);
-        }
     }
 
     public void addDataToTableBinance(JTable table, List<Binance> binanceData) {
@@ -109,6 +104,12 @@ public class NFTController {
         };
     }
 
+    private void addRowsToTableModel(DefaultTableModel model, Object[][] rows) {
+        for (Object[] row : rows) {
+            model.addRow(row);
+        }
+    }
+
     public void sortTableByName(JTable table) {
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
         sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
@@ -139,5 +140,158 @@ public class NFTController {
         table.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)); // Sắp xếp theo cột thứ hai
         sorter.setSortKeys(sortKeys);
+    }
+
+    public List<NiftyGateway> searchNiftyGateway(String selectedSearchMethod, String searchInput) {
+        try {
+            List<NiftyGateway> niftyData = generalConnector.getNiftyGatewayData();
+
+            List<NiftyGateway> searchResults = new ArrayList<>();
+            for (NiftyGateway item : niftyData) {
+                String niftyTitle = item.getCollection().getNiftyTitle().toLowerCase();
+                String searchInputLower = searchInput.toLowerCase();
+                switch (selectedSearchMethod) {
+                    case "Tên NFT":
+                        if (niftyTitle.contains(searchInputLower)) {
+                            searchResults.add(item);
+                        }
+                        break;
+                    case "Giá bán nhỏ hơn":
+                        try {
+                            double searchPrice = Double.parseDouble(searchInput);
+                            if (item.getAvgSalePrice() < searchPrice) {
+                                searchResults.add(item);
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case "Số lượng giao dịch nhỏ hơn":
+                        try {
+                            double searchQuantity = Double.parseDouble(searchInput);
+                            if ( Double.parseDouble(item.getTotalVolume()) < searchQuantity) {
+                                searchResults.add(item);
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return searchResults;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Binance> searchBinance(String selectedSearchMethod, String searchInput) {
+        try {
+            List<Binance> binanceData = generalConnector.getBinanceData();
+
+            List<Binance> searchResults = new ArrayList<>();
+            for (Binance item : binanceData) {
+                String binanceTitle = item.getTitle().toLowerCase();
+                String searchInputLower = searchInput.toLowerCase();
+                switch (selectedSearchMethod) {
+                    case "Tên NFT":
+                        if (binanceTitle.contains(searchInputLower)) {
+                            searchResults.add(item);
+                        }
+                        break;
+                    case "Giá bán nhỏ hơn":
+                        try {
+                            String floorPrice = item.getFloorPrice();
+                            if (floorPrice != null && searchInput != null) {
+                                double floorPriceValue = Double.parseDouble(floorPrice);
+                                double searchPriceValue = Double.parseDouble(searchInput);
+
+                                if (floorPriceValue < searchPriceValue) {
+                                    searchResults.add(item);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case "Số lượng giao dịch nhỏ hơn":
+                        try {
+                            String volume = item.getVolume();
+                            if (volume != null) {
+                                double searchQuantity = Double.parseDouble(searchInput);
+                                double itemVolume = Double.parseDouble(volume);
+
+                                if (itemVolume < searchQuantity) {
+                                    searchResults.add(item);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return searchResults;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Opensea> searchOpensea(String selectedSearchMethod, String searchInput) {
+        try {
+            List<Opensea> openseaData = generalConnector.getOpenseaData();
+
+            List<Opensea> searchResults = new ArrayList<>();
+            for (Opensea item : openseaData) {
+                String openseaTitle = item.getTitle().toLowerCase();
+                String searchInputLower = searchInput.toLowerCase();
+                switch (selectedSearchMethod) {
+                    case "Tên NFT":
+                        if (openseaTitle.contains(searchInputLower)) {
+                            searchResults.add(item);
+                        }
+                        break;
+                    case "Giá bán nhỏ hơn":
+                        try {
+                            String floorPrice = item.getFloorPrice();
+                            if (floorPrice != null && !floorPrice.isEmpty()) {
+                                String[] parts = floorPrice.split(" ");
+                                double price = Double.parseDouble(parts[0]);
+                                double searchPrice = Double.parseDouble(searchInput);
+                                if (price < searchPrice) {
+                                    searchResults.add(item);
+                                }
+                            }
+                        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case "Số lượng giao dịch nhỏ hơn":
+                        try {
+                            String volume = item.getVolume();
+                            if (volume != null && !volume.isEmpty()) {
+                                String[] parts = volume.split(" ");
+                                double itemVolume = Double.parseDouble(parts[0]);
+                                double searchQuantity = Double.parseDouble(searchInput);
+                                if (itemVolume < searchQuantity) {
+                                    searchResults.add(item);
+                                }
+                            }
+                        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+            }
+            return searchResults;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }
