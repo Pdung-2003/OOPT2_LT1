@@ -95,6 +95,7 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Confirm);
 
 		Button_Chung btn_TKe_Filter_Confirm = new Button_Chung("Duyệt");
+		btn_TKe_Filter_Confirm.setPreferredSize(new Dimension(170, 60));
 		panel_TKe_Filter_Confirm.add(btn_TKe_Filter_Confirm);
 		panel_TKe_Filter_Title.add(Box.createVerticalGlue());
 		panel_TKe_Filter_Title.add(Box.createVerticalGlue());
