@@ -51,22 +51,16 @@ public class BlogDetail extends JFrame {
 		MyPanel panel_BlogDetail_Content = new MyPanel();
 		scrollPane.setViewportView(panel_BlogDetail_Content);
 		panel_BlogDetail_Content.setLayout(new BoxLayout(panel_BlogDetail_Content, BoxLayout.Y_AXIS));
-		
+
 		// Khu vực in ảnh
 		MyPanel panel_BlogDetail_Content_Img = new MyPanel();
 		panel_BlogDetail_Content.add(panel_BlogDetail_Content_Img);
 		panel_BlogDetail_Content_Img.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
-		
+
 		lbl_BlogDetail_Content_Img = new JLabel();
-		lbl_BlogDetail_Content_Img.setPreferredSize(new Dimension(70, 70));
-		lbl_BlogDetail_Content_Img.setMaximumSize(new Dimension(100, 100));
-		//lbl_BlogDetail_Content_Img.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(BlogDetail.class.getResource("a.jpg"))));
 		lbl_BlogDetail_Content_Img.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_BlogDetail_Content_Img.add(lbl_BlogDetail_Content_Img);
-		
-//		JLabel lbl_BlogDetail_Content_Img = new JLabel("Ảnh in ở đây"); // In ảnh vào đay
-//		panel_BlogDetail_Content_Img.add(lbl_BlogDetail_Content_Img);
-		
+
 		MyPanel panel_BlogDetail_Content_Main = new MyPanel();
 		panel_BlogDetail_Content.add(panel_BlogDetail_Content_Main);
 		panel_BlogDetail_Content_Main.setLayout(new BoxLayout(panel_BlogDetail_Content_Main, BoxLayout.Y_AXIS));
@@ -140,7 +134,8 @@ public class BlogDetail extends JFrame {
 			try {
 				URL imageUrl = new URL(img);
 				Image image = ImageIO.read(imageUrl);
-				ImageIcon imageIcon = new ImageIcon(image);
+				Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
+				ImageIcon imageIcon = new ImageIcon(scaledImage);
 				lbl_BlogDetail_Content_Img.setIcon(imageIcon);
 			} catch (IOException e) {
 				e.printStackTrace();
