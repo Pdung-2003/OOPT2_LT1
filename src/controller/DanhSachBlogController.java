@@ -2,6 +2,7 @@ package controller;
 
 import connectors.GeneralConnector;
 import models.TodayNFTNews;
+import models.Twitter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +31,16 @@ public class DanhSachBlogController {
             data.add(new String[]{news.getTitle()});
         }
         return data;
+    }
+    public List<Twitter> twitterData() {
+        List<Twitter> twitterList;
+        try {
+            twitterList = generalConnector.getTwitterData();
+        } catch (Exception e) {
+            System.out.println("Dữ liệu news trống!");
+            return Collections.emptyList();
+        }
+        return twitterList;
     }
     public void addDataToTableNews(List<String[]> data, JTable table) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();

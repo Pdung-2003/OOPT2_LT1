@@ -1,16 +1,26 @@
 package view;
 
+import controller.DanhSachBlogController;
 import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
-public class DanhSachBaiViet extends TimKiemNFT {
-    /**
-     * Create the panel.
-     */
+public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchListener{
+    private final DefaultTableModel tableModelPost;
+    private final JTable tablePost;
+    private TimKiem DSBL_TimKiem;
+    private java.util.List<String[]> data;
+    private List<String[]> searchResult;
+    private DanhSachBlogController controller;
+    private String[] selectedRowData;
     public DanhSachBaiViet() {
         setBackground(Colors.TrangDuc);
         setBorder(new LineBorder(Colors.Trang, 20, true));
@@ -30,18 +40,51 @@ public class DanhSachBaiViet extends TimKiemNFT {
         panel_DSBL_Content.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
         // Tạo một bảng với một cột
-        String[] columnNames = {"Tên NFT"}; // Tên cột
-        String[][] data = {{"Dữ liệu 1"}, {"Dữ liệu 2"}, {"Dữ liệu 3"}}; // Dữ liệu cho cột
+        tableModelPost = new DefaultTableModel();
+        tablePost = new JTable(tableModelPost);
+        tableModelPost.addColumn("Tác giả");
+        tableModelPost.addColumn("Hashtag");
+        JScrollPane scrollPane = new JScrollPane(tablePost);
+        tablePost.setBackground(Color.WHITE);
+        tablePost.setForeground(Color.BLACK);
 
-        JTable table = new JTable(data, columnNames);
-        table.setRowHeight(40); // Tăng độ cao của các hàng
-        table.setShowGrid(true); // Hiển thị sọc giữa các hàng
-        table.setGridColor(Color.BLACK); // Màu sọc giữa các hàng
-        JScrollPane scrollPane = new JScrollPane(table);
+        // Đặt phông chữ và màu sắc cho header
+        JTableHeader header = tablePost.getTableHeader();
+        header.setFont(new Font("Arial", Font.BOLD, 14));
+        header.setBackground(Color.black);
+        header.setForeground(Colors.Vang);
+        tablePost.setRowHeight(40);
+        // Đặt phông chữ cho bảng
+        Font tableFont = new Font("Arial", Font.PLAIN, 14);
+        tablePost.setFont(tableFont);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (row % 2 == 0) {
+                    c.setBackground(new Color(0xE3E3DB)); // Màu vàng nhạt cho hàng chẵn
+                } else {
+                    c.setBackground(Color.WHITE); // Màu trắng cho hàng lẻ
+                }
+                return c;
+            }
+        };
 
-        table.setTableHeader(null);
-        Font font = table.getFont().deriveFont(Font.PLAIN, 16); // Có thể thay đổi size và style theo mong muốn
-        table.setFont(font);
+        // Áp dụng renderer cho tất cả các cột và hàng
+        tablePost.setDefaultRenderer(Object.class, renderer);
+
+        tablePost.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedRow = tablePost.getSelectedRow();
+                if (selectedRow != -1) {
+                    if (searchResult.isEmpty()) {
+                        selectedRowData = data.get(selectedRow);
+                    } else {
+                        selectedRowData = searchResult.get(selectedRow);
+                    }
+                }
+            }
+        });
 
         panel_DSBL_Content.add(scrollPane, BorderLayout.CENTER);
 
@@ -62,4 +105,46 @@ public class DanhSachBaiViet extends TimKiemNFT {
         });
     }
 
+    @Override
+    public void searchPerformed(String selectedSearchMethod, String searchInput) {
+        searchResult.clear();
+        if (searchInput.isEmpty()) {
+            searchResult = controller.titleTodayNFTNewsData();
+        } else{
+            for (String[] array : data) {
+                for (String element : array) {
+                    if (element.contains(searchInput)) {
+                        searchResult.add(array);
+                    }
+                }
+            }
+        }
+        tableModelPost.setRowCount(0);
+        controller.addDataToTableNews(searchResult, tablePost);
+    }
+    @Override
+    public void sortPerformed(String selectedSortMethod) {
+        switch (selectedSortMethod) {
+            case "Trending":
+                if(searchResult.isEmpty()) {
+                    data = controller.titleTodayNFTNewsData();
+                } else {
+                    data = new ArrayList<>(searchResult);
+                }
+                break;
+            case "Chủ đề":
+                if(searchResult.isEmpty()) {
+                    data = controller.titleTodayNFTNewsData();
+                } else {
+                    data = new ArrayList<>(searchResult);
+                }
+                data.sort((row1, row2) -> {
+                    return row1[0].compareTo(row2[0]);
+                });
+                break;
+        }
+        // Cập nhật dữ liệu trong bảng
+        tableModelPost.setRowCount(0);
+        controller.addDataToTableNews(data, tablePost);
+    }
 }
