@@ -56,7 +56,7 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Title_TenNFT);
 
 		MyLabel lbl_TKe_Filter_Title_TenNFT = new MyLabel("Tên NFT: ");
-		lbl_TKe_Filter_Title_TenNFT.setPreferredSize(new Dimension(150, 20));
+		lbl_TKe_Filter_Title_TenNFT.setPreferredSize(new Dimension(180, 20));
 		panel_TKe_Filter_Title_TenNFT.add(lbl_TKe_Filter_Title_TenNFT);
 
 		String[] items_TKe_ThongTin4 = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Điền tên các NFT vào đây
@@ -70,7 +70,7 @@ public class ThongKeNFT extends JPanel {
 
 		MyLabel lbl_TKe_Filter_Title_ThoiGian = new MyLabel("Thời gian xuất bản:");
 		panel_TKe_Filter_Title_ThoiGian.add(lbl_TKe_Filter_Title_ThoiGian);
-		lbl_TKe_Filter_Title_ThoiGian.setPreferredSize(new Dimension(150, 20));
+		lbl_TKe_Filter_Title_ThoiGian.setPreferredSize(new Dimension(180, 20));
 
 		String[] items_TKe_ThongTin5 = {"1 tháng", "3 tháng", "6 tháng", "--"}; // Điền tên các NFT vào đây (có thể là 1 tháng trở lại, 3 tháng, 6 tháng, 1 năm, --)
 		MyComboBox comboBox_TKe_Filter_Title_ThoiGian = new MyComboBox(items_TKe_ThongTin5);
@@ -82,7 +82,7 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Title_Hashtag);
 
 		MyLabel lbl_TKe_Filter_Title_Hashtag = new MyLabel("Hashtag:");
-		lbl_TKe_Filter_Title_Hashtag.setPreferredSize(new Dimension(150, 20));
+		lbl_TKe_Filter_Title_Hashtag.setPreferredSize(new Dimension(180, 20));
 		panel_TKe_Filter_Title_Hashtag.add(lbl_TKe_Filter_Title_Hashtag);
 
 		String[] items_TKe_ThongTin2 = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Điền hashtag vào đây
