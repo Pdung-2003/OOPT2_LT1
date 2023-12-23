@@ -1,7 +1,9 @@
 package crawler;
 
+import java.io.IOException;
+
 public class RunCrawlerAll {
-    public static void main(String[] args) {
+    public void run() {
         // Tạo và chạy NiftyGatewayCrawler
         NiftyGatewayCrawler niftyGatewayCrawler = new NiftyGatewayCrawler();
         niftyGatewayCrawler.run();
@@ -14,6 +16,20 @@ public class RunCrawlerAll {
         TwitterCrawler twitterCrawler = new TwitterCrawler();
         twitterCrawler.run();
 
-        // Các lệnh khác hoặc xử lý ngoại lệ (nếu cần)
+        // Tạo và chạy TodayNFTCrawler
+        TodayNTFCrawler todayNTFCrawler = new TodayNTFCrawler();
+        try {
+            todayNTFCrawler.run();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Tạo và chạy OpenseaCrawler
+        OpenseaCrawler crawler = new OpenseaCrawler();
+        try {
+            crawler.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
