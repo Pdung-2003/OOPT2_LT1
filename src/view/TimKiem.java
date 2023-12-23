@@ -27,7 +27,7 @@ public class TimKiem extends JPanel {
 	public TimKiem(String[] TimKiem, String[] SapXep) {
 
 		setBackground(Colors.Trang);
-		setPreferredSize(new Dimension(1085, 145));
+		setPreferredSize(new Dimension(1085, 150));
 		setLayout(new BorderLayout(20,0));
 
 		// Panel tổng thể
@@ -69,6 +69,7 @@ public class TimKiem extends JPanel {
 		panel_TK_Search_Input.add(panel_TK_Search_Input_Confirm, BorderLayout.EAST);
 
 		Button_Chung btn_TK_Search_Input_Confirm = new Button_Chung("Tìm Kiếm");
+		btn_TK_Search_Input_Confirm.setPreferredSize(new Dimension(120, 35));
 		panel_TK_Search_Input_Confirm.add(btn_TK_Search_Input_Confirm);
 		
 		// Khu vực sắp xếp
