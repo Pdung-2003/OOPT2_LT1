@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 public class OpenseaCrawler {
-    public static void main(String[] args) {
+    public void run() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();

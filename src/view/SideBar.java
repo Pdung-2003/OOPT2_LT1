@@ -1,14 +1,13 @@
 package view;
 
+import crawler.RunCrawlerAll;
 import view.Buttons.Button_Chung;
 import view.Buttons.Button_SideBar;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SideBar extends JPanel {
 	private JButton buttonDanhSach;
@@ -25,7 +24,7 @@ public class SideBar extends JPanel {
 	private Button_Chung buttonCapNhat;
 	private Component verticalGlue;
 
-
+	private RunCrawlerAll runCrawlerAll;
 
 	public SideBar() {
 		setBackground(Colors.Vang);
@@ -94,6 +93,13 @@ public class SideBar extends JPanel {
 		buttonCapNhat.setForeground(Colors.Vang);
 		buttonCapNhat.setPreferredSize(new Dimension(200, 60));
 		panel_buttonCapNhat.add(buttonCapNhat);
+		buttonCapNhat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				runCrawlerAll = new RunCrawlerAll();
+				runCrawlerAll.run();
+			}
+		});
 	}
 
 	public JButton getButtonDanhSach() {
