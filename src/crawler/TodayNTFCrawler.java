@@ -147,8 +147,11 @@ public class TodayNTFCrawler implements DataCrawler {
 
     @Override
     public void run() throws IOException, InterruptedException {
-
+        fetchData();
+        processData();
+        saveData("TodayNFTNews.json");
     }
+
 
     private void saveDataToJson(List<TodayNFTNews> collectionInfoList, String filename) {
         JsonArray jsonArray = new JsonArray();
