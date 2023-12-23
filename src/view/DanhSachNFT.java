@@ -12,8 +12,11 @@ import view.Panels.MyPanel;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static view.Table.clearTable;
@@ -24,7 +27,6 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
     private final MyComboBox comboBox_DSNFT_Filter_NenTang;
     private final MyPanel panel_DSNFT_Content;
     private final JTable table;
-    private final JScrollPane scrollPane;
     private NFTController nftController;
 
     public DanhSachNFT() {
@@ -60,7 +62,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
         // Khu vực tìm kiếm
         String[] items_DSNFT_TimKiem = {"Tên NFT", "Giá bán nhỏ hơn", "Số lượng giao dịch nhỏ hơn"}; // Thêm phương pháp tìm kiếm vào đây
-        String[] items_DSNFT_SapXep = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp sắp xếp vào đây
+        String[] items_DSNFT_SapXep = {"Trending", "Tên NFT", "Giao dịch", "Giá"}; // Thêm phương pháp sắp xếp vào đây
         TimKiem DSNFT_TimKiem = new TimKiem(items_DSNFT_TimKiem, items_DSNFT_SapXep);
         DSNFT_TimKiem.addSearchListener(this); // Lắng nghe sự kiện tìm kiếm từ TimKiem
         DSNFT_TimKiem.addSortListener(this); // Lắng nghe sự kiện sắp xếp từ TimKiem
@@ -68,7 +70,35 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
         // Tạo bảng và scrollPane một lần
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
-        scrollPane = Table.getScrollPane(tableModel);
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.setBackground(Color.WHITE);
+        table.setForeground(Color.BLACK);
+
+        // Đặt phông chữ và màu sắc cho header
+        JTableHeader header = table.getTableHeader();
+        header.setFont(new Font("Arial", Font.BOLD, 14));
+        header.setBackground(Color.black);
+        header.setForeground(Colors.Vang);
+        table.setRowHeight(40);
+
+        // Đặt phông chữ cho bảng
+        Font tableFont = new Font("Arial", Font.PLAIN, 14);
+        table.setFont(tableFont);
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (row % 2 == 0) {
+                    c.setBackground(new Color(0xE3E3DB)); // Màu vàng nhạt cho hàng chẵn
+                } else {
+                    c.setBackground(Color.WHITE); // Màu trắng cho hàng lẻ
+                }
+                return c;
+            }
+        };
+
+        // Áp dụng renderer cho tất cả các cột và hàng
+        table.setDefaultRenderer(Object.class, renderer);
 
         // Thêm scrollPane vào panel_DSNFT_Content
         panel_DSNFT_Content.add(scrollPane, BorderLayout.CENTER);
@@ -190,5 +220,19 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
     @Override
     public void sortPerformed(String selectedSortMethod) {
+        switch (selectedSortMethod) {
+            case "Trending":
+
+                break;
+            case "Tên NFT":
+                nftController.sortTableByColumn(table);
+                break;
+            case "Giao dịch":
+                nftController.sortTableByName(table);
+                break;
+            case "Giá":
+
+                break;
+        }
     }
 }

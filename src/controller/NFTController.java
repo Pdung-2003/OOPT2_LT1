@@ -110,7 +110,16 @@ public class NFTController {
         }
     }
 
+    public void sortTableByColumn(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(0, Comparator.naturalOrder());
+        table.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
     public void sortTableByName(JTable table) {
+        table.setAutoCreateRowSorter(true);
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
         sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
         table.setRowSorter(sorter);
