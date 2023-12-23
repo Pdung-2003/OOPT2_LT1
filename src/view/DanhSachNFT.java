@@ -16,8 +16,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static view.Table.clearTable;
 
@@ -25,9 +25,8 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
     private final DefaultTableModel tableModel;
     private final MyComboBox comboBox_DSNFT_Filter_NenTang;
-    private final MyPanel panel_DSNFT_Content;
     private final JTable table;
-    private NFTController nftController;
+    private final NFTController nftController;
 
     public DanhSachNFT() {
         this.nftController = new NFTController();
@@ -56,7 +55,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
         panel_DSNFT_Filter.add(btn_DSNFT_CF_Filter);
 
         // Khu vực chính dùng để in dữ liệu
-        panel_DSNFT_Content = new MyPanel();
+        MyPanel panel_DSNFT_Content = new MyPanel();
         add(panel_DSNFT_Content, BorderLayout.CENTER);
         panel_DSNFT_Content.setLayout(new BorderLayout(0, 0));
 
@@ -113,30 +112,30 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
             // Lấy dữ liệu từ NFTController
             List<?> nftData = null;
             switch (selectedNenTang) {
-                case "Nifty Gateway":
+                case "Nifty Gateway" -> {
                     try {
                         nftData = nftController.getNiftyGatewayData();
                         nftController.addDataToTableNifty(table, (List<NiftyGateway>) nftData);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                    break;
-                case "Binance":
+                }
+                case "Binance" -> {
                     try {
                         nftData = nftController.getBinanceData();
                         nftController.addDataToTableBinance(table, (List<Binance>) nftData);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                    break;
-                case "Opensea":
+                }
+                case "Opensea" -> {
                     try {
                         nftData = nftController.getOpenseaData();
                         nftController.addDataToTableOpensea(table, (List<Opensea>) nftData);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                    break;
+                }
             }
         });
     }
@@ -145,7 +144,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
         clearTable(tableModel);
         // Thêm các cột mới tùy thuộc vào giá trị được chọn
         switch (selectedNenTang) {
-            case "Binance":
+            case "Binance" -> {
                 tableModel.addColumn("Collection Title");
                 tableModel.addColumn("Collection ID");
                 tableModel.addColumn("Display Image");
@@ -154,8 +153,8 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
                 tableModel.addColumn("Floor Price");
                 tableModel.addColumn("Floor Price Rate");
                 tableModel.addColumn("Total Supply");
-                break;
-            case "Nifty Gateway":
+            }
+            case "Nifty Gateway" -> {
                 tableModel.addColumn("Collection Title");
                 tableModel.addColumn("Display Image");
                 tableModel.addColumn("Average Sale Price");
@@ -163,17 +162,16 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
                 tableModel.addColumn("Total Volume");
                 tableModel.addColumn("Floor Price");
                 tableModel.addColumn("Nifty Type");
-                break;
-            case "Opensea":
+            }
+            case "Opensea" -> {
                 tableModel.addColumn("Title");
                 tableModel.addColumn("Display Image");
                 tableModel.addColumn("Discount");
                 tableModel.addColumn("Number of Sales");
                 tableModel.addColumn("Volume");
                 tableModel.addColumn("Floor Price");
-                break;
-            default:
-                System.out.println("Không xác định được nền tảng.");
+            }
+            default -> System.out.println("Không xác định được nền tảng.");
         }
     }
 
@@ -183,33 +181,20 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
             String selectedNenTang = (String) comboBox_DSNFT_Filter_NenTang.getSelectedItem(); // Lấy nền tảng đã chọn từ combobox
 
             List<?> searchData = null;
-            switch (selectedNenTang) {
-                case "Nifty Gateway":
-                    searchData = nftController.searchNiftyGateway(selectedSearchMethod, searchInput);
-                    break;
-                case "Binance":
-                    searchData = nftController.searchBinance(selectedSearchMethod, searchInput);
-                    break;
-                case "Opensea":
-                    searchData = nftController.searchOpensea(selectedSearchMethod, searchInput);
-                    break;
-                default:
-                    System.out.println("Nền tảng không hợp lệ.");
-                    break;
+            switch (Objects.requireNonNull(selectedNenTang)) {
+                case "Nifty Gateway" ->
+                        searchData = nftController.searchNiftyGateway(selectedSearchMethod, searchInput);
+                case "Binance" -> searchData = nftController.searchBinance(selectedSearchMethod, searchInput);
+                case "Opensea" -> searchData = nftController.searchOpensea(selectedSearchMethod, searchInput);
+                default -> System.out.println("Nền tảng không hợp lệ.");
             }
 
             // Hiển thị kết quả tìm kiếm trên bảng DanhSachNFT
             if (searchData != null) {
                 switch (selectedNenTang) {
-                    case "Nifty Gateway":
-                        nftController.addDataToTableNifty(table, (List<NiftyGateway>) searchData);
-                        break;
-                    case "Binance":
-                        nftController.addDataToTableBinance(table, (List<Binance>) searchData);
-                        break;
-                    case "Opensea":
-                        nftController.addDataToTableOpensea(table, (List<Opensea>) searchData);
-                        break;
+                    case "Nifty Gateway" -> nftController.addDataToTableNifty(table, (List<NiftyGateway>) searchData);
+                    case "Binance" -> nftController.addDataToTableBinance(table, (List<Binance>) searchData);
+                    case "Opensea" -> nftController.addDataToTableOpensea(table, (List<Opensea>) searchData);
                 }
             }
         } catch (Exception ex) {
@@ -221,15 +206,9 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
     @Override
     public void sortPerformed(String selectedSortMethod) {
         switch (selectedSortMethod) {
-            case "Tên NFT":
-                nftController.sortTableByColumn(0, table);
-                break;
-            case "Volume":
-                nftController.sortTableByColumn(4, table);
-                break;
-            case "Giá":
-                nftController.sortTableByColumn(5, table);
-                break;
+            case "Tên NFT" -> nftController.sortTableByTitle(table);
+            case "Volume" -> nftController.sortTableByVolume(table);
+            case "Giá" -> nftController.sortTableByPrice(table);
         }
     }
 }

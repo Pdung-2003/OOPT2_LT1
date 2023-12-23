@@ -110,14 +110,34 @@ public class NFTController {
         }
     }
 
-    public void sortTableByColumn(int indexColumn, JTable table) {
+    public void sortTableByTitle(JTable table) {
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(indexColumn, Comparator.naturalOrder());
+        sorter.setComparator(0, Comparator.comparing(o -> o.toString().toLowerCase()));
         table.setRowSorter(sorter);
 
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(indexColumn, SortOrder.ASCENDING));
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING));
         sorter.setSortKeys(sortKeys);
     }
+
+    public void sortTableByVolume(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(4, Comparator.comparingDouble(o -> Double.parseDouble(o.toString())));
+        table.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(4, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
+
+    public void sortTableByPrice(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(5, Comparator.comparingDouble(o -> Double.parseDouble(o.toString())));
+        table.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(5, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
+
+
 
     public List<NiftyGateway> searchNiftyGateway(String selectedSearchMethod, String searchInput) {
         try {
