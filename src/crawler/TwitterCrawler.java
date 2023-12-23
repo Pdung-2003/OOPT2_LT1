@@ -54,15 +54,17 @@ public class TwitterCrawler implements DataCrawler {
     public void searchTwitter(String query) {
         WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Search query']")));
         searchBox.sendKeys(query + Keys.ENTER);
+        WebElement specificElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div[2]/main/div/div/div/div[1]/div/div[1]/div[1]/div[2]/nav/div/div[2]/div/div[2]/a")));
+        specificElement.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//article[@role='article']")));
     }
     private List<Twitter> collectTweets() throws InterruptedException {
         List<Twitter> tweetInfoList = new ArrayList<>();
 
-        while (tweetInfoList.size() < 50) {
+        while (tweetInfoList.size() < 200) {
             List<WebElement> tweets = driver.findElements(By.xpath("//article[@role='article']"));
             for (WebElement tweet : tweets) {
-                if (tweetInfoList.size() >= 50) break;
+                if (tweetInfoList.size() >= 200) break;
                 Twitter tweetInfo = extractTweetInfo(tweet);
                 if (tweetInfo != null) {
                     tweetInfoList.add(tweetInfo);
