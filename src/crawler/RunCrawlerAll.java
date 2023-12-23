@@ -1,35 +1,33 @@
 package crawler;
 
-import java.io.IOException;
+import javax.swing.*;
+
 
 public class RunCrawlerAll {
     public void run() {
-        // Tạo và chạy NiftyGatewayCrawler
-        NiftyGatewayCrawler niftyGatewayCrawler = new NiftyGatewayCrawler();
-        niftyGatewayCrawler.run();
-
-        // Tạo và chạy BinanceCrawler
-        BinanceCrawler binanceCrawler = new BinanceCrawler();
-        binanceCrawler.run();
-
-        // Tạo và chạy TwitterCrawler
-        TwitterCrawler twitterCrawler = new TwitterCrawler();
-        twitterCrawler.run();
-
-        // Tạo và chạy TodayNFTCrawler
-        TodayNTFCrawler todayNTFCrawler = new TodayNTFCrawler();
         try {
+            JOptionPane.showMessageDialog(null, "Vui lòng chờ đợi dữ liệu được thu thập.");
+            // Tạo và chạy các crawler
+            NiftyGatewayCrawler niftyGatewayCrawler = new NiftyGatewayCrawler();
+            niftyGatewayCrawler.run();
+
+            BinanceCrawler binanceCrawler = new BinanceCrawler();
+            binanceCrawler.run();
+
+            TwitterCrawler twitterCrawler = new TwitterCrawler();
+            twitterCrawler.run();
+
+            TodayNTFCrawler todayNTFCrawler = new TodayNTFCrawler();
             todayNTFCrawler.run();
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        // Tạo và chạy OpenseaCrawler
-        OpenseaCrawler crawler = new OpenseaCrawler();
-        try {
-            crawler.run();
+            OpenseaCrawler openseaCrawler = new OpenseaCrawler();
+            openseaCrawler.run();
+
+            JOptionPane.showMessageDialog(null, "Dữ liệu đã được cập nhật thành công.");
         } catch (Exception e) {
             e.printStackTrace();
+            // Xử lý exception nếu có
+            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra trong quá trình cập nhật dữ liệu.");
         }
     }
 }
