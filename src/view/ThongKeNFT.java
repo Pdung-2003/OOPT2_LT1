@@ -1,36 +1,22 @@
 package view;
 
 import view.Buttons.Button_Chung;
-import view.ComboBox.MyComboBox;
 import view.Labels.MyLabel;
 import view.Labels.MyLabelBold;
 import view.Panels.MyPanel;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import view.ScrollPane.MyScrollPane;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.GridLayout;
-
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import java.awt.CardLayout;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
-import java.awt.Component;
+import javax.swing.JTextField;
+import java.awt.Font;
+
 
 public class ThongKeNFT extends JPanel {
+	private JTextField textField_TKe_Filter_Title_TenNFT;
 
 	/**
 	 * Create the panel.
@@ -47,7 +33,7 @@ public class ThongKeNFT extends JPanel {
 		add(panel_TKe_Filter, BorderLayout.WEST);
 		panel_TKe_Filter.setLayout(new BorderLayout(0, 0));
 
-		// Thống ke theo tên NFT
+		// Thống kê theo tên NFT
 		MyPanel panel_TKe_Filter_Title = new MyPanel();
 		panel_TKe_Filter.add(panel_TKe_Filter_Title, BorderLayout.WEST);
 		panel_TKe_Filter_Title.setLayout(new BoxLayout(panel_TKe_Filter_Title, BoxLayout.Y_AXIS));
@@ -56,51 +42,37 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Title_TenNFT);
 
 		MyLabel lbl_TKe_Filter_Title_TenNFT = new MyLabel("Tên NFT: ");
-		lbl_TKe_Filter_Title_TenNFT.setPreferredSize(new Dimension(180, 20));
+		lbl_TKe_Filter_Title_TenNFT.setPreferredSize(new Dimension(100, 20));
 		panel_TKe_Filter_Title_TenNFT.add(lbl_TKe_Filter_Title_TenNFT);
 
-		String[] items_TKe_ThongTin4 = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Điền tên các NFT vào đây
-		MyComboBox comboBox_TKe_Filter_Title_TenNFT = new MyComboBox(items_TKe_ThongTin4);
-		comboBox_TKe_Filter_Title_TenNFT.setPreferredSize(new Dimension(180, 30));
-		panel_TKe_Filter_Title_TenNFT.add(comboBox_TKe_Filter_Title_TenNFT);
-
-		// Thống kê theo thời gian xuất bản
-		MyPanel panel_TKe_Filter_Title_ThoiGian = new MyPanel();
-		panel_TKe_Filter_Title.add(panel_TKe_Filter_Title_ThoiGian);
-
-		MyLabel lbl_TKe_Filter_Title_ThoiGian = new MyLabel("Thời gian xuất bản:");
-		panel_TKe_Filter_Title_ThoiGian.add(lbl_TKe_Filter_Title_ThoiGian);
-		lbl_TKe_Filter_Title_ThoiGian.setPreferredSize(new Dimension(180, 20));
-
-		String[] items_TKe_ThongTin5 = {"1 tháng", "3 tháng", "6 tháng", "--"}; // Điền tên các NFT vào đây (có thể là 1 tháng trở lại, 3 tháng, 6 tháng, 1 năm, --)
-		MyComboBox comboBox_TKe_Filter_Title_ThoiGian = new MyComboBox(items_TKe_ThongTin5);
-		comboBox_TKe_Filter_Title_ThoiGian.setPreferredSize(new Dimension(180, 30));
-		panel_TKe_Filter_Title_ThoiGian.add(comboBox_TKe_Filter_Title_ThoiGian);
-
-		// Thống kê theo Hashtag
-		MyPanel panel_TKe_Filter_Title_Hashtag = new MyPanel();
-		panel_TKe_Filter_Title.add(panel_TKe_Filter_Title_Hashtag);
-
-		MyLabel lbl_TKe_Filter_Title_Hashtag = new MyLabel("Hashtag:");
-		lbl_TKe_Filter_Title_Hashtag.setPreferredSize(new Dimension(180, 20));
-		panel_TKe_Filter_Title_Hashtag.add(lbl_TKe_Filter_Title_Hashtag);
-
-		String[] items_TKe_ThongTin2 = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Điền hashtag vào đây
-		MyComboBox comboBox_TKe_Filter_Title_Hashtag = new MyComboBox(items_TKe_ThongTin2);
-		comboBox_TKe_Filter_Title_Hashtag.setPreferredSize(new Dimension(180, 30));
-		panel_TKe_Filter_Title_Hashtag.add(comboBox_TKe_Filter_Title_Hashtag);
+		// Khu vực tìm kiếm tên NFT
+		textField_TKe_Filter_Title_TenNFT = new JTextField();
+		textField_TKe_Filter_Title_TenNFT.setFont(new Font("Arial", Font.PLAIN, 16));
+		panel_TKe_Filter_Title_TenNFT.add(textField_TKe_Filter_Title_TenNFT);
+		textField_TKe_Filter_Title_TenNFT.setColumns(10);
 
 		// Khu vực nút confirm duyệt thông tin
 		MyPanel panel_TKe_Filter_Confirm = new MyPanel();
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Confirm);
 
 		Button_Chung btn_TKe_Filter_Confirm = new Button_Chung("Duyệt");
-		btn_TKe_Filter_Confirm.setPreferredSize(new Dimension(170, 60));
 		panel_TKe_Filter_Confirm.add(btn_TKe_Filter_Confirm);
-		panel_TKe_Filter_Title.add(Box.createVerticalGlue());
-		panel_TKe_Filter_Title.add(Box.createVerticalGlue());
-		panel_TKe_Filter_Title.add(Box.createVerticalGlue());
 
+		// Khu vực hiển thị thông tin duyệt
+		MyPanel panel_TKe_Filter_Result = new MyPanel();
+		panel_TKe_Filter_Title.add(panel_TKe_Filter_Result);
+		panel_TKe_Filter_Result.setLayout(new BorderLayout(0, 0));
+
+		// In kết quả trong panel này
+		MyScrollPane scrollPane_TKe_Filter_Result = new MyScrollPane();
+		panel_TKe_Filter_Result.add(scrollPane_TKe_Filter_Result, BorderLayout.CENTER);
+
+		// In tổng vào label này
+		MyLabel lbl_TKe_Content_Total = new MyLabel("Tổng: ");
+		lbl_TKe_Content_Total.setPreferredSize(new Dimension(150, 40));
+		panel_TKe_Filter.add(lbl_TKe_Content_Total, BorderLayout.SOUTH);
+
+		// Khu vực đệm phụ
 		MyPanel panel_TKe_Dem = new MyPanel();
 		panel_TKe_Filter.add(panel_TKe_Dem, BorderLayout.EAST);
 
@@ -125,7 +97,7 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Content_Twitter_Title.add(lbl_TKe_Content_Twitter_Title);
 
 		// Thông tin hiển thị in vào panel này
-		JScrollPane scrollPane_TKe_Content_Twitter = new JScrollPane();
+		MyScrollPane scrollPane_TKe_Content_Twitter = new MyScrollPane();
 		panel_TKe_Content_Twitter.add(scrollPane_TKe_Content_Twitter, BorderLayout.CENTER);
 
 		// Tổng số lượng
@@ -146,7 +118,7 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Content_Blog_Title.add(lbl_TKe_Content_Blog_Title);
 
 		// Thông tin hiển thị in vào panel này
-		JScrollPane scrollPane_TKe_Content_Blog = new JScrollPane();
+		MyScrollPane scrollPane_TKe_Content_Blog = new MyScrollPane();
 		panel_TKe_Content_Blog.add(scrollPane_TKe_Content_Blog, BorderLayout.CENTER);
 
 		// Tổng số lượng
