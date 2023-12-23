@@ -1,22 +1,29 @@
 package view;
 
+import controller.NFTController;
 import view.Buttons.Button_Chung;
+import view.ComboBox.MyComboBox;
 import view.Labels.MyLabel;
 import view.Labels.MyLabelBold;
 import view.Panels.MyPanel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+
+import java.awt.*;
+import java.util.List;
+
 import view.ScrollPane.MyScrollPane;
-import javax.swing.JPanel;
+
+import javax.swing.*;
 import javax.swing.border.LineBorder;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
-import javax.swing.JTextField;
-import java.awt.Font;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 
 public class ThongKeNFT extends JPanel {
+	private final DefaultTableModel tableModel;
+	private final JTable table;
 	private JTextField textField_TKe_Filter_Title_TenNFT;
+	private NFTController nftController;
 
 	/**
 	 * Create the panel.
@@ -63,9 +70,52 @@ public class ThongKeNFT extends JPanel {
 		panel_TKe_Filter_Title.add(panel_TKe_Filter_Result);
 		panel_TKe_Filter_Result.setLayout(new BorderLayout(0, 0));
 
-		// In kết quả trong panel này
-		MyScrollPane scrollPane_TKe_Filter_Result = new MyScrollPane();
-		panel_TKe_Filter_Result.add(scrollPane_TKe_Filter_Result, BorderLayout.CENTER);
+		// Tạo DefaultTableModel với một cột "title"
+		tableModel = new DefaultTableModel();
+		tableModel.addColumn("Title");
+
+		// Tạo bảng với DefaultTableModel
+		table = new JTable(tableModel);
+		table.setBackground(Color.WHITE);
+		table.setForeground(Color.BLACK);
+		// Cấu hình bảng (nếu cần)
+
+		// Đặt phông chữ và màu sắc cho header
+		JTableHeader header = table.getTableHeader();
+		header.setFont(new Font("Arial", Font.BOLD, 14));
+		header.setBackground(Color.black);
+		header.setForeground(Colors.Vang);
+		table.setRowHeight(40);
+
+		// Đặt phông chữ cho bảng
+		Font tableFont = new Font("Arial", Font.PLAIN, 14);
+		table.setFont(tableFont);
+		DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if (row % 2 == 0) {
+					c.setBackground(new Color(0xE3E3DB)); // Màu vàng nhạt cho hàng chẵn
+				} else {
+					c.setBackground(Color.WHITE); // Màu trắng cho hàng lẻ
+				}
+				return c;
+			}
+		};
+
+		// Áp dụng renderer cho tất cả các cột và hàng
+		table.setDefaultRenderer(Object.class, renderer);
+
+		// Tạo MyScrollPane để chứa bảng
+		MyScrollPane scrollPane = new MyScrollPane();
+		scrollPane.setViewportView(table);
+
+		// Thêm MyScrollPane chứa bảng vào panel_TKe_Filter_Result
+		panel_TKe_Filter_Result.add(scrollPane, BorderLayout.CENTER);
+
+		nftController = new NFTController();
+		nftController.addNFTTitlesToTable(table);
+
 
 		// In tổng vào label này
 		MyLabel lbl_TKe_Content_Total = new MyLabel("Tổng: ");
@@ -125,7 +175,6 @@ public class ThongKeNFT extends JPanel {
 		MyLabel lbl_TKe_Content_Blog_Total = new MyLabel("Tổng: ");
 		lbl_TKe_Content_Blog_Total.setPreferredSize(new Dimension(150, 40));
 		panel_TKe_Content_Blog.add(lbl_TKe_Content_Blog_Total, BorderLayout.SOUTH);
-
 
 	}
 
