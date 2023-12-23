@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a8a67ab9-3b62-432a-b782-3926c5e247c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SideBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Binance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Binance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NiftyGatewayData.json" beforeDir="false" afterPath="$PROJECT_DIR$/NiftyGatewayData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodayNFTNews.json" beforeDir="false" afterPath="$PROJECT_DIR$/TodayNFTNews.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Twitter.json" beforeDir="false" afterPath="$PROJECT_DIR$/Twitter.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ThongKeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ThongKeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ThongKeNFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ThongKeNFT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

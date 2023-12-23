@@ -237,7 +237,15 @@ public class ThongKeNFT extends JPanel {
 				BlogDetail blogDetail = new BlogDetail();
 				blogDetail.setLocationRelativeTo(null);
 				blogDetail.setVisible(true);
-				int selectedRow = table.getSelectedRow();
+				int selectedRow = tableTwitter.getSelectedRow();
+				System.out.println((String) tableTwitter.getValueAt(selectedRow, 0));
+				blogDetail.updateBlogTwitter((String) tableNews.getValueAt(selectedRow, 0),
+						controller.searchTwitterAuthor((String) tableTwitter.getValueAt(selectedRow, 0)).getImages(),
+						controller.searchTwitterAuthor((String) tableTwitter.getValueAt(selectedRow, 0)).getAuthor(),
+						controller.searchTwitterAuthor((String) tableTwitter.getValueAt(selectedRow, 0)).getDate(),
+						controller.searchTwitterAuthor((String) tableTwitter.getValueAt(selectedRow, 0)).getHashtag(),
+						controller.searchTwitterAuthor((String) tableTwitter.getValueAt(selectedRow, 0)).getContent());
+				blogDetail.updateUI();
 			}
 		});
 		tableNews.getSelectionModel().addListSelectionListener(e -> {
@@ -245,7 +253,14 @@ public class ThongKeNFT extends JPanel {
 				BlogDetail blogDetail = new BlogDetail();
 				blogDetail.setLocationRelativeTo(null);
 				blogDetail.setVisible(true);
-				int selectedRow = table.getSelectedRow();
+				int selectedRow = tableNews.getSelectedRow();
+				blogDetail.updateBlogDetail((String) tableNews.getValueAt(selectedRow, 0),
+						controller.searchByTitle((String) tableNews.getValueAt(selectedRow, 0)).getImageUrl(),
+						controller.searchByTitle((String) tableNews.getValueAt(selectedRow, 0)).getAuthor(),
+						controller.searchByTitle((String) tableNews.getValueAt(selectedRow, 0)).getDate(),
+						controller.searchByTitle((String) tableNews.getValueAt(selectedRow, 0)).getHashtag(),
+						controller.searchByTitle((String) tableNews.getValueAt(selectedRow, 0)).getContent());
+				blogDetail.updateUI();
 			}
 		});
 	}

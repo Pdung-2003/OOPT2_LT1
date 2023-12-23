@@ -6,6 +6,7 @@ import models.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ThongKeController {
@@ -122,5 +123,36 @@ public class ThongKeController {
         }
 
         return allTitles;
+    }
+    public Twitter searchTwitterAuthor(String inputSearch) {
+        List<Twitter> allTitles = new ArrayList<>();
+
+        try {
+            allTitles = generalConnector.getTwitterData();
+        } catch (Exception e) {
+            System.out.println("Dữ liệu news trống!");
+            return (Twitter) Collections.emptyList();
+        }
+        for (Twitter news : allTitles) {
+            if (news.getAuthor().equals(inputSearch)) {
+                return news;
+            }
+        }
+        return null;
+    }
+    public TodayNFTNews searchByTitle(String searchTerm) {
+        List<TodayNFTNews> todayNFTNewsList;
+        try {
+            todayNFTNewsList = generalConnector.getTodayNFTNews();
+        } catch (Exception e) {
+            System.out.println("Dữ liệu news trống!");
+            return (TodayNFTNews) Collections.emptyList();
+        }
+        for (TodayNFTNews news : todayNFTNewsList) {
+            if (news.getTitle().equals(searchTerm)) {
+                return news;
+            }
+        }
+        return null;
     }
 }
