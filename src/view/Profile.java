@@ -1,5 +1,8 @@
 package view;
 
+import view.Labels.MyLabel;
+import view.Panels.MyPanel;
+
 import javax.swing.JPanel;
 
 import java.awt.Dimension;
