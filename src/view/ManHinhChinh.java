@@ -7,7 +7,7 @@ public class ManHinhChinh extends JFrame {
         private ContentPanel contentPanel;
         private SideBar sidebar;
 
-        public ManHinhChinh() {
+        public ManHinhChinh() throws Exception {
                 setExtendedState(JFrame.MAXIMIZED_BOTH);
                 setPreferredSize(new Dimension(1335, 780));
                 setLayout(new BorderLayout());

@@ -10,6 +10,7 @@ import view.Labels.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.util.List;
 
 import javax.swing.border.MatteBorder;
 
@@ -139,6 +140,37 @@ public class BlogDetail extends JFrame {
 				lbl_BlogDetail_Content_Img.setIcon(imageIcon);
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+		});
+	}
+	public void updateBlogTwitter(String rowData, List<String> imgList, String author, String date, String hashtag, String content) {
+		SwingUtilities.invokeLater(() -> {
+			System.out.println("Updating title: " + rowData);
+			lbl_BlogDetail_Title.setText(rowData);
+			lbl_BlogDetail_Content_Main_Author.setText("Tác giả: " + author);
+			lbl_BlogDetail_Content_Main_Date.setText("Thời gian: " + date);
+			lbl_BlogDetail_Content_Main_Hashtag.setText("Hashtag: " + hashtag);
+			textArea_BlogDetail_Content_Main_Text.setText("Nội dung: \n" + content);
+
+			// Xử lý hiển thị hình ảnh
+			if (!imgList.isEmpty()) {
+				try {
+					// Lấy đường dẫn hình ảnh đầu tiên từ danh sách
+					String imageUrl = imgList.get(0);
+
+					// Nếu có nhiều hình ảnh, bạn có thể sử dụng vòng lặp để xử lý chúng
+					// for (String imageUrl : imgList) {
+					URL url = new URL(imageUrl);
+					Image image = ImageIO.read(url);
+					Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
+					ImageIcon imageIcon = new ImageIcon(scaledImage);
+					lbl_BlogDetail_Content_Img.setIcon(imageIcon);
+
+					// Sử dụng imgList theo nhu cầu của bạn
+					// ...
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}

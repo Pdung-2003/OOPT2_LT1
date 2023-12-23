@@ -5,7 +5,7 @@ import view.Buttons.Button_Chung;
 import view.Panels.MyPanel;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -17,21 +17,24 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
     private final DefaultTableModel tableModelPost;
     private final JTable tablePost;
     private TimKiem DSBL_TimKiem;
-    private java.util.List<String[]> data;
+    private List<String[]> data;
     private List<String[]> searchResult;
     private DanhSachBlogController controller;
     private String[] selectedRowData;
-    public DanhSachBaiViet() {
+    public DanhSachBaiViet() throws Exception {
+        controller = new DanhSachBlogController();
         setBackground(Colors.TrangDuc);
         setBorder(new LineBorder(Colors.Trang, 20, true));
         setPreferredSize(new Dimension(1085, 730));
         setLayout(new BorderLayout(20, 0));
 
         // Khu vực tìm kiếm
-        String[] items_DSBL_TimKiem = {"Tên NFT", "Chủ bộ sưu tập", "Ngày tạo", "Giá"}; // Thêm phương pháp tìm kiếm vào đây
-        String[] items_DSBL_Sapxep = {"Item1", "Item2;"}; // Thêm phương pháp sắp xếp vào đây
-        TimKiem DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
+        String[] items_DSBL_TimKiem = {"Tác giả", "Hashtag"}; // Thêm phương pháp tìm kiếm vào đây
+        String[] items_DSBL_Sapxep = {"Trending", "Tác giả", "Hashtag"}; // Thêm phương pháp sắp xếp vào đây
+        DSBL_TimKiem = new TimKiem(items_DSBL_TimKiem, items_DSBL_Sapxep);
         add(DSBL_TimKiem, BorderLayout.NORTH);
+        DSBL_TimKiem.addSearchListener(this);
+        DSBL_TimKiem.addSortListener(this);
 
         // Khu vực điền bảng thông tin
         MyPanel panel_DSBL_Content = new MyPanel();
@@ -82,11 +85,17 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
                     } else {
                         selectedRowData = searchResult.get(selectedRow);
                     }
+                    System.out.println(Arrays.toString(selectedRowData));
                 }
             }
         });
 
         panel_DSBL_Content.add(scrollPane, BorderLayout.CENTER);
+
+        // Thêm dữ liệu từ danh sách vào bảng
+        searchResult = new ArrayList<>();
+        data = controller.twitterData();
+        controller.addDataToTableTwitter(data, tablePost);
 
         // Khu vực dành cho button xem chi tiết
         MyPanel panel_DSBL_Content_Detail = new MyPanel();
@@ -99,9 +108,15 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
         // Khu vực action của nút Xem chi tiết
         btn_DSBL_Content_Detail.addActionListener(e -> {
             // Hiển thị ra panel thông tin chi tiết blog
-            BlogDetail Blog_Detail = new BlogDetail();
-            Blog_Detail.setLocationRelativeTo(null);
-            Blog_Detail.setVisible(true);
+            BlogDetail blogDetail = new BlogDetail();
+            blogDetail.setLocationRelativeTo(null);
+            blogDetail.setVisible(true);
+            blogDetail.updateBlogTwitter(Arrays.toString(selectedRowData),
+                    controller.searchByAuthorHashtag(Arrays.toString(selectedRowData)).getImages(),
+                    controller.searchByAuthorHashtag(Arrays.toString(selectedRowData)).getAuthor(),
+                    controller.searchByAuthorHashtag(Arrays.toString(selectedRowData)).getDate(),
+                    controller.searchByAuthorHashtag(Arrays.toString(selectedRowData)).getHashtag(),
+                    controller.searchByAuthorHashtag(Arrays.toString(selectedRowData)).getContent());
         });
     }
 
@@ -109,13 +124,16 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
     public void searchPerformed(String selectedSearchMethod, String searchInput) {
         searchResult.clear();
         if (searchInput.isEmpty()) {
-            searchResult = controller.titleTodayNFTNewsData();
+            searchResult = controller.twitterData();
         } else{
             for (String[] array : data) {
-                for (String element : array) {
-                    if (element.contains(searchInput)) {
-                        searchResult.add(array);
-                    }
+                String author = array[0];
+                String hashtag = array[1];
+
+                if (selectedSearchMethod.equalsIgnoreCase("Tác giả") && author != null && author.contains(searchInput)) {
+                    searchResult.add(array);
+                } else if (selectedSearchMethod.equalsIgnoreCase("Hashtag") && hashtag != null && hashtag.contains(searchInput)) {
+                    searchResult.add(array);
                 }
             }
         }
@@ -126,21 +144,33 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
     public void sortPerformed(String selectedSortMethod) {
         switch (selectedSortMethod) {
             case "Trending":
-                if(searchResult.isEmpty()) {
-                    data = controller.titleTodayNFTNewsData();
+                if (searchResult.isEmpty()) {
+                    data = controller.twitterData();
                 } else {
                     data = new ArrayList<>(searchResult);
                 }
                 break;
-            case "Chủ đề":
-                if(searchResult.isEmpty()) {
-                    data = controller.titleTodayNFTNewsData();
+            case "Tác giả":
+                if (searchResult.isEmpty()) {
+                    data = controller.twitterData();
                 } else {
                     data = new ArrayList<>(searchResult);
                 }
                 data.sort((row1, row2) -> {
                     return row1[0].compareTo(row2[0]);
                 });
+                break;
+            case "Hashtag":
+                if (searchResult.isEmpty()) {
+                    data = controller.twitterData();
+                } else {
+                    data = new ArrayList<>(searchResult);
+                }
+                data.sort((row1, row2) -> Objects.compare(
+                        row1[1],
+                        row2[1],
+                        Comparator.nullsFirst(Comparator.naturalOrder())
+                ));
                 break;
         }
         // Cập nhật dữ liệu trong bảng

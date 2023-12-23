@@ -10,7 +10,7 @@ public class ContentPanel extends JPanel {
     private DanhSachBaiViet panel_BaiViet;
     private JLabel lbl_Content_Title;
 
-    public ContentPanel() {
+    public ContentPanel() throws Exception {
         setLayout(new CardLayout());
 
         panel_DanhSach = new DanhSachNFT();
