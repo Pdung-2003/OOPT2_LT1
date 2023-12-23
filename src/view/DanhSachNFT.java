@@ -205,10 +205,13 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
     @Override
     public void sortPerformed(String selectedSortMethod) {
+        String selectedNenTang = (String) comboBox_DSNFT_Filter_NenTang.getSelectedItem(); // Lấy nền tảng đã chọn từ combobox
         switch (selectedSortMethod) {
             case "Tên NFT" -> nftController.sortTableByTitle(table);
-            case "Volume" -> nftController.sortTableByVolume(table);
-            case "Giá" -> nftController.sortTableByPrice(table);
+            case "Volume" -> {if (selectedNenTang.equals("Opensea") )nftController.sortOpenseaByVolume(table);
+            else nftController.sortTableByVolume(table);}
+            case "Giá" -> {if (selectedNenTang.equals("Opensea") )nftController.sortOpenseaByPrice(table);
+            else nftController.sortTableByPrice(table);}
         }
     }
 }

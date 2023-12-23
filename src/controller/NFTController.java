@@ -137,6 +137,32 @@ public class NFTController {
         sorter.setSortKeys(sortKeys);
     }
 
+    public void sortOpenseaByVolume(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(4, (o1, o2) -> {
+            double volume1 = Double.parseDouble(o1.toString().split(" ")[0]);
+            double volume2 = Double.parseDouble(o2.toString().split(" ")[0]);
+            return Double.compare(volume1, volume2);
+        });
+        table.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(4, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
+
+    public void sortOpenseaByPrice(JTable table) {
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
+        sorter.setComparator(5, (o1, o2) -> {
+            double price1 = Double.parseDouble(o1.toString().split(" ")[0]);
+            double price2 = Double.parseDouble(o2.toString().split(" ")[0]);
+            return Double.compare(price1, price2);
+        });
+        table.setRowSorter(sorter);
+
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(5, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
+    }
+
 
 
     public List<NiftyGateway> searchNiftyGateway(String selectedSearchMethod, String searchInput) {
