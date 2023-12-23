@@ -131,7 +131,7 @@ public class OpenseaCrawler {
         JsonObject mainJsonObject = new JsonObject();
         mainJsonObject.add("data", jsonArray);
 
-        try (FileWriter fileWriter = new FileWriter("OpenseaCrawlerRankingPer7Days.json")) {
+        try (FileWriter fileWriter = new FileWriter("data/OpenseaCrawlerRankingPer7Days.json")) {
             fileWriter.write(json);
             System.out.println("Dữ liệu đã được lưu vào OpenseaCrawlerRankingPer7Days.json");
         } catch (IOException e) {

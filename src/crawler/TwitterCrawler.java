@@ -143,7 +143,7 @@ public class TwitterCrawler implements DataCrawler {
         try {
             fetchData();    // Thu thập dữ liệu từ Twitter
             processData();  // Xử lý dữ liệu (nếu cần)
-            saveData("Twitter.json");  // Lưu dữ liệu vào file
+            saveData("data/Twitter.json");  // Lưu dữ liệu vào file
             System.out.println("Thu thập và lưu dữ liệu thành công.");
         } catch (InterruptedException | IOException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());

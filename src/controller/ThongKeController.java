@@ -59,21 +59,21 @@ public class ThongKeController {
         try {
             List<NiftyGateway> niftyData = generalConnector.getNiftyGatewayData();
             for (NiftyGateway data : niftyData) {
-                if (data.getCollection().getNiftyTitle().contains(inputSearch)) {
+                if (data.getCollection().getNiftyTitle().toLowerCase().contains(inputSearch.toLowerCase())) {
                     allTitles.add(data.getCollection().getNiftyTitle());
                 }
             }
 
             List<Binance> binanceData = generalConnector.getBinanceData();
             for (Binance data : binanceData) {
-                if (data.getTitle().contains(inputSearch)){
+                if (data.getTitle().toLowerCase().contains(inputSearch.toLowerCase())){
                     allTitles.add(data.getTitle());
                 }
             }
 
             List<Opensea> openseaData = generalConnector.getOpenseaData();
             for (Opensea data : openseaData) {
-                if (data.getTitle().contains(inputSearch)){
+                if (data.getTitle().toLowerCase().contains(inputSearch.toLowerCase())){
                     allTitles.add(data.getTitle());
                 }
             }

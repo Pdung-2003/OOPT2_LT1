@@ -9,11 +9,11 @@ import java.util.List;
 
 public class GeneralConnector {
     private IJsonHandler gson = new GsonHandler();
-    private String binanceDataFile = "Binance.json";
-    private String niftyGatewayDataFile = "NiftyGatewayData.json";
-    private String openseaDataFile = "OpenseaCrawlerRankingPer7Days.json";
-    private String todayNFTNewsFile = "TodayNFTNews.json";
-    private String twitterDataFile = "Twitter.json";
+    private String binanceDataFile = "data/Binance.json";
+    private String niftyGatewayDataFile = "data/NiftyGatewayData.json";
+    private String openseaDataFile = "data/OpenseaCrawlerRankingPer7Days.json";
+    private String todayNFTNewsFile = "data/TodayNFTNews.json";
+    private String twitterDataFile = "data/Twitter.json";
 
     public List<Binance> getBinanceData() throws Exception {
         return gson.fromJson(binanceDataFile, new TypeToken<List<Binance>>() {}.getType());

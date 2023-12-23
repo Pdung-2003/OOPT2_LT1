@@ -155,19 +155,13 @@ public class BlogDetail extends JFrame {
 			// Xử lý hiển thị hình ảnh
 			if (!imgList.isEmpty()) {
 				try {
-					// Lấy đường dẫn hình ảnh đầu tiên từ danh sách
 					String imageUrl = imgList.get(0);
-
-					// Nếu có nhiều hình ảnh, bạn có thể sử dụng vòng lặp để xử lý chúng
-					// for (String imageUrl : imgList) {
 					URL url = new URL(imageUrl);
 					Image image = ImageIO.read(url);
 					Image scaledImage = image.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
 					ImageIcon imageIcon = new ImageIcon(scaledImage);
 					lbl_BlogDetail_Content_Img.setIcon(imageIcon);
 
-					// Sử dụng imgList theo nhu cầu của bạn
-					// ...
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

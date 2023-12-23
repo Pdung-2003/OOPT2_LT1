@@ -56,7 +56,7 @@ public class BinanceCrawler implements DataCrawler {
         try {
             fetchData();
             processData();
-            saveData("Binance.json");
+            saveData("data/Binance.json");
             System.out.println("Dữ liệu từ Binance đã được thu thập và lưu vào 'Binance.json'.");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

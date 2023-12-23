@@ -149,7 +149,7 @@ public class TodayNTFCrawler implements DataCrawler {
     public void run() throws IOException, InterruptedException {
         fetchData();
         processData();
-        saveData("TodayNFTNews.json");
+        saveData("data/TodayNFTNews.json");
     }
 
 
@@ -171,7 +171,7 @@ public class TodayNTFCrawler implements DataCrawler {
         try {
             crawler.fetchData();
             crawler.processData();
-            crawler.saveData("TodayNFTNews.json");
+            crawler.saveData("data/TodayNFTNews.json");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

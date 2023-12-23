@@ -59,7 +59,7 @@ public class NiftyGatewayCrawler implements DataCrawler {
         try {
             fetchData(); // Thu thập dữ liệu từ Nifty Gateway
             processData(); // Xử lý dữ liệu (nếu cần)
-            saveData("NiftyGatewayData.json"); // Lưu dữ liệu vào file
+            saveData("data/NiftyGatewayData.json"); // Lưu dữ liệu vào file
             System.out.println("Dữ liệu từ Nifty Gateway đã được thu thập và lưu vào 'NiftyGatewayData.json'.");
         } catch (IOException | InterruptedException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());
