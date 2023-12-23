@@ -79,18 +79,45 @@ public class ThongKeNFT extends JPanel {
 		table = new JTable(tableModel);
 		table.setBackground(Color.WHITE);
 		table.setForeground(Color.BLACK);
-		// Cấu hình bảng (nếu cần)
+
+		// Tạo bảng cho twitter
+		DefaultTableModel tableModelTwitter = new DefaultTableModel();
+		tableModelTwitter.addColumn("Author");
+		JTable tableTwitter = new JTable(tableModelTwitter);
+		tableTwitter.setBackground(Color.WHITE);
+		tableTwitter.setForeground(Color.BLACK);
+
+		// Tạo bảng cho news
+		DefaultTableModel tableModelNews = new DefaultTableModel();
+		tableModelNews.addColumn("Title");
+		JTable tableNews = new JTable(tableModelNews);
+		tableNews.setBackground(Color.WHITE);
+		tableNews.setForeground(Color.BLACK);
 
 		// Đặt phông chữ và màu sắc cho header
 		JTableHeader header = table.getTableHeader();
+		JTableHeader headerTwitter = tableTwitter.getTableHeader();
+		JTableHeader headerNews = tableNews.getTableHeader();
 		header.setFont(new Font("Arial", Font.BOLD, 14));
 		header.setBackground(Color.black);
 		header.setForeground(Colors.Vang);
+
+		headerTwitter.setFont(new Font("Arial", Font.BOLD, 14));
+		headerTwitter.setBackground(Color.black);
+		headerTwitter.setForeground(Colors.Vang);
+
+		headerNews.setFont(new Font("Arial", Font.BOLD, 14));
+		headerNews.setBackground(Color.black);
+		headerNews.setForeground(Colors.Vang);
 		table.setRowHeight(40);
+		tableTwitter.setRowHeight(40);
+		tableNews.setRowHeight(40);
 
 		// Đặt phông chữ cho bảng
 		Font tableFont = new Font("Arial", Font.PLAIN, 14);
 		table.setFont(tableFont);
+		tableTwitter.setFont(tableFont);
+		tableNews.setFont(tableFont);
 		DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
 			@Override
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -106,10 +133,17 @@ public class ThongKeNFT extends JPanel {
 
 		// Áp dụng renderer cho tất cả các cột và hàng
 		table.setDefaultRenderer(Object.class, renderer);
+		tableTwitter.setDefaultRenderer(Object.class, renderer);
+		tableNews.setDefaultRenderer(Object.class, renderer);
 
 		// Tạo MyScrollPane để chứa bảng
 		MyScrollPane scrollPane = new MyScrollPane();
+		MyScrollPane scrollPaneNews = new MyScrollPane();
+		MyScrollPane scrollPaneTwitter = new MyScrollPane();
 		scrollPane.setViewportView(table);
+
+		scrollPaneTwitter.setViewportView(tableTwitter);
+		scrollPaneNews.setViewportView(tableNews);
 
 		// Thêm MyScrollPane chứa bảng vào panel_TKe_Filter_Result
 		panel_TKe_Filter_Result.add(scrollPane, BorderLayout.CENTER);
@@ -139,6 +173,7 @@ public class ThongKeNFT extends JPanel {
 		MyPanel panel_TKe_Content_Twitter = new MyPanel();
 		panel_TKe_Content.add(panel_TKe_Content_Twitter);
 		panel_TKe_Content_Twitter.setLayout(new BorderLayout(0, 0));
+		panel_TKe_Content_Twitter.add(scrollPaneTwitter, BorderLayout.CENTER);
 
 		// Tiêu đề twitter
 		MyPanel panel_TKe_Content_Twitter_Title = new MyPanel();
@@ -146,10 +181,6 @@ public class ThongKeNFT extends JPanel {
 
 		MyLabelBold lbl_TKe_Content_Twitter_Title = new MyLabelBold("Twitter");
 		panel_TKe_Content_Twitter_Title.add(lbl_TKe_Content_Twitter_Title);
-
-		// Thông tin hiển thị in vào panel này
-		MyScrollPane scrollPane_TKe_Content_Twitter = new MyScrollPane();
-		panel_TKe_Content_Twitter.add(scrollPane_TKe_Content_Twitter, BorderLayout.CENTER);
 
 		// Tổng số lượng
 		MyLabel lbl_TKe_Content_Twitter_Total = new MyLabel("Tổng: ");
@@ -160,6 +191,7 @@ public class ThongKeNFT extends JPanel {
 		MyPanel panel_TKe_Content_Blog = new MyPanel();
 		panel_TKe_Content.add(panel_TKe_Content_Blog);
 		panel_TKe_Content_Blog.setLayout(new BorderLayout(0, 0));
+		panel_TKe_Content_Blog.add(scrollPaneNews, BorderLayout.CENTER);
 
 		// Tiêu đề blog
 		MyPanel panel_TKe_Content_Blog_Title = new MyPanel();
@@ -168,15 +200,12 @@ public class ThongKeNFT extends JPanel {
 		MyLabelBold lbl_TKe_Content_Blog_Title = new MyLabelBold("Blog");
 		panel_TKe_Content_Blog_Title.add(lbl_TKe_Content_Blog_Title);
 
-		// Thông tin hiển thị in vào panel này
-		MyScrollPane scrollPane_TKe_Content_Blog = new MyScrollPane();
-		panel_TKe_Content_Blog.add(scrollPane_TKe_Content_Blog, BorderLayout.CENTER);
-
 		// Tổng số lượng
 		MyLabel lbl_TKe_Content_Blog_Total = new MyLabel("Tổng: ");
 		lbl_TKe_Content_Blog_Total.setPreferredSize(new Dimension(150, 40));
 		panel_TKe_Content_Blog.add(lbl_TKe_Content_Blog_Total, BorderLayout.SOUTH);
 
+		// Listener cho button
 		btn_TKe_Filter_Confirm.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -184,6 +213,23 @@ public class ThongKeNFT extends JPanel {
 				String input = textField_TKe_Filter_Title_TenNFT.getText();
 				controller.addInfoSearch(table, controller.searchNFTTitles(input));
 				lbl_TKe_Content_Total.setText("Tổng: " + table.getRowCount());
+			}
+		});
+		// Listener cho Table
+		table.getSelectionModel().addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting()) {
+				int selectedRow = table.getSelectedRow();
+				if (selectedRow != -1) {
+					tableModelNews.setRowCount(0);
+					tableModelTwitter.setRowCount(0);
+
+					System.out.println((String) table.getValueAt(selectedRow, 0));
+					controller.addInfoSearch(tableTwitter, controller.searchTwitter((String) table.getValueAt(selectedRow, 0)));
+					System.out.println(controller.searchTwitter((String) table.getValueAt(selectedRow, 0)));
+					controller.addInfoSearch(tableNews, controller.searchNews((String) table.getValueAt(selectedRow, 0)));
+					lbl_TKe_Content_Blog_Total.setText("Tổng: " + tableNews.getRowCount());
+					lbl_TKe_Content_Twitter_Total.setText("Tổng: " + tableTwitter.getRowCount());
+				}
 			}
 		});
 

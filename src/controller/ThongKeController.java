@@ -1,9 +1,7 @@
 package controller;
 
 import connectors.GeneralConnector;
-import models.Binance;
-import models.NiftyGateway;
-import models.Opensea;
+import models.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -92,5 +90,37 @@ public class ThongKeController {
             Object[] rowData = {title};
             model.addRow(rowData);
         }
+    }
+    public List<String> searchNews(String inputSearch) {
+        List<String> allTitles = new ArrayList<>();
+
+        try {
+            List<TodayNFTNews> news = generalConnector.getTodayNFTNews();
+            for (TodayNFTNews data : news) {
+                if (data.getContent().toLowerCase().contains(inputSearch.toLowerCase())) {
+                    allTitles.add(data.getTitle());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return allTitles;
+    }
+    public List<String> searchTwitter(String inputSearch) {
+        List<String> allTitles = new ArrayList<>();
+
+        try {
+            List<Twitter> news = generalConnector.getTwitterData();
+            for (Twitter data : news) {
+                if (data.getContent().toLowerCase().contains(inputSearch.toLowerCase())) {
+                    allTitles.add(data.getAuthor());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return allTitles;
     }
 }

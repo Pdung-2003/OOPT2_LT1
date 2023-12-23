@@ -1,5 +1,8 @@
 package view;
 
+import view.Labels.MyLabel;
+import view.Panels.MyPanel;
+
 import javax.swing.JPanel;
 
 import java.awt.Dimension;
@@ -12,10 +15,6 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 public class Profile extends JPanel {
-
-	/**
-	 * Create the panel.
-	 */
 	public Profile(String avturl, String name, String MSSV) {
 		// Khu vực đặt thông tin chung
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -63,7 +62,6 @@ public class Profile extends JPanel {
 		
 		MyLabel lbl_MSSV = new MyLabel(MSSV);
 		panel_MSSV.add(lbl_MSSV);
-
 	}
 
 }
