@@ -19,7 +19,7 @@ public class ManHinhChinh extends JFrame {
                 main_content.add(panel_Content_Title, BorderLayout.NORTH);
                 panel_Content_Title.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 5));
 
-                JLabel lbl_Content_Title = new JLabel("Danh sách NFT"); // ten chuc nang (Danh Sach NFT, Tim Kiem Du Lieu, Thong Ke Du Lieu)
+                JLabel lbl_Content_Title = new JLabel("Trang chủ"); // ten chuc nang (Danh Sach NFT, Tim Kiem Du Lieu, Thong Ke Du Lieu)
                 lbl_Content_Title.setFont(new Font("Arial", Font.BOLD, 20));
                 panel_Content_Title.add(lbl_Content_Title);
 
@@ -42,7 +42,9 @@ public class ManHinhChinh extends JFrame {
                 JButton buttonThongKe = sidebar.getButtonThongKe();
                 JButton buttonTinTuc = sidebar.getbuttonTinTuc();
                 JButton buttonBaiViet = sidebar.getbuttonBaiViet();
+                JButton buttonTrangChu = sidebar.getbuttonTrangChu();
 
+                buttonTrangChu.addActionListener(e -> contentPanel.showCard("Trang chủ", lbl_Content_Title,"Trang chủ"));
                 buttonDanhSach.addActionListener(e -> contentPanel.showCard("Danh sách NFT", lbl_Content_Title,"Danh sách NFT"));
                 buttonThongKe.addActionListener(e -> contentPanel.showCard("Thống kê dữ liệu", lbl_Content_Title,"Thống kê dữ liệu"));
                 buttonTinTuc.addActionListener(e -> contentPanel.showCard("Danh sách tin tức", lbl_Content_Title,"Danh sách tin tức"));

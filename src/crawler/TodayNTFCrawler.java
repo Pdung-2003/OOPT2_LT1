@@ -33,7 +33,7 @@ public class TodayNTFCrawler implements DataCrawler {
         List<String> postUrls = new ArrayList<>();
 
         //n số page cần crawl
-        int n=15;
+        int n = 15;
         for (int i=1;i<n ;i++)
         {
             String url = "https://www.todaynftnews.com/nft-news/page/"+i+"/";

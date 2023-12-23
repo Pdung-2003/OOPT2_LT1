@@ -9,6 +9,7 @@ public class ContentPanel extends JPanel {
     private DanhSachTinTuc panel_TinTuc;
     private DanhSachBaiViet panel_BaiViet;
     private JLabel lbl_Content_Title;
+    private  TrangChu panel_TrangChu;
 
     public ContentPanel() throws Exception {
         setLayout(new CardLayout());
@@ -17,16 +18,18 @@ public class ContentPanel extends JPanel {
         panel_ThongKe = new ThongKeNFT();
         panel_TinTuc = new DanhSachTinTuc();
         panel_BaiViet = new DanhSachBaiViet();
-        lbl_Content_Title = new JLabel("Danh sách NFT", SwingConstants.CENTER);
+        panel_TrangChu = new TrangChu();
+        lbl_Content_Title = new JLabel("Trang chủ", SwingConstants.CENTER);
         lbl_Content_Title.setFont(new Font("Arial", Font.BOLD, 20));
 
+        add(panel_TrangChu,"Trang chủ");
         add(panel_DanhSach, "Danh sách NFT");
         add(panel_ThongKe, "Thống kê dữ liệu");
         add(panel_TinTuc,"Danh sách tin tức");
         add(panel_BaiViet,"Danh sách bài viết");
 
         CardLayout cardLayout = (CardLayout) getLayout();
-        cardLayout.show(this, "Danh sách NFT");
+        cardLayout.show(this, "Trang chủ");
     }
 
 

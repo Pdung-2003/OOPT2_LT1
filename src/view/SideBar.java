@@ -111,5 +111,6 @@ public class SideBar extends JPanel {
 	}
 	public JButton getbuttonTinTuc(){return buttonTinTuc;}
 	public JButton getbuttonBaiViet(){return buttonBaiViet;}
+	public JButton getbuttonTrangChu(){return buttonTrangChu;}
 
 }

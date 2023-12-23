@@ -110,43 +110,6 @@ public class NFTController {
         }
     }
 
-    public List<String> getAllNFTTitles() {
-        List<String> allTitles = new ArrayList<>();
-
-        try {
-            List<NiftyGateway> niftyData = generalConnector.getNiftyGatewayData();
-            for (NiftyGateway data : niftyData) {
-                allTitles.add(data.getCollection().getNiftyTitle());
-            }
-
-            List<Binance> binanceData = generalConnector.getBinanceData();
-            for (Binance data : binanceData) {
-                allTitles.add(data.getTitle());
-            }
-
-            List<Opensea> openseaData = generalConnector.getOpenseaData();
-            for (Opensea data : openseaData) {
-                allTitles.add(data.getTitle());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return allTitles;
-    }
-
-    public void addNFTTitlesToTable(JTable table) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        model.setColumnCount(1);
-
-        List<String> allTitles = getAllNFTTitles();
-
-        for (String title : allTitles) {
-            Object[] rowData = {title};
-            model.addRow(rowData);
-        }
-    }
-
     public void sortTableByTitle(JTable table) {
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
         sorter.setComparator(0, Comparator.comparing(o -> o.toString().toLowerCase()));
