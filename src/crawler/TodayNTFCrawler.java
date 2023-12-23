@@ -33,9 +33,10 @@ public class TodayNTFCrawler implements DataCrawler {
         List<String> postUrls = new ArrayList<>();
 
         //n số page cần crawl
-        int n = 1;
-        for (int i = 1; i <= n; i++) {
-            String url = "https://www.todaynftnews.com/nft-news/page/" + i + "/";
+        int n=15;
+        for (int i=1;i<n ;i++)
+        {
+            String url = "https://www.todaynftnews.com/nft-news/page/"+i+"/";
             driver.get(url);
 
             try {
@@ -46,8 +47,12 @@ public class TodayNTFCrawler implements DataCrawler {
 
             // Tìm thẻ button có class "pum-close"
             WebElement closeButton = driver.findElement(By.cssSelector("button.pum-close"));
-            // Click vào thẻ button
-            closeButton.click();
+
+            // Kiểm tra xem nút đóng có tồn tại trên trang không trước khi click
+            if (closeButton.isDisplayed() && closeButton.isEnabled()) {
+                // Click vào thẻ button
+                closeButton.click();
+            }
             // Cuộn đến cuối trang để tải thêm nếu có
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
             // Chờ đợi cho đến khi tải thêm dữ liệu (nếu có)
@@ -59,7 +64,7 @@ public class TodayNTFCrawler implements DataCrawler {
             // Lặp qua từng thẻ a và lưu URL vào danh sách
             for (WebElement postLink : postLinks) {
                 String postUrl = postLink.getAttribute("href");
-                System.out.println("URL: " + postUrl);
+                System.out.println("URL: "+postUrl);
                 postUrls.add(postUrl);
             }
         }
