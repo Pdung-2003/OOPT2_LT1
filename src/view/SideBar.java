@@ -98,9 +98,6 @@ public class SideBar extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				runCrawlerAll = new RunCrawlerAll();
 				runCrawlerAll.run();
-				JOptionPane.showMessageDialog(null,"Vui lòng chờ đợi dữ liệu được thu thập.");
-
-
 			}
 		});
 	}
