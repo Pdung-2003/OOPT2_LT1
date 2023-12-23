@@ -1,14 +1,14 @@
 package view;
 
-import controller.NFTController;
+import controller.ThongKeController;
 import view.Buttons.Button_Chung;
-import view.ComboBox.MyComboBox;
 import view.Labels.MyLabel;
 import view.Labels.MyLabelBold;
 import view.Panels.MyPanel;
 
 import java.awt.*;
-import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import view.ScrollPane.MyScrollPane;
 
@@ -23,7 +23,7 @@ public class ThongKeNFT extends JPanel {
 	private final DefaultTableModel tableModel;
 	private final JTable table;
 	private JTextField textField_TKe_Filter_Title_TenNFT;
-	private NFTController nftController;
+	private ThongKeController controller;
 
 	/**
 	 * Create the panel.
@@ -64,6 +64,7 @@ public class ThongKeNFT extends JPanel {
 
 		Button_Chung btn_TKe_Filter_Confirm = new Button_Chung("Duyệt");
 		panel_TKe_Filter_Confirm.add(btn_TKe_Filter_Confirm);
+
 
 		// Khu vực hiển thị thông tin duyệt
 		MyPanel panel_TKe_Filter_Result = new MyPanel();
@@ -113,12 +114,12 @@ public class ThongKeNFT extends JPanel {
 		// Thêm MyScrollPane chứa bảng vào panel_TKe_Filter_Result
 		panel_TKe_Filter_Result.add(scrollPane, BorderLayout.CENTER);
 
-		nftController = new NFTController();
-		nftController.addNFTTitlesToTable(table);
+		controller = new ThongKeController();
+		controller.addNFTTitlesToTable(table);
 
 
 		// In tổng vào label này
-		MyLabel lbl_TKe_Content_Total = new MyLabel("Tổng: ");
+		MyLabel lbl_TKe_Content_Total = new MyLabel("Tổng: " + table.getRowCount());
 		lbl_TKe_Content_Total.setPreferredSize(new Dimension(150, 40));
 		panel_TKe_Filter.add(lbl_TKe_Content_Total, BorderLayout.SOUTH);
 
@@ -175,6 +176,16 @@ public class ThongKeNFT extends JPanel {
 		MyLabel lbl_TKe_Content_Blog_Total = new MyLabel("Tổng: ");
 		lbl_TKe_Content_Blog_Total.setPreferredSize(new Dimension(150, 40));
 		panel_TKe_Content_Blog.add(lbl_TKe_Content_Blog_Total, BorderLayout.SOUTH);
+
+		btn_TKe_Filter_Confirm.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tableModel.setRowCount(0);
+				String input = textField_TKe_Filter_Title_TenNFT.getText();
+				controller.addInfoSearch(table, controller.searchNFTTitles(input));
+				lbl_TKe_Content_Total.setText("Tổng: " + table.getRowCount());
+			}
+		});
 
 	}
 
