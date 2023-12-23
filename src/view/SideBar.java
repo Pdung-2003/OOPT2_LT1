@@ -99,7 +99,6 @@ public class SideBar extends JPanel {
 	public JButton getButtonDanhSach() {
 		return buttonDanhSach;
 	}
-
 	public JButton getButtonThongKe() {
 		return buttonThongKe;
 	}

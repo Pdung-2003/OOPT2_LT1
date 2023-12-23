@@ -232,7 +232,22 @@ public class ThongKeNFT extends JPanel {
 				}
 			}
 		});
-
+		tableTwitter.getSelectionModel().addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting()) {
+				BlogDetail blogDetail = new BlogDetail();
+				blogDetail.setLocationRelativeTo(null);
+				blogDetail.setVisible(true);
+				int selectedRow = table.getSelectedRow();
+			}
+		});
+		tableNews.getSelectionModel().addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting()) {
+				BlogDetail blogDetail = new BlogDetail();
+				blogDetail.setLocationRelativeTo(null);
+				blogDetail.setVisible(true);
+				int selectedRow = table.getSelectedRow();
+			}
+		});
 	}
 
 }
