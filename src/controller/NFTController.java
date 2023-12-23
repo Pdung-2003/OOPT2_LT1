@@ -51,8 +51,8 @@ public class NFTController {
                 data.getAvgSalePrice(),
                 data.getTotalNumPrimarySales(),
                 data.getTotalVolume(),
-                data.getCollection().getNiftyType(),
-                data.getFloorPrice()
+                data.getFloorPrice(),
+                data.getCollection().getNiftyType()
         };
     }
 
@@ -74,10 +74,10 @@ public class NFTController {
                 data.getCollectionId(),
                 data.getCoverUrl(),
                 data.getOwnersCount(),
-                data.getItemsCount(),
+                data.getVolume(),
                 data.getFloorPrice(),
                 data.getFloorPriceRate(),
-                data.getVolume()
+                data.getItemsCount()
         };
     }
 
@@ -110,44 +110,12 @@ public class NFTController {
         }
     }
 
-    public void sortTableByColumn(JTable table) {
+    public void sortTableByColumn(int indexColumn, JTable table) {
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(0, Comparator.naturalOrder());
+        sorter.setComparator(indexColumn, Comparator.naturalOrder());
         table.setRowSorter(sorter);
 
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING));
-        sorter.setSortKeys(sortKeys);
-    }
-    public void sortTableByName(JTable table) {
-        table.setAutoCreateRowSorter(true);
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
-        table.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING)); // Sắp xếp theo cột đầu tiên
-        sorter.setSortKeys(sortKeys);
-    }
-
-    public void sortTableByCollectionOwner(JTable table) {
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(1, Comparator.naturalOrder()); // 1 là chỉ số cột cần sắp xếp
-        table.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)); // Sắp xếp theo cột thứ hai
-        sorter.setSortKeys(sortKeys);
-    }
-
-    public void sortTableByCreationDate(JTable table) {
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(0, Comparator.naturalOrder()); // 0 là chỉ số cột cần sắp xếp
-        table.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(0, SortOrder.ASCENDING)); // Sắp xếp theo cột đầu tiên
-        sorter.setSortKeys(sortKeys);
-    }
-
-    public void sortTableByPrice(JTable table) {
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
-        sorter.setComparator(1, Comparator.naturalOrder()); // 1 là chỉ số cột cần sắp xếp
-        table.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(1, SortOrder.ASCENDING)); // Sắp xếp theo cột thứ hai
+        List<RowSorter.SortKey> sortKeys = List.of(new RowSorter.SortKey(indexColumn, SortOrder.ASCENDING));
         sorter.setSortKeys(sortKeys);
     }
 

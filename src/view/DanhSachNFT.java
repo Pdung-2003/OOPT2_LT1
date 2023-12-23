@@ -62,7 +62,7 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
 
         // Khu vực tìm kiếm
         String[] items_DSNFT_TimKiem = {"Tên NFT", "Giá bán nhỏ hơn", "Số lượng giao dịch nhỏ hơn"}; // Thêm phương pháp tìm kiếm vào đây
-        String[] items_DSNFT_SapXep = {"Trending", "Tên NFT", "Giao dịch", "Giá"}; // Thêm phương pháp sắp xếp vào đây
+        String[] items_DSNFT_SapXep = {"Tên NFT", "Volume", "Giá"}; // Thêm phương pháp sắp xếp vào đây
         TimKiem DSNFT_TimKiem = new TimKiem(items_DSNFT_TimKiem, items_DSNFT_SapXep);
         DSNFT_TimKiem.addSearchListener(this); // Lắng nghe sự kiện tìm kiếm từ TimKiem
         DSNFT_TimKiem.addSortListener(this); // Lắng nghe sự kiện sắp xếp từ TimKiem
@@ -150,10 +150,10 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
                 tableModel.addColumn("Collection ID");
                 tableModel.addColumn("Display Image");
                 tableModel.addColumn("Number of Owners");
-                tableModel.addColumn("Total Supply");
+                tableModel.addColumn("Total Volume");
                 tableModel.addColumn("Floor Price");
                 tableModel.addColumn("Floor Price Rate");
-                tableModel.addColumn("Total Volume");
+                tableModel.addColumn("Total Supply");
                 break;
             case "Nifty Gateway":
                 tableModel.addColumn("Collection Title");
@@ -161,8 +161,8 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
                 tableModel.addColumn("Average Sale Price");
                 tableModel.addColumn("Total Number of Primary Sales");
                 tableModel.addColumn("Total Volume");
-                tableModel.addColumn("Nifty Type");
                 tableModel.addColumn("Floor Price");
+                tableModel.addColumn("Nifty Type");
                 break;
             case "Opensea":
                 tableModel.addColumn("Title");
@@ -221,17 +221,14 @@ public class DanhSachNFT extends JPanel implements SortListener,SearchListener {
     @Override
     public void sortPerformed(String selectedSortMethod) {
         switch (selectedSortMethod) {
-            case "Trending":
-
-                break;
             case "Tên NFT":
-                nftController.sortTableByColumn(table);
+                nftController.sortTableByColumn(0, table);
                 break;
-            case "Giao dịch":
-                nftController.sortTableByName(table);
+            case "Volume":
+                nftController.sortTableByColumn(4, table);
                 break;
             case "Giá":
-
+                nftController.sortTableByColumn(5, table);
                 break;
         }
     }
