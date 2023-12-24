@@ -27,6 +27,7 @@ public class TodayNTFCrawler implements DataCrawler {
     public void fetchData() throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -140,10 +141,7 @@ public class TodayNTFCrawler implements DataCrawler {
         saveDataToJson(CollectionInfoList, filename);
     }
 
-    @Override
-    public void run() throws IOException, InterruptedException {
 
-    }
 
     private void saveDataToJson(List<TodayNFTNews> collectionInfoList, String filename) {
         JsonArray jsonArray = new JsonArray();
@@ -158,13 +156,9 @@ public class TodayNTFCrawler implements DataCrawler {
         }
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        TodayNTFCrawler crawler = new TodayNTFCrawler();
-        try {
-            crawler.fetchData();
-            crawler.saveData("TodayNFTNews.json");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void run() throws IOException, InterruptedException {
+        fetchData();
+        saveData("TodayNFTNews.json");
+        System.out.println("Dữ liệu từ TodayNFTNews đã được thu thập và lưu vào 'TodayNFTNews.json'.");
     }
 }

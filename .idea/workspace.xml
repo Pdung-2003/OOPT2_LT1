@@ -6,20 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="a8a67ab9-3b62-432a-b782-3926c5e247c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/BinanceCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/BinanceCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/DataCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/DataCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/NiftyGatewayCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/NiftyGatewayCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/OpenseaCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/OpenseaCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/RunCrawlerAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/RunCrawlerAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Binance.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Binance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/OpenseaCrawlerRankingPer7Days.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/OpenseaCrawlerRankingPer7Days.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Twitter.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Twitter.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crawler/TodayNTFCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/TodayNTFCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statistic/Statistic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SideBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,7 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/T2_OOP_LT/OOP/OOPT2_LT1/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/T2_OOP_LT/OOP/BanCuaMinh&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -105,6 +107,8 @@
       <workItem from="1703338014983" duration="1227000" />
       <workItem from="1703401905161" duration="6375000" />
       <workItem from="1703409388649" duration="680000" />
+      <workItem from="1703410075581" duration="302000" />
+      <workItem from="1703410393503" duration="161000" />
     </task>
     <servers />
   </component>
