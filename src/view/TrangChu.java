@@ -46,7 +46,7 @@ public class TrangChu extends JPanel {
 		lbl_TrangChu_Header_MaLop.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_TrangChu_Header.add(lbl_TrangChu_Header_MaLop);
 		
-		MyLabelBold lbl_TrangChu_Header_Nhom = new MyLabelBold("Nhóm 21");
+		MyLabelBold lbl_TrangChu_Header_Nhom = new MyLabelBold("Nhóm 22");
 		lbl_TrangChu_Header_Nhom.setPreferredSize(new Dimension(300, 40));
 		panel_TrangChu_Header.add(lbl_TrangChu_Header_Nhom);
 		
@@ -93,31 +93,31 @@ public class TrangChu extends JPanel {
 		// Phần thông tin Nghĩa
 		MyPanel panel_TC_Content_DanhSach_Nghia = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Nghia);
-		Profile PF_Nghia = new Profile("images/Nghia.jpg","Trần Trung Nghĩa",202103+"");
+		Profile PF_Nghia = new Profile("images/Nghia.jpg","Trần Trung Nghĩa",20213581+"");
 		panel_TC_Content_DanhSach_Nghia.add(PF_Nghia);
 		
 		// Phần thông tin Hưng
 		MyPanel panel_TC_Content_DanhSach_Hung = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Hung);
-		Profile PF_Hung = new Profile("images/Hung.jpg","Lê Phúc Hưng",202152+"");
+		Profile PF_Hung = new Profile("images/Hung.jpg","Lê Phúc Hưng",20215276+"");
 		panel_TC_Content_DanhSach_Hung.add(PF_Hung);
 		
 		// Phần thông tin Khánh
 		MyPanel panel_TC_Content_DanhSach_Khanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Khanh);
-		Profile PF_Khanh = new Profile("images/Khanh.jpg","Đặng Trần Nam Khánh",202152+"");
+		Profile PF_Khanh = new Profile("images/Khanh.jpg","Đặng Trần Nam Khánh",20215278+"");
 		panel_TC_Content_DanhSach_Khanh.add(PF_Khanh);
 		
 		// Phần thông tin Dũng
 		MyPanel panel_TC_Content_DanhSach_Dung = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Dung);
-		Profile PF_Dung = new Profile("images/Dung.jpg","Phạm Đức Dũng",202152+"");
+		Profile PF_Dung = new Profile("images/Dung.jpg","Phạm Đức Dũng",20215265+"");
 		panel_TC_Content_DanhSach_Dung.add(PF_Dung);
 		
 		// Phần thông tin Thành
 		MyPanel panel_TC_Content_DanhSach_Thanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Thanh);
-		Profile PF_Thanh = new Profile("images/Thanh.jpg","Nguyễn Công Thành",202152+"");
+		Profile PF_Thanh = new Profile("images/Thanh.jpg","Nguyễn Công Thành",20215290+"");
 		panel_TC_Content_DanhSach_Thanh.add(PF_Thanh);
 		
 		
