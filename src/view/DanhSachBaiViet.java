@@ -130,9 +130,9 @@ public class DanhSachBaiViet extends TimKiemNFT implements SortListener, SearchL
                 String author = array[0];
                 String hashtag = array[1];
 
-                if (selectedSearchMethod.equalsIgnoreCase("Tác giả") && author != null && author.contains(searchInput)) {
+                if (selectedSearchMethod.equalsIgnoreCase("Tác giả") && author != null && author.toLowerCase().contains(searchInput.toLowerCase())) {
                     searchResult.add(array);
-                } else if (selectedSearchMethod.equalsIgnoreCase("Hashtag") && hashtag != null && hashtag.contains(searchInput)) {
+                } else if (selectedSearchMethod.equalsIgnoreCase("Hashtag") && hashtag != null && hashtag.toLowerCase().contains(searchInput.toLowerCase())) {
                     searchResult.add(array);
                 }
             }

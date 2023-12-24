@@ -128,7 +128,7 @@ public class DanhSachTinTuc extends TimKiemNFT implements SortListener, SearchLi
 		} else{
 			for (String[] array : data) {
 				for (String element : array) {
-					if (element.contains(searchInput)) {
+					if (element.toLowerCase().contains(searchInput.toLowerCase())) {
 						searchResult.add(array);
 					}
 				}
