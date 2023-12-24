@@ -27,7 +27,7 @@ public class TimKiem extends JPanel {
 	public TimKiem(String[] TimKiem, String[] SapXep) {
 
 		setBackground(Colors.Trang);
-		setPreferredSize(new Dimension(1085, 150));
+		setPreferredSize(new Dimension(1085, 155));
 		setLayout(new BorderLayout(20,0));
 
 		// Panel tổng thể

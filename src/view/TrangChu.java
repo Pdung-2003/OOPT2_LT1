@@ -80,42 +80,42 @@ public class TrangChu extends JPanel {
 		panel_TC_Content_DanhSach.add(lbl_TC_Content_DanhSach_Title, BorderLayout.NORTH);
 		
 		// Danh sách thành viên
-		JPanel panel_TC_Content_DanhSach_Grid = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Grid = new MyPanel();
 		panel_TC_Content_DanhSach.add(panel_TC_Content_DanhSach_Grid, BorderLayout.CENTER);
 		panel_TC_Content_DanhSach_Grid.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		// Phần thông tin Mạnh
-		JPanel panel_TC_Content_DanhSach_Manh = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Manh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Manh);
 		Profile PF_Manh = new Profile("images/Manh.jpg","Vũ Đức Mạnh",20215282+"");
 		panel_TC_Content_DanhSach_Manh.add(PF_Manh);
 		
 		// Phần thông tin Nghĩa
-		JPanel panel_TC_Content_DanhSach_Nghia = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Nghia = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Nghia);
 		Profile PF_Nghia = new Profile("images/Nghia.jpg","Trần Trung Nghĩa",202103+"");
 		panel_TC_Content_DanhSach_Nghia.add(PF_Nghia);
 		
 		// Phần thông tin Hưng
-		JPanel panel_TC_Content_DanhSach_Hung = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Hung = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Hung);
 		Profile PF_Hung = new Profile("images/Hung.jpg","Lê Phúc Hưng",202152+"");
 		panel_TC_Content_DanhSach_Hung.add(PF_Hung);
 		
 		// Phần thông tin Khánh
-		JPanel panel_TC_Content_DanhSach_Khanh = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Khanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Khanh);
 		Profile PF_Khanh = new Profile("haha","Đặng Trần Nam Khánh",202152+"");
 		panel_TC_Content_DanhSach_Khanh.add(PF_Khanh);
 		
 		// Phần thông tin Dũng
-		JPanel panel_TC_Content_DanhSach_Dung = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Dung = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Dung);
 		Profile PF_Dung = new Profile("images/Dung.jpg","Phạm Đức Dũng",202152+"");
 		panel_TC_Content_DanhSach_Dung.add(PF_Dung);
 		
 		// Phần thông tin Thành
-		JPanel panel_TC_Content_DanhSach_Thanh = new JPanel();
+		MyPanel panel_TC_Content_DanhSach_Thanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Thanh);
 		Profile PF_Thanh = new Profile("haha","Nguyễn Công Thành",202152+"");
 		panel_TC_Content_DanhSach_Thanh.add(PF_Thanh);
