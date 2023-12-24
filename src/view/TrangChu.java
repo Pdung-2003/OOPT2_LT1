@@ -105,7 +105,7 @@ public class TrangChu extends JPanel {
 		// Phần thông tin Khánh
 		MyPanel panel_TC_Content_DanhSach_Khanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Khanh);
-		Profile PF_Khanh = new Profile("haha","Đặng Trần Nam Khánh",202152+"");
+		Profile PF_Khanh = new Profile("images/Khanh.jpg","Đặng Trần Nam Khánh",202152+"");
 		panel_TC_Content_DanhSach_Khanh.add(PF_Khanh);
 		
 		// Phần thông tin Dũng
@@ -117,7 +117,7 @@ public class TrangChu extends JPanel {
 		// Phần thông tin Thành
 		MyPanel panel_TC_Content_DanhSach_Thanh = new MyPanel();
 		panel_TC_Content_DanhSach_Grid.add(panel_TC_Content_DanhSach_Thanh);
-		Profile PF_Thanh = new Profile("haha","Nguyễn Công Thành",202152+"");
+		Profile PF_Thanh = new Profile("images/Thanh.jpg","Nguyễn Công Thành",202152+"");
 		panel_TC_Content_DanhSach_Thanh.add(PF_Thanh);
 		
 		
