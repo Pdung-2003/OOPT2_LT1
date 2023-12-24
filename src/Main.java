@@ -1,4 +1,4 @@
-package view;
+import view.ManHinhChinh;
 
 import javax.swing.*;
 
