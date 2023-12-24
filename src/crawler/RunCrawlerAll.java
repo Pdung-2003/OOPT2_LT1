@@ -24,8 +24,8 @@ public class RunCrawlerAll {
             OpenseaCrawler openseaCrawler   = new OpenseaCrawler();
             openseaCrawler.run();
 
-            TodayNTFCrawler todayNTFCrawler = new TodayNTFCrawler();
-            todayNTFCrawler.run();
+            TodayNFTCrawler todayNFTCrawler = new TodayNFTCrawler();
+            todayNFTCrawler.run();
 
             JOptionPane.showMessageDialog(null, "Dữ liệu đã được cập nhật thành công.");
         } catch (Exception e) {

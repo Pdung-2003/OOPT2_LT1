@@ -3,7 +3,6 @@ package crawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import models.TodayNFTNews;
 import org.openqa.selenium.By;
@@ -20,7 +19,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodayNTFCrawler implements DataCrawler {
+public class TodayNFTCrawler implements DataCrawler {
     public static List<TodayNFTNews> CollectionInfoList = new ArrayList<>();
 
     @Override
