@@ -1,4 +1,4 @@
-import view.ManHinhChinh;
+import view.home.ManHinhChinh;
 
 import javax.swing.*;
 

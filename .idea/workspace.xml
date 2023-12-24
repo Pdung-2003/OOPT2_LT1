@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8a67ab9-3b62-432a-b782-3926c5e247c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Binance.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/Binance.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/NiftyGatewayData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/NiftyGatewayData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +41,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/T2_OOP_LT/OOP/BanCuaMinh",
+    "last_opened_file_path": "C:/Project/Workplace/OOPT2_LT1/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +53,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="view.home" />
+      <recent name="view.definitions" />
+      <recent name="view.postnews" />
+      <recent name="view.d" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -110,6 +116,8 @@
       <workItem from="1703410075581" duration="302000" />
       <workItem from="1703410393503" duration="161000" />
       <workItem from="1703432256422" duration="294000" />
+      <workItem from="1703433852883" duration="26000" />
+      <workItem from="1703433907240" duration="1494000" />
     </task>
     <servers />
   </component>
