@@ -4,16 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import models.Twitter;
-import org.json.JSONArray;
 
-import org.json.JSONTokener;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
@@ -105,35 +101,15 @@ public class TwitterCrawler implements DataCrawler {
 
 
     @Override
-    public void processData() {
-        // Xử lý dữ liệu đã fetch
-    }
-
-    @Override
     public void saveData(String filename) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(this.tweetInfoList);
-
-        try (FileWriter file = new FileWriter(filename)) {
+        String filePath = "data/" + filename;
+        try (FileWriter file = new FileWriter(filePath)) {
             file.write(json);
         }
     }
 
-
-    private JSONArray readExistingTweets(String filename) {
-        File file = new File(filename);
-        JSONArray existingTweets = new JSONArray();
-
-        if (file.exists()) {
-            try (FileReader reader = new FileReader(file)) {
-                JSONTokener tokener = new JSONTokener(reader);
-                existingTweets = new JSONArray(tokener);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return existingTweets;
-    }
     public void closeBrowser() {
         driver.quit();
     }
@@ -142,8 +118,7 @@ public class TwitterCrawler implements DataCrawler {
     public void run() {
         try {
             fetchData();    // Thu thập dữ liệu từ Twitter
-            processData();  // Xử lý dữ liệu (nếu cần)
-            saveData("data/Twitter.json");  // Lưu dữ liệu vào file
+            saveData("Twitter.json");  // Lưu dữ liệu vào file
             System.out.println("Thu thập và lưu dữ liệu thành công.");
         } catch (InterruptedException | IOException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());

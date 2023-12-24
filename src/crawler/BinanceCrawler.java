@@ -38,14 +38,11 @@ public class BinanceCrawler implements DataCrawler {
         collectionItems = gson.fromJson(dataArray, listType);
     }
 
-    @Override
-    public void processData() {
-        // Xử lý collectionItems nếu cần
-    }
 
     @Override
     public void saveData(String filename) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, false))) {
+        String filePath = "data/" + filename;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String json = gson.toJson(collectionItems);
             writer.write(json);
@@ -55,8 +52,7 @@ public class BinanceCrawler implements DataCrawler {
     public void run() {
         try {
             fetchData();
-            processData();
-            saveData("data/Binance.json");
+            saveData("Binance.json");
             System.out.println("Dữ liệu từ Binance đã được thu thập và lưu vào 'Binance.json'.");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

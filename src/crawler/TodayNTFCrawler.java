@@ -136,29 +136,21 @@ public class TodayNTFCrawler implements DataCrawler {
 
 
     @Override
-    public void processData() {
-
-    }
-
-    @Override
     public void saveData(String filename) throws IOException {
         saveDataToJson(CollectionInfoList, filename);
     }
 
     @Override
     public void run() throws IOException, InterruptedException {
-        fetchData();
-        processData();
-        saveData("data/TodayNFTNews.json");
-    }
 
+    }
 
     private void saveDataToJson(List<TodayNFTNews> collectionInfoList, String filename) {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(collectionInfoList);
-
-        try (FileWriter fileWriter = new FileWriter(filename)) {
+        String filePath = "data/" + filename;
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
             fileWriter.write(json);
             System.out.println("Dữ liệu đã được lưu vào " + filename);
         } catch (IOException e) {
@@ -170,8 +162,7 @@ public class TodayNTFCrawler implements DataCrawler {
         TodayNTFCrawler crawler = new TodayNTFCrawler();
         try {
             crawler.fetchData();
-            crawler.processData();
-            crawler.saveData("data/TodayNFTNews.json");
+            crawler.saveData("TodayNFTNews.json");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

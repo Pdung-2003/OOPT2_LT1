@@ -41,25 +41,21 @@ public class NiftyGatewayCrawler implements DataCrawler {
         results = gson.fromJson(dataArray, listType);
     }
 
-    @Override
-    public void processData() {
-        // Xử lý dữ liệu (nếu cần)
-    }
+
 
     @Override
     public void saveData(String filename) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(this.results);
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+        String filePath = "data/" + filename;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(json);
         }
     }
     public void run() {
         try {
             fetchData(); // Thu thập dữ liệu từ Nifty Gateway
-            processData(); // Xử lý dữ liệu (nếu cần)
-            saveData("data/NiftyGatewayData.json"); // Lưu dữ liệu vào file
+            saveData("NiftyGatewayData.json"); // Lưu dữ liệu vào file
             System.out.println("Dữ liệu từ Nifty Gateway đã được thu thập và lưu vào 'NiftyGatewayData.json'.");
         } catch (IOException | InterruptedException e) {
             System.err.println("Đã xảy ra lỗi: " + e.getMessage());

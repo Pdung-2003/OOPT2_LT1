@@ -23,27 +23,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class OpenseaCrawler {
-    public void run() {
+public class OpenseaCrawler implements DataCrawler {
+    private WebDriver driver;
+    private Set<String> collectionNames = new HashSet<>();
+    private List<Opensea> collectionInfoList = new ArrayList<>();
+    private final int targetElementCount = 100;
+    public void fetchData() throws IOException, InterruptedException {
+        // Initialize WebDriver and navigate to the page
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://opensea.io/rankings/trending?sortBy=seven_day_volume");
 
         try {
             Thread.sleep(3000);  // Initial wait for the page to load
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Set<String> collectionNames = new HashSet<>();
-        List<Opensea> collectionInfoList = new ArrayList<>();
-        int targetElementCount = 100;
-
-        try {
             crawlData(driver, collectionNames, collectionInfoList, targetElementCount);
         } finally {
-            driver.quit();
+            if (driver != null) {
+                driver.quit();
+            }
         }
     }
 
@@ -94,7 +92,6 @@ public class OpenseaCrawler {
             }
         }
 
-        saveDataToJson(collectionInfoList);
     }
 
     private static void simulateScrolling(WebDriver driver) {
@@ -124,18 +121,25 @@ public class OpenseaCrawler {
         return newHeight != lastHeight;
     }
 
-    private static void saveDataToJson(List<Opensea> collectionInfoList) {
+    @Override
+    public void saveData(String filename) throws IOException {
+        saveDataToJson(filename);
+    }
+
+    private void saveDataToJson(String filename) throws IOException {
         JsonArray jsonArray = new JsonArray();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(collectionInfoList);
         JsonObject mainJsonObject = new JsonObject();
         mainJsonObject.add("data", jsonArray);
-
-        try (FileWriter fileWriter = new FileWriter("data/OpenseaCrawlerRankingPer7Days.json")) {
+        String filePath = "data/" + filename;
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
             fileWriter.write(json);
-            System.out.println("Dữ liệu đã được lưu vào OpenseaCrawlerRankingPer7Days.json");
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Data has been saved to " + filename);
         }
+    }
+    public void run() throws IOException, InterruptedException {
+        fetchData();
+        saveData("OpenseaCrawlerRankingPer7Days.json");
     }
 }
